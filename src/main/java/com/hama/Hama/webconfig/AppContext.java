@@ -26,8 +26,7 @@ public class AppContext {
     public LocalSessionFactoryBean sessionFactory(){
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.hama.Hama.entity"
-        });
+        sessionFactory.setPackagesToScan(new String[] { "com.hama.Hama.entities"});
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
