@@ -1,18 +1,18 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Comment;
+import com.hama.Hama.entities.CommentEntity;
 
 import java.util.List;
 
 public interface CommentDao {
-    void insert(Comment comment);
+    void insert(CommentEntity comment);
 
-    void edit(Comment comment);
+    void edit(CommentEntity comment);
 
     void delete(int id);
 
-    Comment get(int id);
+    CommentEntity get(int id);
 
-    List<Comment> getAll();
+    List<CommentEntity> getAll();
 
 }

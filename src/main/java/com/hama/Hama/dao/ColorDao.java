@@ -1,18 +1,18 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Color;
+import com.hama.Hama.entities.ColorEntity;
 
 import java.util.List;
 
 public interface ColorDao {
-    void insert(Color color);
+    void insert(ColorEntity color);
 
-    void edit(Color color);
+    void edit(ColorEntity color);
 
     void delete(int id);
 
-    Color get(int id);
+    ColorEntity get(int id);
 
-    List<Color> getAll();
+    List<ColorEntity> getAll();
 
 }

@@ -1,19 +1,19 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Product;
+import com.hama.Hama.entities.ProductEntity;
 
 import java.util.List;
 
 public interface ProductDao {
-    void insert(Product product);
+    void insert(ProductEntity product);
 
-    void edit(Product product);
+    void edit(ProductEntity product);
 
     void delete(int id);
 
-    Product get(int id);
+    ProductEntity get(int id);
 
-    List<Product> getAll();
+    List<ProductEntity> getAll();
 
-    List<Product> searchByName(String productName);
+    List<ProductEntity> searchByName(String productName);
 }

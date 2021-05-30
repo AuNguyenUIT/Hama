@@ -1,18 +1,18 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Cart;
+import com.hama.Hama.entities.CartEntity;
 
 import java.util.List;
 
 public interface CartDao {
-    void insert(Cart cart);
+    void insert(CartEntity cart);
 
-    void edit(Cart cart);
+    void edit(CartEntity cart);
 
     void delete(int id);
 
-    Cart get(int id);
+    CartEntity get(int id);
 
-    List<Cart> getAll();
+    List<CartEntity> getAll();
 
 }

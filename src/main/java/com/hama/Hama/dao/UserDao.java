@@ -1,20 +1,20 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.User;
+import com.hama.Hama.entities.UserEntity;
 
 import java.util.List;
 
 public interface UserDao {
-    void insert(User user);
+    void insert(UserEntity user);
 
-    void edit(User user);
+    void edit(UserEntity user);
 
     void delete(String id);
 
-    User get(int id);
+    UserEntity get(int id);
 
-    User get(String email);
+    UserEntity get(String email);
 
-    List<User> getAll();
+    List<UserEntity> getAll();
 
 }

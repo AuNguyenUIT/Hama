@@ -1,17 +1,17 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Image;
+import com.hama.Hama.entities.ImageEntity;
 
 import java.util.List;
 
 public interface ImageDao {
-    void insert(Image image);
+    void insert(ImageEntity image);
 
-    void edit(Image image);
+    void edit(ImageEntity image);
 
     void delete(int id);
 
-    Image get(int id);
+    ImageEntity get(int id);
 
-    List<Image> getAll();
+    List<ImageEntity> getAll();
 }

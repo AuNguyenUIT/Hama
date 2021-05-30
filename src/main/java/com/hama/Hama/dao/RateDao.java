@@ -1,19 +1,19 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Rate;
+import com.hama.Hama.entities.RateEntity;
 
 import java.util.List;
 
 public interface RateDao {
 
-    void insert(Rate rate);
+    void insert(RateEntity rate);
 
-    void edit(Rate rate);
+    void edit(RateEntity rate);
 
     void delete(int id);
 
-    Rate get(int id);
+    RateEntity get(int id);
 
-    List<Rate> getAll();
+    List<RateEntity> getAll();
 
 }

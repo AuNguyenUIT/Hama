@@ -1,17 +1,17 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Category;
+import com.hama.Hama.entities.CategoryEntity;
 
 import java.util.List;
 
 public interface CategoryDao {
-    void insert(Category category);
+    void insert(CategoryEntity category);
 
-    void edit(Category category);
+    void edit(CategoryEntity category);
 
     void delete(int id);
 
-    Category get(int id);
+    CategoryEntity get(int id);
 
-    List<Category> getAll();
+    List<CategoryEntity> getAll();
 }

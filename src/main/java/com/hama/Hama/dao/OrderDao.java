@@ -1,18 +1,18 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Order;
+import com.hama.Hama.entities.OrderEntity;
 
 import java.util.List;
 
 public interface OrderDao {
-    void insert(Order order);
+    void insert(OrderEntity order);
 
-    void edit(Order order);
+    void edit(OrderEntity order);
 
     void delete(int id);
 
-    Order get(int id);
+    OrderEntity get(int id);
 
-    List<Order> getAll();
+    List<OrderEntity> getAll();
 
 }

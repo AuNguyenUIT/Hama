@@ -1,18 +1,18 @@
 package com.hama.Hama.dao;
 
-import com.hama.Hama.model.Bill;
+import com.hama.Hama.entities.BillEntity;
 
 import java.util.List;
 
 public interface BillDao {
-    void insert(Bill bill);
+    void insert(BillEntity bill);
 
-    void edit(Bill bill);
+    void edit(BillEntity bill);
 
     void delete(int id);
 
-    Bill get(int id);
+    BillEntity get(int id);
 
-    List<Bill> getAll();
+    List<BillEntity> getAll();
 
 }
