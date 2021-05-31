@@ -1,5 +1,8 @@
 package com.hama.Hama.entities;
 
+import org.hibernate.annotations.Nationalized;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +11,8 @@ import java.util.List;
 @Table(name = "category")
 public class CategoryEntity extends AbtractEntity {
 
-    @Column()
+//    @Column()
+    @Nationalized
     private String title;
 
     @OneToMany(mappedBy = "category")

@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:url value = "/view/admin/assets" var="url"/>
+<c:url value = "/resources/admin/assets" var="url"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,14 +53,14 @@
         <ul class="navbar-nav align-items-center right-nav-link">
           <li class="nav-item">
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-              <span class="user-profile"><img src="${pageContext.request.contextPath}/view/admin/assets/images/avatar-admin.png" class="img-circle"
+              <span class="user-profile"><img src="${pageContext.request.contextPath}/resources/admin/assets/images/avatar-admin.png" class="img-circle"
                   alt="user avatar"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item user-details">
                 <a href="javaScript:void();">
                   <div class="media">
-                    <div class="avatar"><img class="align-self-start mr-3" src="${pageContext.request.contextPath}/view/admin/assets/images/avatar-admin.png"
+                    <div class="avatar"><img class="align-self-start mr-3" src="${pageContext.request.contextPath}/resources/admin/assets/images/avatar-admin.png"
                         alt="user avatar"></div>
                     <div class="media-body">
                       <h6 class="mt-2 user-title">Webnongsan</h6>

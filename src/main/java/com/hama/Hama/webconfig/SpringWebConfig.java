@@ -15,7 +15,7 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/views/");
+        viewResolver.setPrefix("/WEB-INF/views/admin/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
