@@ -9,7 +9,7 @@ public class AbtractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
+    @Column(updatable = false)
     //@created
     private Date created;
 
