@@ -37,7 +37,9 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">Hình đại diện</th>
                                     <th scope="col">Tên danh mục</th>
+                                    <th scope="col">Danh mục cha</th>
                                     <th scope="col">Hành động</th>
                                 </tr>
                                 </thead>
@@ -45,7 +47,14 @@
                                 <c:forEach items="${categories}" var="cate" varStatus="loop">
                                     <tr>
                                         <td scope="row">${loop.index+1}</td>
+                                        <td scope="row">
+                                            <c:if test="${cate.thumb !=null && cate.thumb!=''}">
+                                                <img width="150px"
+                                                     src="${pageContext.request.contextPath}/resources/upload/category/${cate.thumb}">
+                                            </c:if>
+                                        </td>
                                         <td>${cate.title}</td>
+                                        <td>${cate.category.title}</td>
                                         <td>
                                             <a class="btn btn-danger"
                                                href="${pageContext.request.contextPath}/quan-tri/danh-muc/xoa?id=${cate.id}">Xóa</a>

@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -13,6 +13,7 @@
 
   <link href="${url}/css/pace.min.css" rel="stylesheet" />
   <script src="${url}/js/pace.min.js"></script>
+  <script src="${url}/js/jquery.min.js"></script>
   <link rel="stylesheet" href="${url}/plugins/summernote/dist/summernote-bs4.css"/>
   <link rel="icon" href="${url}/images/favicon.ico" type="image/x-icon">
   <link href="${url}/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />

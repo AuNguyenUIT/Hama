@@ -7,15 +7,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.DateFormat;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/quan-tri/danh-muc")
@@ -34,43 +39,88 @@ public class CategoryController {
 
     @RequestMapping(value = "/them", method = RequestMethod.GET)
     public String showCategoryAddForm(Model model) {
-        return "category-add-form";
+        List<CategoryEntity> categoryEntityList = categoryService.getAll();
+        model.addAttribute("categories", categoryEntityList);
+        return "category-form";
     }
 
-    @RequestMapping(value = "/them", method = RequestMethod.POST)
-    public String addCategory(HttpServletRequest request, Model model) {
+    @RequestMapping(value = "/them", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
+    public String addCategory(HttpServletRequest request, @RequestParam("thumb") MultipartFile multipartFile) throws IOException, InterruptedException {
+        request.setCharacterEncoding("utf-8");
         String title = request.getParameter("cate-name");
+        String parent = request.getParameter("parent-cate");
         CategoryEntity category = new CategoryEntity();
+        if (!parent.equals("0")) {
+            CategoryEntity categoryParent = categoryService.getCategoryById(Integer.parseInt(parent));
+            category.setCategory(categoryParent);
+        }
         Date date = new Date();
         category.setTitle(title);
         category.setCreated(date);
         category.setModified(date);
-        categoryService.saveCategory(category);
+        String fileName = multipartFile.getOriginalFilename();
+
+        if (fileName != null && !fileName.equals("")) {
+            try {
+                File folderUpload = new File(request.getServletContext().getRealPath("resources/upload/category"));
+                if (!folderUpload.exists()) {
+                    folderUpload.mkdirs();
+                }
+                File file = new File(folderUpload, fileName);
+                multipartFile.transferTo(file);
+                category.setThumb(fileName);
+            } catch (Exception e) {
+                category.setThumb(null);
+
+                System.out.println(e.getMessage());
+            }
+        }
+        category = categoryService.saveCategory(category);
         return "redirect:danh-sach";
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.GET)
     public String editCategory(HttpServletRequest request, Model model) {
         String id = request.getParameter("id");
-        System.out.println(categoryService.getCategoryById(Integer.parseInt(id)));
-        Optional<CategoryEntity> categoryEntity = categoryService.getCategoryById(Integer.parseInt(id));
+        CategoryEntity categoryEntity = categoryService.getCategoryById(Integer.parseInt(id));
+        List<CategoryEntity> categoryEntityList = categoryService.getAll();
+        model.addAttribute("categories", categoryEntityList);
         model.addAttribute("category", categoryEntity);
-        return "category-add-form";
+        return "category-form";
     }
 
-    @RequestMapping(value = "/chinh-sua", method = RequestMethod.POST)
-    public String updateCategory(HttpServletRequest request, Model model) throws ParseException {
+    @RequestMapping(value = "/chinh-sua", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
+    public String updateCategory(HttpServletRequest request, Model model, @RequestParam("thumb") MultipartFile multipartFile) throws ParseException {
         String id = request.getParameter("id");
         String title = request.getParameter("cate-name");
-        String created = request.getParameter("created");
+        String parent = request.getParameter("parent-cate");
+        String thumb = request.getParameter("thumb");
         CategoryEntity category = new CategoryEntity();
-
-        DateFormat format = new SimpleDateFormat("yyyy-M-dd H:mm:ss.SSS", Locale.ENGLISH);
-        Date dateCreated = format.parse(created);
         category.setId(Integer.parseInt(id));
         category.setTitle(title);
         category.setModified(new Date());
-        category.setCreated(dateCreated);
+        if (!parent.equals("0")) {
+            CategoryEntity categoryParent = categoryService.getCategoryById(Integer.parseInt(parent));
+            category.setCategory(categoryParent);
+        }
+        String fileName = multipartFile.getOriginalFilename();
+        if (fileName != null && !fileName.equals("")) {
+            try {
+                File folderUpload = new File(request.getServletContext().getRealPath("resources/upload/category"));
+                if (!folderUpload.exists()) {
+                    folderUpload.mkdirs();
+                }
+                File file = new File(folderUpload, fileName);
+                multipartFile.transferTo(file);
+                category.setThumb(fileName);
+            } catch (Exception e) {
+                category.setThumb(null);
+
+                System.out.println(e.getMessage());
+            }
+        } else {
+            category.setThumb(thumb);
+        }
         categoryService.saveCategory(category);
         return "redirect:danh-sach";
     }

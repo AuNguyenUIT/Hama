@@ -7,9 +7,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!-- Start header section -->
 <jsp:include page="./header/header.jsp" flush="true"/>
+<script type="text/javascript"
+        src="${pageContext.request.contextPath}/resources/admin/assets/js/previewFile.js"></script>
 <div class="content-wrapper">
     <div class="container-fluid">
 
@@ -21,7 +23,8 @@
                         <hr>
                         <c:choose>
                             <c:when test="${category.id ==null}">
-                                <form action="${pageContext.request.contextPath}/quan-tri/danh-muc/them" method="post" accept-charset="UTF-8"
+                                <form action="${pageContext.request.contextPath}/quan-tri/danh-muc/them" method="post"
+                                      accept-charset="UTF-8"
                                       enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="cate-name-add">Tên chuyên mục</label>
@@ -39,13 +42,15 @@
                                             </c:forEach>
                                         </select>
                                     </div>
-<%--                                    <div class="form-group">--%>
-                                        <%--                                        <label for="thumb">Hình đại diện</label>--%>
-                                        <%--                                        <input type="file" name="thumb" accept="image/*" id="thumb"/>--%>
-                                        <%--                                        <p>--%>
-                                        <%--                                            <img src="" id="thumb_preview" alt="Hình đại diện"/>--%>
-                                        <%--                                        </p>--%>
-                                        <%--                                    </div>--%>
+                                    <div class="form-group">
+                                        <label for="thumb">Hình đại diện</label>
+                                        <input type="file" name="thumb" accept="image/*" id="thumb"/>
+                                        <p>
+                                            <img width="150px"
+                                                 src="${pageContext.request.contextPath}/resources/admin/assets/images/preview.jpg"
+                                                 id="thumb_preview" alt="Hình đại diện"/>
+                                        </p>
+                                    </div>
                                     <div class="form-footer">
                                         <a class="btn btn-danger"
                                            href="${pageContext.request.contextPath}/quan-tri/danh-muc/danh-sach"> <i
@@ -61,7 +66,7 @@
                                 <form action="${pageContext.request.contextPath}/quan-tri/danh-muc/chinh-sua"
                                       method="post" enctype="multipart/form-data">
                                     <input type="HIDDEN" name="id" value="${category.id}">
-                                    <input type="HIDDEN" name="created" value="${category.created}">
+                                    <input type="HIDDEN" name="thumb" value="${category.thumb}">
                                     <div class="form-group">
                                         <label for="cate-name">Tên danh mục</label>
                                         <input type="text" class="form-control" id="cate-name"
@@ -75,21 +80,30 @@
                                         <select name="parent-cate" class="form-control" id="parent-cate">
                                             <option value="0" selected>Không có danh mục cha</option>
                                             <c:forEach var="parentCate" items="${categories}">
-                                                <c:if test="${parentCate.id!=category.id and parentCate.category.id != category.id}" >
+                                                <c:if test="${parentCate.id!=category.id and parentCate.category.id != category.id}">
                                                     <option value="${parentCate.id}" ${parentCate.id == category.category.id ? 'selected="selected"' : ''}>${parentCate.title}</option>
                                                 </c:if>
                                             </c:forEach>
                                         </select>
                                     </div>
-<%--                                    <div class="form-group">--%>
-                                        <%--                                        <label for="thumb">Hình đại diện</label>--%>
-                                        <%--                                        <input type="file" name="thumb" accept="image/*" id="thumb"--%>
-                                        <%--                                               value="${pageContext.request.contextPath}/resources/category/${category.id}/${category.thumb}"/>--%>
-                                        <%--                                        <p>--%>
-                                        <%--                                            <img src="${pageContext.request.contextPath}/resources/category/${category.id}/${category.thumb}"--%>
-                                        <%--                                                 id="thumb_preview" alt="Hình đại diện"/>--%>
-                                        <%--                                        </p>--%>
-                                        <%--                                    </div>--%>
+                                    <div class="form-group">
+                                        <label for="thumb">Hình đại diện</label>
+                                        <input type="file" name="thumb" accept="image/*" id="thumb"/>
+                                        <p>
+                                            <c:choose>
+                                                <c:when test="${category.thumb !=null && category.thumb!=''}">
+                                                    <img width="150px"
+                                                         src="${pageContext.request.contextPath}/resources/upload/category/${category.thumb}"
+                                                         id="thumb_preview" alt="Hình đại diện"/>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img width="150px"
+                                                         src="${pageContext.request.contextPath}/resources/admin/assets/images/preview.jpg"
+                                                         id="thumb_preview" alt="Hình đại diện"/>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </p>
+                                    </div>
                                     <div class="form-footer">
                                         <a class="btn btn-danger"
                                            href="${pageContext.request.contextPath}/quan-tri/danh-muc/danh-sach"> <i
@@ -110,20 +124,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('#thumb').change(function () {
-            showImageThumb(this);
-        });
-    });
-
-    function showImageThumb(fileInput) {
-        file = fileInput.files[0];
-        reader = new FileReader();
-        reader.onload = function (e) {
-            $("#thumb_preview").attr("src", e.target.result)
-        }
-        reader.readAsDataURL(file);
-    }
 </script>
 
 <jsp:include page="./footer/footer.jsp" flush="true"/>

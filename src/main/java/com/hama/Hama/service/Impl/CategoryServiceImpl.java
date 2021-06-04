@@ -17,8 +17,8 @@ public class CategoryServiceImpl implements CategoryService {
     CategoryRepository categoryRepository;
 
     @Override
-    public void saveCategory(CategoryEntity category) {
-        categoryRepository.save(category);
+    public CategoryEntity saveCategory(CategoryEntity category) {
+        return categoryRepository.save(category);
     }
 
     @Override
@@ -32,7 +32,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Optional<CategoryEntity> getCategoryById(Integer id) {
-        return categoryRepository.findById(id);
+    public CategoryEntity getCategoryById(Integer id) {
+        Optional<CategoryEntity> categoryEntityOptional = categoryRepository.findById(id);
+        if (categoryEntityOptional.isEmpty()) {
+            return new CategoryEntity();
+        }
+        return categoryEntityOptional.get();
     }
 }

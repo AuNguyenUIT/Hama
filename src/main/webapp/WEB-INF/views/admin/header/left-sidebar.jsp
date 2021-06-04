@@ -28,7 +28,7 @@
         </li>
         <li>
           <a href="${pageContext.request.contextPath}/quan-tri/danh-muc/danh-sach">
-            <i class="zmdi zmdi-grid"></i> <span>Chuyên Mục</span>
+            <i class="zmdi zmdi-grid"></i> <span>Danh Mục</span>
           </a>  
         </li>
         <li>
