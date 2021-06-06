@@ -11,8 +11,8 @@ public class BillDetailEntity extends AbtractEntity {
     private BillEntity bill;
 
     @ManyToOne()
-    @JoinColumn(name = "product_variation_id")
-    private ProductVariationEntity productVariation;
+    @JoinColumn(name = "product_id")
+    private ProductEntity product;
 
     @Column()
     private int quantity;
@@ -28,11 +28,11 @@ public class BillDetailEntity extends AbtractEntity {
         this.bill = bill;
     }
 
-    public ProductVariationEntity getProductVariation() {
-        return productVariation;
+    public ProductEntity getProductVariation() {
+        return product;
     }
 
-    public void setProductVariation(ProductVariationEntity productVariation) {
+    public void setProductVariation(ProductEntity product) {
 
     }
 

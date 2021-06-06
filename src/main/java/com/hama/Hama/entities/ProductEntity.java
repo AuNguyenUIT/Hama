@@ -8,8 +8,17 @@ import java.util.List;
 @Table(name = "product")
 public class ProductEntity extends AbtractEntity {
 
-    @OneToMany(mappedBy = "product")
-    private List<ImageEntity> imageList = new ArrayList<>();
+    @Column()
+    private String title;
+
+    @Column()
+    private String thumb;
+
+    @Column()
+    private Integer quantity;
+
+    @Column(columnDefinition = "TEXT")
+    private String images;
 
     @OneToMany(mappedBy = "product")
     private List<CommentEntity> commentList = new ArrayList<>();
@@ -18,18 +27,17 @@ public class ProductEntity extends AbtractEntity {
     private List<RateEntity> rateList = new ArrayList<>();
 
     @Column()
-    private String title;
-
-
-    @Column()
     private float sale;
 
     @ManyToOne()
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
 
-    @Column(length = 1000)
+    @Column(columnDefinition = "TEXT")
     private String description;
+
+    @Column()
+    private float price;
 
     @Column
     private float rate;
@@ -37,8 +45,21 @@ public class ProductEntity extends AbtractEntity {
     @Column
     private boolean status;
 
-    @OneToMany(mappedBy = "product")
-    private List<ProductVariationEntity> productVariationList = new ArrayList<>();
+    public String getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
+    }
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
 
     public String getTitle() {
         return title;
@@ -84,14 +105,6 @@ public class ProductEntity extends AbtractEntity {
         return status;
     }
 
-    public List<ProductVariationEntity> getProductVariationList() {
-        return productVariationList;
-    }
-
-    public void setProductVariationList(List<ProductVariationEntity> productVariationList) {
-        this.productVariationList = productVariationList;
-    }
-
     public void setStatus(boolean status) {
         this.status = status;
     }
@@ -112,11 +125,21 @@ public class ProductEntity extends AbtractEntity {
         this.rateList = rateList;
     }
 
-    public void setImageList(List<ImageEntity> imageList) {
-        this.imageList = imageList;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public List<ImageEntity> getImageList() {
-        return imageList;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+
 }
