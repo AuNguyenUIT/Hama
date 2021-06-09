@@ -34,9 +34,9 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryEntity getCategoryById(Integer id) {
         Optional<CategoryEntity> categoryEntityOptional = categoryRepository.findById(id);
-        if (categoryEntityOptional.isEmpty()) {
-            return new CategoryEntity();
-        }
+       if (categoryEntityOptional.equals("")) 
+           return new CategoryEntity();
+        
         return categoryEntityOptional.get();
     }
 }

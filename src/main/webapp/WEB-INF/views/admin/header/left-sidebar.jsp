@@ -57,5 +57,9 @@
             <i class="icon-envelope-open"></i> <span>Tin tức</span>
           </a>
         </li>
+        <li> <a href="${pageContext.request.contextPath}/quan-tri/bai-viet/danh-sach">
+            <i class="icon-notebook"></i> <span>Bài viết</span>
+          </a>
+        </li>
       </ul>
     </div>
