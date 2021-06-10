@@ -5,3 +5,5 @@ target
 .project
 lib
 src/test
+src/main/resources/database.properties
+./.settings
