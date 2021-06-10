@@ -34,14 +34,12 @@ public class ArticleController {
     public String getListArticle(Model model) {
         List<ArticleEntity> articleEntityList = articleService.getAll();
         model.addAttribute("articles", articleEntityList);
-        return "articles";
+        return "admin/articles";
     }
 
     @RequestMapping(value = "/them", method = RequestMethod.GET)
-    public String showArticleAddForm(Model model) {
-        List<ArticleEntity> articleEntityList = articleService.getAll();
-        model.addAttribute("article-form", articleEntityList);
-        return "article-form";
+    public String showArticleAddForm() {
+        return "admin/article-form";
     }
 
     @RequestMapping(value = "/them", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
@@ -49,16 +47,15 @@ public class ArticleController {
         request.setCharacterEncoding("utf-8");
         String title = request.getParameter("article-title");
         String status = request.getParameter("article-status");
-        String body=request.getParameter("article-body");
+        String body = request.getParameter("article-body");
         ArticleEntity article = new ArticleEntity();
-        article.setStatus(Integer.parseInt(status));
+        article.setStatus(status != null);
         Date date = new Date();
         article.setTitle(title);
         article.setBody(body);
         article.setCreated(date);
         article.setModified(date);
         String fileName = multipartFile.getOriginalFilename();
-
         if (fileName != null && !fileName.equals("")) {
             try {
                 File folderUpload = new File(request.getServletContext().getRealPath("resources/upload/article"));
@@ -70,11 +67,9 @@ public class ArticleController {
                 article.setThumb(fileName);
             } catch (Exception e) {
                 article.setThumb(null);
-
                 System.out.println(e.getMessage());
             }
         }
-        
         article = articleService.saveArticle(article);
         return "redirect:danh-sach";
     }
@@ -83,10 +78,8 @@ public class ArticleController {
     public String editArticle(HttpServletRequest request, Model model) {
         String id = request.getParameter("id");
         ArticleEntity articleEntity = articleService.getArticleById(Integer.parseInt(id));
-        List<ArticleEntity> articleEntityList = articleService.getAll();
-        model.addAttribute("article-form", articleEntityList);
-        model.addAttribute("articles", articleEntity);
-        return "article-form";
+        model.addAttribute("article", articleEntity);
+        return "admin/article-form";
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
@@ -101,7 +94,7 @@ public class ArticleController {
         article.setTitle(title);
         article.setModified(new Date());
         article.setBody(body);
-        article.setStatus(Integer.parseInt(status));
+        article.setStatus(status != null);
         String fileName = multipartFile.getOriginalFilename();
         if (fileName != null && !fileName.equals("")) {
             try {

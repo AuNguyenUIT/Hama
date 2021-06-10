@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--<%--%>
 <%--    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");--%>
 <%--    response.setHeader("Pragma", "no-cache");--%>
@@ -23,7 +24,8 @@
         <!--End Row-->
         <div class="row">
             <div class="col-lg-12">
-                <button class="add-catalog"><a href="${pageContext.request.contextPath}/quan-tri/bai-viet/them">Thêm bài viết</a></button>
+                <button class="add-catalog"><a href="${pageContext.request.contextPath}/quan-tri/bai-viet/them">Thêm bài
+                    viết</a></button>
             </div>
             <div class="col-lg-12">
                 <div class="card">
@@ -53,12 +55,19 @@
                                         </td>
                                         <td scope="row">${art.title}</td>
                                         <td scope="row">
-                                            <c:if test="${art.status == 1}">Công khai</c:if>
-                                            <c:if test="${art.status == 0}">Riêng tư</c:if>
+                                            <c:choose>
+                                                <c:when test="${art.status == true}">
+                                                    <c:out value="Công khai"/>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:out value="Riêng tư"/>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </td>
-                                        <td scope="row">${art.created}
+                                        <td scope="row"><fmt:formatDate value="${art.created}"
+                                                                        pattern="yyyy-MM-dd HH:mm"/>
                                         </td>
-                                            <td scope="row">
+                                        <td scope="row">
                                             <a class="btn btn-danger"
                                                href="${pageContext.request.contextPath}/quan-tri/bai-viet/xoa?id=${art.id}">Xóa</a>
                                             <a class="btn btn-success"

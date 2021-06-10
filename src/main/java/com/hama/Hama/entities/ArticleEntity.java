@@ -6,27 +6,19 @@ import java.util.List;
 
 @Entity
 @Table(name = "article")
-public class ArticleEntity extends AbtractEntity{
+public class ArticleEntity extends AbtractEntity {
     @Column()
     private String title;
-    
+
     @Column()
     private String thumb;
-   
-   @Column(length = 10000)
+
+    @Column(columnDefinition = "TEXT")
     private String body;
-   
-   @Column()
-   private int status;
-   
 
-    
-    @ManyToOne()
-    @JoinColumn(name = "article_id")
-    private ArticleEntity article;
+    @Column()
+    private boolean status;
 
-    @OneToMany(mappedBy = "article")
-    private final List<ArticleEntity> articleList = new ArrayList<>();
 
     public String getTitle() {
         return title;
@@ -44,8 +36,6 @@ public class ArticleEntity extends AbtractEntity{
         this.thumb = thumb;
     }
 
-
-
     public String getBody() {
         return body;
     }
@@ -53,30 +43,14 @@ public class ArticleEntity extends AbtractEntity{
     public void setBody(String body) {
         this.body = body;
     }
-    
-    public int getStatus() {
+
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
 
-
-    public ArticleEntity getArticle() {
-        return article;
-    }
-
-    public List<ArticleEntity> getArticleList() {
-        return articleList;
-    }
-
-    public void setArticle(ArticleEntity article) {
-        this.article = article;
-    }
-    
-    
-    
-    
 }
