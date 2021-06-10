@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:url value = "./resource/view/client/assets" var="url"/>
+<c:url value = "/resources/client/assets" var="url"/>
 
 <!DOCTYPE html>
 <html lang="en">

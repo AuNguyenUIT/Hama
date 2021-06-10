@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:url value = "/view/client/assets" var="url"/>
+<c:url value = "/resources/client/assets" var="url"/>
          <!-- start header top  -->
     <div class="aa-header-top">
       <div class="container">

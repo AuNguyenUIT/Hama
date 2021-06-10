@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:url value = "/view/client/assets" var="url"/>
+<c:url value = "/resources/client/assets" var="url"/>
 
         <!-- footer -->  
   <footer id="aa-footer">
@@ -23,7 +23,7 @@
                   <ul class="aa-footer-nav">
 
                     <li><p style="color:#888; text-align: justify; width: 95%">Là nơi chuyên buôn bán tất cả các mặt hàng về nông sản chất lượng. Chúng tôi luôn đặt tiêu chí về chất lượng và uy tín lên hàng đầu.</p></li>
-                    <li><img src="${pageContext.request.contextPath}/view/client/assets/images/dadangky.png" alt="logo img" width="40%"></li>
+                    <li><img src="${url}/images/dadangky.png" alt="logo img" width="40%"></li>
                   </ul>
                 </div>
               </div>
