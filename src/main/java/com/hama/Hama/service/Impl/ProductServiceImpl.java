@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductEntity getProductById(Integer id) {
         Optional<ProductEntity> productEntityOptional = productRepository.findById(id);
-        if (productEntityOptional.isEmpty()) {
+        if (productEntityOptional.equals("")) {
             return new ProductEntity();
         }
         return productEntityOptional.get();
