@@ -34,14 +34,14 @@ public class CategoryController {
     public String getListCategory(Model model) {
         List<CategoryEntity> categoryEntityList = categoryService.getAll();
         model.addAttribute("categories", categoryEntityList);
-        return "categories";
+        return "admin/categories";
     }
 
     @RequestMapping(value = "/them", method = RequestMethod.GET)
     public String showCategoryAddForm(Model model) {
         List<CategoryEntity> categoryEntityList = categoryService.getAll();
         model.addAttribute("categories", categoryEntityList);
-        return "category-form";
+        return "admin/category-form";
     }
 
     @RequestMapping(value = "/them", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
@@ -59,7 +59,6 @@ public class CategoryController {
         category.setCreated(date);
         category.setModified(date);
         String fileName = multipartFile.getOriginalFilename();
-
         if (fileName != null && !fileName.equals("")) {
             try {
                 File folderUpload = new File(request.getServletContext().getRealPath("resources/upload/category"));
@@ -86,7 +85,7 @@ public class CategoryController {
         List<CategoryEntity> categoryEntityList = categoryService.getAll();
         model.addAttribute("categories", categoryEntityList);
         model.addAttribute("category", categoryEntity);
-        return "category-form";
+        return "admin/category-form";
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")

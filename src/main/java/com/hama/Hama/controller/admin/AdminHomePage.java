@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminHomePage {
     @RequestMapping("/quan-tri")
     public String hello(Model model) {
-        return "index";
+        return "admin/index";
     }
 
 }

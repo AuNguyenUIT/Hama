@@ -9,20 +9,17 @@ import java.util.List;
 public class CategoryEntity extends AbtractEntity {
 
 
+    @OneToMany(mappedBy = "category")
+    private final List<CategoryEntity> categoryList = new ArrayList<>();
     @Column()
     private String title;
-
     @Column()
     private String thumb;
-
     @OneToMany(mappedBy = "category")
     private List<ProductEntity> productList = new ArrayList<>();
     @ManyToOne()
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
-
-    @OneToMany(mappedBy = "category")
-    private final List<CategoryEntity> categoryList = new ArrayList<>();
 
     public List<CategoryEntity> getCategoryList() {
         return categoryList;

@@ -14,9 +14,6 @@ public class ProductEntity extends AbtractEntity {
     @Column()
     private String thumb;
 
-    @Column()
-    private Integer quantity;
-
     @Column(columnDefinition = "TEXT")
     private String images;
 
@@ -39,10 +36,7 @@ public class ProductEntity extends AbtractEntity {
     @Column()
     private float price;
 
-    @Column
-    private float rate;
-
-    @Column
+    @Column()
     private boolean status;
 
     public String getThumb() {
@@ -85,28 +79,12 @@ public class ProductEntity extends AbtractEntity {
         this.sale = sale;
     }
 
-    public float getRate() {
-        return rate;
-    }
-
-    public void setRate(float rate) {
-        this.rate = rate;
-    }
-
     public CategoryEntity getCategory() {
         return category;
     }
 
     public void setCategory(CategoryEntity category) {
         this.category = category;
-    }
-
-    public boolean isPublic() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public List<CommentEntity> getCommentList() {
@@ -125,14 +103,6 @@ public class ProductEntity extends AbtractEntity {
         this.rateList = rateList;
     }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
     public float getPrice() {
         return price;
     }
@@ -141,5 +111,11 @@ public class ProductEntity extends AbtractEntity {
         this.price = price;
     }
 
+    public boolean getStatus() {
+        return status;
+    }
 
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 }
