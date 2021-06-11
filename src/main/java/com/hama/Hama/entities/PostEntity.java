@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "article")
-public class ArticleEntity extends AbtractEntity {
+@Table(name = "post")
+public class PostEntity extends AbtractEntity {
     @Column()
     private String title;
 

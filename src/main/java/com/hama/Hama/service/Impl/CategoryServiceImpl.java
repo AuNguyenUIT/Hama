@@ -1,46 +1,41 @@
 package com.hama.Hama.service.Impl;
 
+import com.hama.Hama.dao.CategoryDao;
 import com.hama.Hama.entities.CategoryEntity;
-import com.hama.Hama.repository.CategoryRepository;
 import com.hama.Hama.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
 
-
     @Autowired
-    CategoryRepository categoryRepository;
+    CategoryDao categoryDao;
 
     @Override
-    public CategoryEntity saveCategory(CategoryEntity category) {
-        return categoryRepository.save(category);
+    @Transactional
+    public Integer saveCategory(CategoryEntity category) {
+        return categoryDao.saveCategory(category);
     }
 
     @Override
-    public void deleteCategoryById(Integer id) {
-        try {
-            categoryRepository.deleteById(id);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    @Transactional
+    public void deleteProduct(Integer id) {
+        categoryDao.deleteCategory(id);
     }
 
     @Override
-    public List<CategoryEntity> getAll() {
-        return categoryRepository.findAll();
+    @Transactional
+    public List<CategoryEntity> getCategories() {
+        return categoryDao.getCategories();
     }
 
     @Override
-    public CategoryEntity getCategoryById(Integer id) {
-        Optional<CategoryEntity> categoryEntityOptional = categoryRepository.findById(id);
-       if (categoryEntityOptional.equals("")) 
-           return new CategoryEntity();
-        
-        return categoryEntityOptional.get();
+    @Transactional
+    public CategoryEntity getCategory(Integer id) {
+        return categoryDao.getCategory(id);
     }
 }

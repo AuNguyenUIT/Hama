@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface ProductService {
 
-    ProductEntity saveProduct(ProductEntity productEntity);
+    int saveProduct(ProductEntity productEntity);
 
-    void deleteProductById(Integer id);
+    void deleteProduct(Integer id);
 
-    List<ProductEntity> getAll();
+    List<ProductEntity> getProducts();
 
-    ProductEntity getProductById(Integer id);
+    ProductEntity getProduct(Integer id);
 
 }

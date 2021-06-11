@@ -32,14 +32,14 @@ public class CategoryController {
 
     @RequestMapping("/danh-sach")
     public String getListCategory(Model model) {
-        List<CategoryEntity> categoryEntityList = categoryService.getAll();
+        List<CategoryEntity> categoryEntityList = categoryService.getCategories();
         model.addAttribute("categories", categoryEntityList);
         return "admin/categories";
     }
 
     @RequestMapping(value = "/them", method = RequestMethod.GET)
     public String showCategoryAddForm(Model model) {
-        List<CategoryEntity> categoryEntityList = categoryService.getAll();
+        List<CategoryEntity> categoryEntityList = categoryService.getCategories();
         model.addAttribute("categories", categoryEntityList);
         return "admin/category-form";
     }
@@ -51,7 +51,7 @@ public class CategoryController {
         String parent = request.getParameter("parent-cate");
         CategoryEntity category = new CategoryEntity();
         if (!parent.equals("0")) {
-            CategoryEntity categoryParent = categoryService.getCategoryById(Integer.parseInt(parent));
+            CategoryEntity categoryParent = categoryService.getCategory(Integer.parseInt(parent));
             category.setCategory(categoryParent);
         }
         Date date = new Date();
@@ -74,15 +74,15 @@ public class CategoryController {
                 System.out.println(e.getMessage());
             }
         }
-        category = categoryService.saveCategory(category);
+        categoryService.saveCategory(category);
         return "redirect:danh-sach";
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.GET)
     public String editCategory(HttpServletRequest request, Model model) {
         String id = request.getParameter("id");
-        CategoryEntity categoryEntity = categoryService.getCategoryById(Integer.parseInt(id));
-        List<CategoryEntity> categoryEntityList = categoryService.getAll();
+        CategoryEntity categoryEntity = categoryService.getCategory(Integer.parseInt(id));
+        List<CategoryEntity> categoryEntityList = categoryService.getCategories();
         model.addAttribute("categories", categoryEntityList);
         model.addAttribute("category", categoryEntity);
         return "admin/category-form";
@@ -99,7 +99,7 @@ public class CategoryController {
         category.setTitle(title);
         category.setModified(new Date());
         if (!parent.equals("0")) {
-            CategoryEntity categoryParent = categoryService.getCategoryById(Integer.parseInt(parent));
+            CategoryEntity categoryParent = categoryService.getCategory(Integer.parseInt(parent));
             category.setCategory(categoryParent);
         }
         String fileName = multipartFile.getOriginalFilename();
@@ -127,7 +127,7 @@ public class CategoryController {
     @RequestMapping(value = "/xoa", method = RequestMethod.GET)
     public String deleteCategory(HttpServletRequest request, Model model) {
         String id = request.getParameter("id");
-        categoryService.deleteCategoryById(Integer.parseInt(id));
+        categoryService.deleteProduct(Integer.parseInt(id));
         return "redirect:danh-sach";
     }
 }
