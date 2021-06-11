@@ -44,19 +44,19 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${articles}" var="art" varStatus="loop">
+                                <c:forEach items="${posts}" var="post" varStatus="loop">
                                     <tr>
                                         <td scope="row">${loop.index+1}</td>
                                         <td scope="row">
-                                            <c:if test="${art.thumb !=null && art.thumb!=''}">
+                                            <c:if test="${post.thumb !=null && post.thumb!=''}">
                                                 <img width="150px"
-                                                     src="${pageContext.request.contextPath}/resources/upload/article/${art.thumb}">
+                                                     src="${pageContext.request.contextPath}/resources/upload/post/${post.thumb}">
                                             </c:if>
                                         </td>
-                                        <td scope="row">${art.title}</td>
+                                        <td scope="row">${post.title}</td>
                                         <td scope="row">
                                             <c:choose>
-                                                <c:when test="${art.status == true}">
+                                                <c:when test="${post.status == true}">
                                                     <c:out value="Công khai"/>
                                                 </c:when>
                                                 <c:otherwise>
@@ -64,14 +64,14 @@
                                                 </c:otherwise>
                                             </c:choose>
                                         </td>
-                                        <td scope="row"><fmt:formatDate value="${art.created}"
+                                        <td scope="row"><fmt:formatDate value="${post.created}"
                                                                         pattern="yyyy-MM-dd HH:mm"/>
                                         </td>
                                         <td scope="row">
                                             <a class="btn btn-danger"
-                                               href="${pageContext.request.contextPath}/quan-tri/bai-viet/xoa?id=${art.id}">Xóa</a>
+                                               href="${pageContext.request.contextPath}/quan-tri/bai-viet/xoa?id=${post.id}">Xóa</a>
                                             <a class="btn btn-success"
-                                               href="${pageContext.request.contextPath}/quan-tri/bai-viet/chinh-sua?id=${art.id}">Sửa</a>
+                                               href="${pageContext.request.contextPath}/quan-tri/bai-viet/chinh-sua?id=${post.id}">Sửa</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

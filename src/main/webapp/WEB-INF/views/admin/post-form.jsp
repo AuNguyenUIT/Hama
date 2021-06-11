@@ -21,14 +21,14 @@
                         <div class="card-title">Thêm bài viết</div>
                         <hr>
                         <c:choose>
-                            <c:when test="${article.id ==null}">
+                            <c:when test="${post.id ==null}">
                                 <form method="post" action="${pageContext.request.contextPath}/quan-tri/bai-viet/them"
                                       accept-charset="UTF-8"
                                       enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="title">Tiêu đề</label>
                                         <input type="text" class="form-control" id="title" placeholder="Chủ đề bài viết"
-                                               name="article-title">
+                                               name="title">
                                     </div>
                                     <div class="form-group">
                                         <label for="thumb">Ảnh đại diện</label>
@@ -44,13 +44,13 @@
                                         <label for="body" class="col-form-label">Nội dung</label>
                                         <div>
                                             <textarea class="form-control" rows="30" id="body"
-                                                      name="article-body"></textarea>
+                                                      name="body"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-check-label">
-                                            <input type="checkbox" value="1" name="article-status" checked> Công khai
+                                            <input type="checkbox" value="1" name="status" checked> Công khai
                                         </label>
                                     </div>
                                     <div class="form-footer">
@@ -68,24 +68,24 @@
                             <c:otherwise>
                                 <form action="${pageContext.request.contextPath}/quan-tri/bai-viet/chinh-sua"
                                       method="post" enctype="multipart/form-data">
-                                    <input type="HIDDEN" name="id" value="${article.id}">
-                                    <input type="HIDDEN" name="thumb" value="${article.thumb}">
+                                    <input type="HIDDEN" name="id" value="${post.id}">
+                                    <input type="HIDDEN" name="thumb" value="${post.thumb}">
                                     <div class="form-group">
                                         <label for="art-name">Chủ đề bài viết</label>
                                         <input type="text" class="form-control" id="art-name"
 
                                                required="required"
-                                               value="${article.title}"
-                                               name="art-title">
+                                               value="${post.title}"
+                                               name="title">
                                     </div>
                                     <div class="form-group">
                                         <label for="thumb">Hình đại diện</label>
                                         <input type="file" name="thumb" accept="image/*" id="thumb"/>
                                         <p>
                                             <c:choose>
-                                                <c:when test="${article.thumb !=null && article.thumb!=''}">
+                                                <c:when test="${post.thumb !=null && post.thumb!=''}">
                                                     <img width="150px"
-                                                         src="${pageContext.request.contextPath}/resources/upload/article/${article.thumb}"
+                                                         src="${pageContext.request.contextPath}/resources/upload/post/${post.thumb}"
                                                          id="thumb_preview" alt="Hình đại diện"/>
                                                 </c:when>
                                                 <c:otherwise>
@@ -100,14 +100,14 @@
                                     <div class="form-group">
                                         <label for="body">Nội dung</label>
                                         <textarea class="form-control" rows="30" id="body"
-                                                  name="art-body">${article.body}</textarea>
+                                                  name="body">${post.body}</textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <div>
                                             <label class="form-check-label">
-                                                <input type="checkbox" value="1" name="article-status"
-                                                <c:if test="${article.status==true}">
+                                                <input type="checkbox" value="1" name="status"
+                                                <c:if test="${post.status==true}">
                                                     <c:out value="checked"/>
                                                 </c:if>  > Công khai
                                             </label>
