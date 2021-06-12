@@ -31,6 +31,9 @@ public class ProductEntity extends AbtractEntity {
     private CategoryEntity category;
 
     @Column(columnDefinition = "TEXT")
+    private String content;
+
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Column()

@@ -127,7 +127,7 @@ public class CategoryController {
     @RequestMapping(value = "/xoa", method = RequestMethod.GET)
     public String deleteCategory(HttpServletRequest request, Model model) {
         String id = request.getParameter("id");
-        categoryService.deleteProduct(Integer.parseInt(id));
+        categoryService.deleteCategory(Integer.parseInt(id));
         return "redirect:danh-sach";
     }
 }

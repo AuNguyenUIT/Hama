@@ -27,8 +27,8 @@ public class PostController {
 
     @RequestMapping("/danh-sach")
     public String getListPost(Model model) {
-        List<PostEntity> articleEntityList = postService.getPosts();
-        model.addAttribute("posts", articleEntityList);
+        List<PostEntity> postEntityList = postService.getPosts();
+        model.addAttribute("posts", postEntityList);
         return "admin/posts";
     }
 
@@ -43,13 +43,14 @@ public class PostController {
         String title = request.getParameter("title");
         String status = request.getParameter("status");
         String body = request.getParameter("body");
-        PostEntity article = new PostEntity();
-        article.setStatus(status != null);
+
+        PostEntity post = new PostEntity();
+        post.setStatus(status != null);
         Date date = new Date();
-        article.setTitle(title);
-        article.setBody(body);
-        article.setCreated(date);
-        article.setModified(date);
+        post.setTitle(title);
+        post.setBody(body);
+        post.setCreated(date);
+        post.setModified(date);
         String fileName = multipartFile.getOriginalFilename();
         if (fileName != null && !fileName.equals("")) {
             try {
@@ -59,21 +60,21 @@ public class PostController {
                 }
                 File file = new File(folderUpload, fileName);
                 multipartFile.transferTo(file);
-                article.setThumb(fileName);
+                post.setThumb(fileName);
             } catch (Exception e) {
-                article.setThumb(null);
+                post.setThumb(null);
                 System.out.println(e.getMessage());
             }
         }
-        postService.savePost(article);
+        postService.savePost(post);
         return "redirect:danh-sach";
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.GET)
     public String editPost(HttpServletRequest request, Model model) {
         String id = request.getParameter("id");
-        PostEntity articleEntity = postService.getPost(Integer.parseInt(id));
-        model.addAttribute("post", articleEntity);
+        PostEntity postEntity = postService.getPost(Integer.parseInt(id));
+        model.addAttribute("post", postEntity);
         return "admin/post-form";
     }
 
@@ -84,12 +85,12 @@ public class PostController {
         String body = request.getParameter("body");
         String thumb = request.getParameter("thumb");
         String status = request.getParameter("status");
-        PostEntity article = new PostEntity();
-        article.setId(Integer.parseInt(id));
-        article.setTitle(title);
-        article.setModified(new Date());
-        article.setBody(body);
-        article.setStatus(status != null);
+        PostEntity post = new PostEntity();
+        post.setId(Integer.parseInt(id));
+        post.setTitle(title);
+        post.setModified(new Date());
+        post.setBody(body);
+        post.setStatus(status != null);
         String fileName = multipartFile.getOriginalFilename();
         if (fileName != null && !fileName.equals("")) {
             try {
@@ -99,16 +100,16 @@ public class PostController {
                 }
                 File file = new File(folderUpload, fileName);
                 multipartFile.transferTo(file);
-                article.setThumb(fileName);
+                post.setThumb(fileName);
             } catch (Exception e) {
-                article.setThumb(null);
+                post.setThumb(null);
 
                 System.out.println(e.getMessage());
             }
         } else {
-            article.setThumb(thumb);
+            post.setThumb(thumb);
         }
-        postService.savePost(article);
+        postService.savePost(post);
         return "redirect:danh-sach";
     }
 

@@ -1,5 +1,6 @@
-package com.hama.Hama.dao;
+package com.hama.Hama.dao.impl;
 
+import com.hama.Hama.dao.CategoryDao;
 import com.hama.Hama.entities.CategoryEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

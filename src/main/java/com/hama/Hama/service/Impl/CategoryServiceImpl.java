@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
-
     @Autowired
     CategoryDao categoryDao;
 
@@ -23,7 +22,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional
-    public void deleteProduct(Integer id) {
+    public void deleteCategory(Integer id) {
         categoryDao.deleteCategory(id);
     }
 
@@ -38,4 +37,5 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryEntity getCategory(Integer id) {
         return categoryDao.getCategory(id);
     }
+
 }

@@ -2,11 +2,12 @@ package com.hama.Hama.dao.impl;
 
 import com.hama.Hama.dao.PostDao;
 import com.hama.Hama.entities.PostEntity;
-import com.hama.Hama.entities.PostEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Repository;
+
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;

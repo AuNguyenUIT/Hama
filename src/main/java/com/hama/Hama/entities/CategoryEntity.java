@@ -7,15 +7,13 @@ import java.util.List;
 @Entity
 @Table(name = "category")
 public class CategoryEntity extends AbtractEntity {
-
-
     @OneToMany(mappedBy = "category")
     private final List<CategoryEntity> categoryList = new ArrayList<>();
     @Column()
     private String title;
     @Column()
     private String thumb;
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
     private List<ProductEntity> productList = new ArrayList<>();
     @ManyToOne()
     @JoinColumn(name = "category_id")

@@ -8,7 +8,7 @@ public interface CategoryService {
 
     Integer saveCategory(CategoryEntity category);
 
-    void deleteProduct(Integer id);
+    void deleteCategory(Integer id);
 
     List<CategoryEntity> getCategories();
 

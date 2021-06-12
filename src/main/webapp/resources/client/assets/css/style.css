@@ -1085,7 +1085,7 @@ img {
   width: 100%;
 }
 #aa-product .aa-product-area .aa-product-inner .aa-product-catg {
-  float: left;
+  /*float: left;*/
 }
 #aa-product .aa-product-area .aa-product-inner #men {
   text-align: center;
@@ -1166,15 +1166,16 @@ img {
   background-color: inherit;
 }
 .aa-product-catg {
-  margin-left: -54px;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 .aa-product-catg li {
   display: block;
   float: left;
   height: 380px;
   text-align: center;
-  margin: 0 0 20px 55px;
-  width: 20.5%;
+  margin: 0 15px 20px 15px;
+  width: 22.5%;
   position: relative;
   overflow: hidden;
 }
