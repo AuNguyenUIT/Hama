@@ -8,16 +8,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%--<%--%>
-<%--    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");--%>
-<%--    response.setHeader("Pragma" , "no-cache");--%>
-<%--    response.setHeader("Expires" , "0");--%>
+<%
+    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
 
-
-<%--    if (session.getAttribute("quan-tri-username") == null){--%>
-<%--        response.sendRedirect(request.getContextPath() + "/quan-tri/login");--%>
-<%--    }--%>
-<%--%>--%>
+    if (session.getAttribute("username") == null) {
+        response.sendRedirect(request.getContextPath() + "/dang-nhap");
+    } else {
+        if (!session.getAttribute("role").equals("admin")) {
+            response.sendRedirect(request.getContextPath() + "/dang-nhap");
+        }
+    }
+%>
 <!-- Start header section -->
 <jsp:include page="./header/header.jsp" flush="true"/>
 <div class="content-wrapper">

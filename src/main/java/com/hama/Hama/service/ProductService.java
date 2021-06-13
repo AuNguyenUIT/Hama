@@ -13,4 +13,6 @@ public interface ProductService {
 
     ProductEntity getProduct(Integer id);
 
+    List<ProductEntity> getProductByCategoryAndName(Integer category_id, String title);
+
 }

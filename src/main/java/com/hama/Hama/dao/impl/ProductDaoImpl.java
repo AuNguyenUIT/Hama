@@ -18,6 +18,7 @@ public class ProductDaoImpl implements ProductDao {
     @Autowired
     SessionFactory sessionFactory;
 
+    @Override
     public List<ProductEntity> getProducts() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -28,21 +29,41 @@ public class ProductDaoImpl implements ProductDao {
         return query.getResultList();
     }
 
+    @Override
     public int saveProduct(ProductEntity productEntity) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(productEntity);
         return productEntity.getId();
     }
 
+    @Override
     public void deleteProduct(int id) {
         Session session = sessionFactory.getCurrentSession();
         ProductEntity book = session.byId(ProductEntity.class).load(id);
         session.delete(book);
     }
 
+    @Override
     public ProductEntity getProduct(int id) {
         Session session = sessionFactory.getCurrentSession();
         ProductEntity product = session.get(ProductEntity.class, id);
         return product;
+    }
+
+    @Override
+    public List<ProductEntity> getProductByCategoryAndName(Integer category_id, String title) {
+        Session session = sessionFactory.getCurrentSession();
+        if (category_id != 0) {
+            Query query = session.createQuery("FROM ProductEntity  WHERE category.id  =:category_id AND title like :title");
+            query.setParameter("category_id", category_id);
+            query.setParameter("title", "%"+title+"%");
+            return query.getResultList();
+
+        } else {
+            Query query = session.createQuery("FROM ProductEntity  WHERE  title like :title");
+            query.setParameter("title", "%"+title+"%");
+            return query.getResultList();
+        }
+
     }
 }

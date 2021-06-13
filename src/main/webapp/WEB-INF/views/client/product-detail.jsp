@@ -24,7 +24,7 @@
                 <h2>Chi tiết sản phẩm</h2>
                 <ol class="breadcrumb">
                     <li><a href="${pageContext.request.contextPath}">Trang chủ</a></li>
-                    <li><a href="${pageContext.request.contextPath}/view/client/product">Sản phẩm</a></li>
+                    <li><a href="${pageContext.request.contextPath}/san-pham">Sản phẩm</a></li>
                     <li style="color:#fff">${product.title }</li>
                 </ol>
             </div>
@@ -133,7 +133,7 @@
 
                             <%--                                        <p class="aa-prod-category">--%>
                             <%--                                            <c:forEach items="${name_cate_of_product}" var="name_cate">--%>
-                            <%--                                                <strong>Danh mục:</strong> <a href="product.jsp">${name_cate.name }</a>--%>
+                            <%--                                                <strong>Danh mục:</strong> <a href="products.jsp">${name_cate.name }</a>--%>
                             <%--                                            </c:forEach>--%>
                             <%--                                        </p>--%>
                             <%--                                    </div>--%>
@@ -278,15 +278,15 @@
                                 <li>
                                     <figure>
                                         <a class="aa-product-img"
-                                           href="${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}"><img
-                                                src="${pageContext.request.contextPath}/view/client/assets/images/products/img-test/${product.image_link}"
+                                           href="${pageContext.request.contextPath}/san-pham-detail?id=${product.id}"><img
+                                                src="${pageContext.request.contextPath}/resources/client/assetsimages/products/img-test/${product.image_link}"
                                                 alt=""></a>
                                         <a class="aa-add-card-btn"
                                            href="${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}"><span
                                                 class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
                                         <figcaption>
                                             <h4 class="aa-product-title"><a
-                                                    href="${pageContext.request.contextPath}/view/client/product-detail?id=${product.id}">${product.name}</a>
+                                                    href="${pageContext.request.contextPath}/san-pham-detail?id=${product.id}">${product.name}</a>
                                             </h4>
 
                                             <c:choose>

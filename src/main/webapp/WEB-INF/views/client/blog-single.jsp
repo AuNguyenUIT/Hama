@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:url value = "/view/client/assets" var="url"/>
+<c:url value = "/resource/client/assets" var="url"/>
   <!-- Start header section -->
   <jsp:include page = "./header/mainHeader.jsp" flush = "true" />
   <!-- / header section -->
@@ -14,7 +14,7 @@
 <!--  content -->
     <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-   <img src="${pageContext.request.contextPath}/view/client/assets/images/blog-banner.png" alt="banner blog">
+   <img src="${pageContext.request.contextPath}/resources/client/assetsimages/blog-banner.png" alt="banner blog">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -48,7 +48,7 @@
                       <div class="aa-post-date">${boardnew.created}</div>
                     </div>
                     <figure class="aa-blog-img">
-                      <a href="#"><img src="${pageContext.request.contextPath}/view/client/assets/images/news/${boardnew.image_link}" alt="fashion img"></a>
+                      <a href="#"><img src="${pageContext.request.contextPath}/resources/client/assetsimages/news/${boardnew.image_link}" alt="fashion img"></a>
                     </figure>
                     <p>${boardnew.content}</p>
                     
@@ -65,7 +65,7 @@
                       <ul>
                    <c:forEach items="${boardnewlist}" var="boardnew" end="2">
                         <li>
-                          <a class="aa-cartbox-img" href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img src="${pageContext.request.contextPath}/view/client/assets/images/news/${boardnew.image_link}" alt="img bài viết"></a>
+                          <a class="aa-cartbox-img" href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img src="${pageContext.request.contextPath}/resources/client/assetsimages/news/${boardnew.image_link}" alt="img bài viết"></a>
                           <div class="aa-cartbox-info">
                             <h4><a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><b>${boardnew.title }</b></a></h4>
                             <p>${boardnew.created }</p>

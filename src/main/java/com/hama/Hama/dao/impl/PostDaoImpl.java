@@ -19,7 +19,7 @@ import java.util.List;
 public class PostDaoImpl implements PostDao {
     @Autowired
     SessionFactory sessionFactory;
-
+    @Override
     public List<PostEntity> getPosts() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -29,19 +29,19 @@ public class PostDaoImpl implements PostDao {
         Query query = session.createQuery(cq);
         return query.getResultList();
     }
-
+    @Override
     public int savePost(PostEntity PostEntity) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(PostEntity);
         return PostEntity.getId();
     }
-
+    @Override
     public void deletePost(int id) {
         Session session = sessionFactory.getCurrentSession();
         PostEntity book = session.byId(PostEntity.class).load(id);
         session.delete(book);
     }
-
+    @Override
     public PostEntity getPost(int id) {
         Session session = sessionFactory.getCurrentSession();
         PostEntity Post = session.get(PostEntity.class, id);

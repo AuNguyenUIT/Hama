@@ -18,6 +18,7 @@ public class CategoryDaoImpl implements CategoryDao {
     @Autowired
     SessionFactory sessionFactory;
 
+    @Override
     public List<CategoryEntity> getCategories() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -28,18 +29,21 @@ public class CategoryDaoImpl implements CategoryDao {
         return query.getResultList();
     }
 
+    @Override
     public int saveCategory(CategoryEntity CategoryEntity) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(CategoryEntity);
         return CategoryEntity.getId();
     }
 
+    @Override
     public void deleteCategory(int id) {
         Session session = sessionFactory.getCurrentSession();
         CategoryEntity book = session.byId(CategoryEntity.class).load(id);
         session.delete(book);
     }
 
+    @Override
     public CategoryEntity getCategory(int id) {
         Session session = sessionFactory.getCurrentSession();
         CategoryEntity Category = session.get(CategoryEntity.class, id);

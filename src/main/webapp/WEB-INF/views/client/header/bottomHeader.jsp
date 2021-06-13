@@ -70,7 +70,7 @@
                   <ul class="scroll-product">
                   <c:forEach items="${order.items}" var="item" >
                     <li>
-                      <a class="aa-cartbox-img" href="${pageContext.request.contextPath}/view/client/cart"><img src="${pageContext.request.contextPath}/view/client/assets/images/products/img-test/${item.product.image_link}" alt="img"></a>
+                      <a class="aa-cartbox-img" href="${pageContext.request.contextPath}/view/client/cart"><img src="${pageContext.request.contextPath}/resources/client/assetsimages/products/img-test/${item.product.image_link}" alt="img"></a>
                       <div class="aa-cartbox-info">
                         <h4><a href="${pageContext.request.contextPath}/view/client/cart">${item.product.name}</a></h4>
                         <p>${item.qty} x ${item.product.price * (1-((item.product.discount)/100))}00 VNĐ</p>

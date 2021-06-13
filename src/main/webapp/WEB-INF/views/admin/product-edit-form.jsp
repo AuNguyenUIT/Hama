@@ -9,6 +9,19 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%
+    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
+
+    if (session.getAttribute("username") == null) {
+        response.sendRedirect(request.getContextPath() + "/dang-nhap");
+    } else {
+        if (!session.getAttribute("role").equals("admin")) {
+            response.sendRedirect(request.getContextPath() + "/dang-nhap");
+        }
+    }
+%>
 <!-- Start header section -->
 <jsp:include page="./header/header.jsp" flush="true"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/libraries/ckeditor/ckeditor.js"></script>

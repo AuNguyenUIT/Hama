@@ -3,7 +3,7 @@
 <c:url value = "/resources/admin/assets" var="url"/>
     <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
       <div class="brand-logo">
-        <a href="${pageContext.request.contextPath}/quan-tri/trang-chu">
+        <a href="${pageContext.request.contextPath}/quan-tri">
           <img src="${url}/images/logo-icon.png" class="logo-icon" alt="logo icon">
           <h5 class="logo-text">Admin Hama</h5>
         </a>
@@ -17,12 +17,12 @@
         </li>
 
          <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/quan-tri/list">
+          <a href="${pageContext.request.contextPath}/quan-tri/quan-tri/danh-sach">
             <i class="zmdi zmdi-account-box"></i> <span>Quản lí Admin</span>
           </a>
         </li>
         <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/user/list">
+          <a href="${pageContext.request.contextPath}/quan-tri/nguoi-dung/danh-sach">
             <i class="zmdi zmdi-accounts"></i> <span>Quản lí User</span>
           </a>
         </li>

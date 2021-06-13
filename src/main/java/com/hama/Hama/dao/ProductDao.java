@@ -13,4 +13,6 @@ public interface ProductDao {
     void deleteProduct(int id);
 
     ProductEntity getProduct(int id);
+
+    List<ProductEntity> getProductByCategoryAndName(Integer category_id, String title);
 }

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:url value = "/view/client/assets" var="url"/>
+<c:url value = "/resource/client/assets" var="url"/>
 
   <!-- Start header section -->
   <jsp:include page = "./header/mainHeader.jsp" flush = "true" />
@@ -15,7 +15,7 @@
 <!--  content -->
     <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-   <img src="${pageContext.request.contextPath}/view/client/assets/images/checkout-banner.png" alt="banner thanh toán">
+   <img src="${pageContext.request.contextPath}/resources/client/assetsimages/checkout-banner.png" alt="banner thanh toán">
     <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -153,7 +153,7 @@
                   <div class="aa-payment-method">                    
                     <label for="cashdelivery"><input type="radio" id="cashdelivery" name="transaction_payment" checked value="0"> Thanh toán khi nhận hàng (COD) </label>
                     <label for="paypal"><input type="radio" id="paypal" name="transaction_payment" value="1" > Thanh toán bằng thể ngân hàng (ATM) </label>
-                    <img src="${pageContext.request.contextPath}/view/client/assets/img/paypal.jpg" border="0" alt="PayPal Acceptance Mark">    
+                    <img src="${pageContext.request.contextPath}/resources/client/assetsimg/paypal.jpg" border="0" alt="PayPal Acceptance Mark">
                     <input type="submit" value="Đặt hàng" class="aa-browse-btn">
                   </div>
                    <c:if test="${sessionScope.username != null && sessionScope.order == null}">

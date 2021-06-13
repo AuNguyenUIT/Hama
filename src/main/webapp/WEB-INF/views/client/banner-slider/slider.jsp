@@ -21,7 +21,7 @@
                <span data-seq>Giảm giá lên đến 50%</span>                
                 <h2 data-seq>Các Loại Hạt Bổ Dưỡng</h2>                
                 <p data-seq>Các loại hạt tại của hàng luôn luôn được tuyển chọn,và các mặt hàng luôn đảm bảo chất lượng.</p>
-                <a data-seq href="${pageContext.request.contextPath}/view/client/product" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="${pageContext.request.contextPath}/san-pham" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -33,7 +33,7 @@
                 <span data-seq>Giảm giá lên đến 20%</span>                
                 <h2 data-seq>Rau Củ Quả Xanh Sạch</h2>                
                 <p data-seq>Rau củ quả được trồng đảm bảo không thuốc hóa học , đảm bảo chất lương xanh sạch và an toàn.</p>
-                <a data-seq href="${pageContext.request.contextPath}/view/client/product" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="${pageContext.request.contextPath}/san-pham" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->
@@ -45,7 +45,7 @@
                 <span data-seq>Giảm giá lên đến 33%</span>                
                 <h2 data-seq>Trái Cây Ngon Ngọt</h2>                
                 <p data-seq>Trái cây tại cửa hàng đa dạng về loại hàng, luôn đảm bảo tính an toàn và chất lượng lên hàng đầu.</p>
-                <a data-seq href="${pageContext.request.contextPath}/view/client/product" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="${pageContext.request.contextPath}/san-pham" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>
             <!-- single slide item -->           
@@ -58,7 +58,7 @@
                 <h2 data-seq>Mật Ong Và Tinh Dầu</h2>                
                 <p data-seq>Là 2 sản phẩm mới bên cửa hàng của chúng tôi,sản phẩm đã được kiểm định
                 và cấp phép về an toàn.</p>
-                <a data-seq href="${pageContext.request.contextPath}/view/client/product" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
+                <a data-seq href="${pageContext.request.contextPath}/san-pham" class="aa-shop-now-btn aa-secondary-btn">Xem Sản Phẩm</a>
               </div>
             </li>                   
           </ul>

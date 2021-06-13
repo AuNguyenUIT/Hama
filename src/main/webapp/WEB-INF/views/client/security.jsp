@@ -1,11 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:url value = "/view/client/assets" var="url"/>
+<c:url value = "/resource/client/assets" var="url"/>
   <!-- Start header section -->
   <jsp:include page = "./header/mainHeader.jsp" flush = "true" />
   
   <section id="aa-catg-head-banner">
-   <img src="${pageContext.request.contextPath}/view/client/assets/images/banner_tc.jpg" alt="banner sản phẩm">
+   <img src="${pageContext.request.contextPath}/resources/client/assetsimages/banner_tc.jpg" alt="banner sản phẩm">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">

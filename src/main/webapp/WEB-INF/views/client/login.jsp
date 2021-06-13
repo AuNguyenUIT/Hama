@@ -1,12 +1,7 @@
-<%-- 
-    Document   : index
-    Created on : May 5, 2020, 10:57:00 PM
-    Author     : LENOVO
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:url value = "/view/client/assets" var="url"/>
+<c:url value = "/resources/client/assets" var="url"/>
 
   <!-- Start header section -->
   <jsp:include page = "./header/mainHeader.jsp" flush = "true" />
@@ -14,7 +9,7 @@
 <!--  content -->
  <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-  <img src="${pageContext.request.contextPath}/view/client/assets/images/archive-banner.png" alt="banner blog">
+  <img src="${url}/images/archive-banner.png" alt="banner blog">
     <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -39,11 +34,11 @@
               <div class="col-md-8 col-md-push-2">
                 <div class="aa-myaccount-login">
                 <h4>Đăng nhập</h4>
-                 <form class="aa-login-form" name="loginform" onsubmit="validate();" action="${pageContext.request.contextPath}/view/client/login" method="post">
-                  <label for="">Username<span>*</span></label>
-                   <input type="text" placeholder="Username" name="username">
+                 <form class="aa-login-form" name="loginform" onsubmit="validate();" action="${pageContext.request.contextPath}/dang-nhap" method="post">
+                  <label for="">Tên đăng nhập hoặc email<span>*</span></label>
+                   <input type="text" placeholder="Tên đăng nhập hoặc email" name="username">
                    <label for="">Mật khẩu<span>*</span></label>
-                    <input type="password" placeholder="Password" name="password">
+                    <input type="password" placeholder="Mật khẩu" name="password">
                     <p class="rememberme" style="display: block"><input type="checkbox" id="rememberme"> Ghi nhớ </p> 
      
                     <p style="color:red; display:block">

@@ -14,21 +14,21 @@ public class UserEntity extends AbtractEntity {
 
     @OneToMany(mappedBy = "user")
     private List<RateEntity> rateList = new ArrayList<>();
-    @Column()
+    @Column(unique = true, name = "username")
     private String userName;
     @Column(length = 255)
     private String password;
-    @Column(length = 255)
+    @Column(length = 255, unique = true)
     private String mail;
-    @Column(length = 255)
+    @Column(length = 255, name = "firstname")
     private String firstName;
-    @Column(length = 255)
+    @Column(length = 255, name = "lastname")
     private String lastName;
     @Column()
-    private Integer gender;
+    private String gender;
     @Column()
     private Date date;
-    @Column(length = 10)
+    @Column(length = 10, unique = true, name = "phone_number")
     private String phoneNumber;
     @Column(length = 1000)
     private String address;
@@ -36,9 +36,10 @@ public class UserEntity extends AbtractEntity {
     private boolean status;
     @Column(length = 1000)
     private String picture;
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private RoleEntity role;
+
+
+    @JoinColumn()
+    private String role;
 
     public List<BillEntity> getBillList() {
         return billList;
@@ -48,12 +49,12 @@ public class UserEntity extends AbtractEntity {
         this.billList = billList;
     }
 
-    public void setRateList(List<RateEntity> rateList) {
-        this.rateList = rateList;
-    }
-
     public List<RateEntity> getRateList() {
         return rateList;
+    }
+
+    public void setRateList(List<RateEntity> rateList) {
+        this.rateList = rateList;
     }
 
     public String getUserName() {
@@ -96,11 +97,11 @@ public class UserEntity extends AbtractEntity {
         this.lastName = lastName;
     }
 
-    public Integer getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -128,7 +129,7 @@ public class UserEntity extends AbtractEntity {
         this.address = address;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -144,11 +145,11 @@ public class UserEntity extends AbtractEntity {
         this.picture = picture;
     }
 
-    public RoleEntity getRole() {
-        return role;
+    public String getRole() {
+        return this.role;
     }
 
-    public void setRole(RoleEntity role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }
