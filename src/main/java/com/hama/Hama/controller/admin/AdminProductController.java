@@ -53,11 +53,13 @@ public class AdminProductController {
         String desc = request.getParameter("desc");
         String cate_id = request.getParameter("cate_id");
         String status = request.getParameter("status");
+        String summary = request.getParameter("summary");
         ProductEntity product = new ProductEntity();
         product.setTitle(title);
         product.setPrice(Float.parseFloat(price));
         product.setSale(Float.parseFloat(sale));
         product.setDescription(desc);
+        product.setSummary(summary);
         product.setStatus(status != null);
         product.setCreated(new Date());
         product.setModified(new Date());
@@ -130,6 +132,7 @@ public class AdminProductController {
         String desc = request.getParameter("desc");
         String cate_id = request.getParameter("cate_id");
         String status = request.getParameter("status");
+        String summary = request.getParameter("summary");
         ProductEntity product = new ProductEntity();
         product.setId(Integer.parseInt(id));
         product.setTitle(title);
@@ -138,6 +141,7 @@ public class AdminProductController {
         product.setDescription(desc);
         product.setStatus(status != null);
         product.setModified(new Date());
+        product.setSummary(summary);
         List<String> images = new ArrayList<>();
         for (MultipartFile multipartFile : multipartFiles) {
             if (!multipartFile.getOriginalFilename().equals("") && multipartFile.getOriginalFilename() != null) {

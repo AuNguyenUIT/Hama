@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="thumb">Hình đại diện</label>
-                                <input type="file" name="thumb" accept="image/*" id="thumb"/>
+                                <input type="file" name="thumb" accept="image/*" id="thumb" required/>
                                 <p>
                                     <img width="150px"
                                          src="${pageContext.request.contextPath}/resources/admin/assets/images/preview.jpg"
@@ -64,7 +64,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="multiple_image">Một số hình ảnh khác</label>
-                                <input type="file" name="multiple_image" accept="image/*" id="multiple_image" multiple/>
+                                <input type="file" name="multiple_image" accept="image/*" id="multiple_image" multiple
+                                       required/>
                                 <div id="preview" class="d-flex">
                                     <img width="150px"
                                          src="${pageContext.request.contextPath}/resources/admin/assets/images/preview.jpg"
@@ -74,7 +75,7 @@
                             <div class="form-group">
                                 <label for="price" class="col-form-label">Giá</label>
                                 <div>
-                                    <input min="0.00" step="0.01" required type="currency" class="form-control" rows="4"
+                                    <input min="0.00" step="0.01" required type="number" class="form-control" value="0"
                                            id="price"
                                            name="price"/>
                                 </div>
@@ -89,6 +90,13 @@
                                     <div class="input-group-append">
                                         <button class="btn btn-light" type="button">%</button>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="summary" class="col-form-label">Mô tả ngắn</label>
+                                <div>
+                                    <textarea required class="form-control" rows="4" id="summary"
+                                              name="summary"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

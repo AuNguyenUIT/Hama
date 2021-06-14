@@ -31,7 +31,8 @@ public class ProductEntity extends AbtractEntity {
     private CategoryEntity category;
 
     @Column(columnDefinition = "TEXT")
-    private String content;
+    private String summary;
+
 
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -119,6 +120,15 @@ public class ProductEntity extends AbtractEntity {
     }
 
     public void setStatus(boolean status) {
+
         this.status = status;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 }

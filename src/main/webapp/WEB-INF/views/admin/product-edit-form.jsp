@@ -124,6 +124,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="summary" class="col-form-label">Mô tả ngắn</label>
+                                <div>
+                                    <textarea required class="form-control" rows="4" id="summary"
+                                              name="summary">${product.summary}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="desc" class="col-form-label">Mô tả</label>
                                 <div>
                                     <textarea required class="form-control" rows="4" id="desc"

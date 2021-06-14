@@ -110,40 +110,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Modal view content -->
-                            <%--                            <div class="col-md-5 col-sm-5 col-xs-12">--%>
-                            <%--                                <div class="aa-product-view-content">--%>
-                            <%--                                    <h3 >${product.title }</h3>--%>
-                            <%--                                    <div class="aa-price-block">--%>
-                            <%--                                        <span class="aa-product-price">${product.price} VNĐ</span><span--%>
-                            <%--                                            class="aa-product-price"></span>--%>
-                            <%--                                        <p class="aa-product-avilability">Tình trạng: <span>--%>
-                            <%--                      	<c:choose>--%>
-                            <%--                            <c:when test="${product.status == true}">--%>
-                            <%--                                <c:out value="Còn hàng"/>--%>
-                            <%--                            </c:when>--%>
-                            <%--                            <c:otherwise>--%>
-                            <%--                                <c:out value="Hết hàng"/>--%>
-                            <%--                            </c:otherwise>--%>
-                            <%--                        </c:choose>--%>
-                            <%--                      </span></p>--%>
-                            <%--                                    </div>--%>
-                            <%--                                    &lt;%&ndash;                    <p>${product.description}</p>&ndash;%&gt;--%>
-                            <%--                                    <div class="aa-prod-quantity">--%>
-
-                            <%--                                        <p class="aa-prod-category">--%>
-                            <%--                                            <c:forEach items="${name_cate_of_product}" var="name_cate">--%>
-                            <%--                                                <strong>Danh mục:</strong> <a href="products.jsp">${name_cate.name }</a>--%>
-                            <%--                                            </c:forEach>--%>
-                            <%--                                        </p>--%>
-                            <%--                                    </div>--%>
-                            <%--                                    <div class="aa-prod-view-bottom">--%>
-                            <%--                                        <a class="aa-add-to-cart-btn"--%>
-                            <%--                                           href="${pageContext.request.contextPath}/view/client/add-cart?product-id=${detail_product.id}">Thêm--%>
-                            <%--                                            vào giỏ hàng</a>--%>
-                            <%--                                    </div>--%>
-                            <%--                                </div>--%>
-                            <%--                            </div>--%>
                             <div class="col-sm-5 push-bit">
                                 <div class="clearfix">
                                     <div class="pull-right">
@@ -169,18 +135,7 @@
                                     </span>
                                 </div>
                                 <hr/>
-                                <p>
-                                    Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit.
-                                    Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et
-                                    facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque
-                                    non accumsan orci.
-                                </p>
-                                <p>
-                                    Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit.
-                                    Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et
-                                    facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque
-                                    non accumsan orci.
-                                </p>
+                                ${product.summary}
                                 <hr/>
                                 <form action="/them-gio-hang" method="post" class="push-bit row">
                                     <div class="form-group col-md-3 col-sm-4 col-xs-12">
