@@ -5,7 +5,7 @@
   <jsp:include page = "./header/mainHeader.jsp" flush = "true" />
   
   <section id="aa-catg-head-banner">
-   <img src="${pageContext.request.contextPath}/resources/client/assetsimages/banner_tc.jpg" alt="banner sản phẩm">
+   <img src="${pageContext.request.contextPath}/resources/client/assets/images/images/banner-policy.jpg" alt="banner sản phẩm">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">

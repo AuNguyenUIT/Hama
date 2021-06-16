@@ -9,7 +9,7 @@
 <!-- content -->
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
-    <img src="${url}/images/banner-product.png" alt="banner sản phẩm">
+    <img src="${url}/images/images/banner-sp.jpg" alt="banner sản phẩm">
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">

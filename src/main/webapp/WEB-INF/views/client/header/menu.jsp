@@ -24,18 +24,19 @@
             <!-- Left nav -->
             <ul class="nav navbar-nav">
               <li><a href="${pageContext.request.contextPath}/">TRANG CHỦ</a></li>
-              <li><a href="${pageContext.request.contextPath}/view/client/introduce">GIỚI THIỆU</a></li>
+              <li><a href="${pageContext.request.contextPath}/gioi-thieu">GIỚI THIỆU</a></li>
             <li><a href="${pageContext.request.contextPath}/san-pham">SẢN PHẨM</span></a>
                 <ul class="dropdown-menu">                
-                  <li><a href="product.jsp">RAU CỦ QUẢ</a></li>
-                  <li><a href="product.jsp">CÁC LOẠI HẠT</a></li>
-                  <li><a href="product.jsp">TINH DẦU</a></li>
-                  <li><a href="product.jsp">MẬT ONG</a></li>
+                  <li><a href="product.jsp">MÓC KHÓA</a></li>
+                  <li><a href="product.jsp">VÒNG TAY</a></li>
+                  <li><a href="product.jsp">GẤU BÔNG</a></li>
+                  <li><a href="product.jsp">HOA GIẤY</a></li>
+                  <li><a href="product.jsp">MÔ HÌNH LƯU NIỆM</a></li>
                 </ul>
               </li>
-              <li><a href="${pageContext.request.contextPath}/view/client/news-list">TIN TỨC</a></li>
-              <li><a href="${pageContext.request.contextPath}/view/client/security">CHÍNH SÁCH</a></li>
-              <li><a href="${pageContext.request.contextPath}/view/client/contact">LIÊN HỆ</a></li>
+              <li><a href="${pageContext.request.contextPath}/bai-viet/danh-sach">TIN TỨC</a></li>
+              <li><a href="${pageContext.request.contextPath}/chinh-sach">CHÍNH SÁCH</a></li>
+              <li><a href="${pageContext.request.contextPath}/lien-he">LIÊN HỆ</a></li>
               <li class="aa-search"><!-- search box -->
               <a class="aa-search-box">
                 <form action="${pageContext.request.contextPath}/san-pham/search" method="GET">

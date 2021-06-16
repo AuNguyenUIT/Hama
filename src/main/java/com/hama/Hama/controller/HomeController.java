@@ -22,15 +22,18 @@ public class HomeController {
     public String hello(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
+            
             if (session.getAttribute("role") != null) {
                 if (session.getAttribute("role").equals(UserRole.ADMIN)) {
                     return "redirect:/quan-tri";
                 }
             }
+            System.out.print("role ! admin");
             List<CategoryEntity> categoryList = categoryService.getCategories();
             model.addAttribute("categories", categoryList);
             return "client/index";
         }
+        System.out.print("session null");
         List<CategoryEntity> categoryList = categoryService.getCategories();
         model.addAttribute("categories", categoryList);
         return "client/index";

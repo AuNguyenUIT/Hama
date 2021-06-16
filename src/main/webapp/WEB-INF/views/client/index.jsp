@@ -19,58 +19,59 @@
                 <div class="aa-promo-area">
                     <div class="row">
                         <!-- promo left -->
-                        <div class="col-md-5 no-padding">
+                        <div class="col-md-4 no-padding">
                             <div class="aa-promo-left">
                                 <div class="aa-promo-banner">
-                                    <img src="${url}/images/section1_tc.jpg" alt="dâu tây Đà Lạt">
+                                    <img src="${url}/images/images/sub1.jpg" alt="dâu tây Đà Lạt">
                                     <div class="aa-prom-content">
-                                        <span>Giảm giá 35%</span>
-                                        <h4>Dâu tây Đà Lạt</h4>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                                    <div class="aa-promo-left">
+                                <div class="aa-promo-banner">
+                                    <img src="${url}/images/images/sub2.jpg" alt="dâu tây Đà Lạt">
+                                    <div class="aa-prom-content">
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- promo right -->
-                        <div class="col-md-7 no-padding">
-                            <div class="aa-promo-right">
-                                <div class="aa-single-promo-right">
+                        <div class="col-md-4 no-padding">
+                            <div class="aa-promo-middle">
+                                <div class="aa-single-promo-left">
                                     <div class="aa-promo-banner">
-                                        <img src="${url}/images/section2_tc.jpg" alt="hạt tiêu daklak">
+                                        <img src="${url}/images/images/sub3.gif" alt="hạt tiêu daklak">
                                         <div class="aa-prom-content">
-                                            <span>Sản Phẩm độc quyền</span>
-                                            <h4>Hạt tiêu DakLak</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="aa-single-promo-right">
-                                    <div class="aa-promo-banner">
-                                        <img src="${url}/images/section3_tc.jpg" alt="img">
-                                        <div class="aa-prom-content">
-                                            <span>Sản phẩm nhập khẩu</span>
-                                            <h4>Cherry Mỹ</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="aa-single-promo-right">
-                                    <div class="aa-promo-banner">
-                                        <img src="${url}/images/section4_tc.jpg" alt="img">
-                                        <div class="aa-prom-content">
-                                            <span>Giảm giá 25%</span>
-                                            <h4>Tinh Dầu Sả</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="aa-single-promo-right">
-                                    <div class="aa-promo-banner">
-                                        <img src="${url}/images/section5_tc.jpg" alt="img">
-                                        <div class="aa-prom-content">
-                                            <span>Sản phẩm độc quyền</span>
-                                            <h4>Mật ong rừng Tây Bắc</h4>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                                        </div>
+                        <div class="col-md-4 no-padding">
+                            <div class="aa-promo-right">
+                                
+                                    <div class="aa-promo-banner">
+                                        <img src="${url}/images/images/sub4.jpg" alt="img">
+                                        <div class="aa-prom-content">
+                                           
+                                        </div>
+                                    </div>
+                                
+                               
+                                    <div class="aa-promo-banner">
+                                        <img src="${url}/images/images/sub5.jpg" alt="img">
+                                        <div class="aa-prom-content">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -270,7 +271,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="aa-banner-area">
-                        <a href="#"><img src="${url}/images/banner_tc.jpg" alt="banner trang chủ"></a>
+                        <a href="#"><img src="${url}/images/images/sub6.png" alt="banner trang chủ"></a>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@
   
   
   <section id="aa-catg-head-banner">
-   <img src="${pageContext.request.contextPath}/resources/client/assetsimages/banner-product.png" alt="banner sản phẩm">
+   <img src="${pageContext.request.contextPath}/resources/client/assets/images/images/banner-hm.jpg" alt="banner sản phẩm">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -23,37 +23,25 @@
     <div class="container">
       <div class="row">
       	<div>
-      		<h1 style ="text-align: center; color: red;">Nông Sản 24h</h1>
-      		<p>Chúng tôi hi vọng tất cả người tiêu dùng Việt nam sẽ được sử dụng những thụ phẩm rau củ quả tươi ngon, bổ dưỡng và an toàn nhất tại cửa hàng cung
-      		 cấp thực phẩm rau củ sạch <strong>Nông Sản 24h</strong>.Với sứ mệnh trở thành một trong những nhà cung cấp thực phẩm sạch hàng đầu tại
-      		 Việt Nam đưa đến người tiêu dùng loại nông sản tươi ngon nhất của các vùng miền trên toàn quốc với mục đích là 
-      		<strong>“Mang thiên nhiên về với căn nhà của bạn”</strong>. Với quy trình lựa chọn và kiểm soát nghiêm ngặt Nông Sản 24h đã tạo nên quỹ đầu tư chuyên thu mua 
-      		và cung cấp phân phối những sản phẩm rau sạch tươi ngon nhất từ các nông trại phân phối đến tay người tiêu dùng giúp họ có những bữa ăn tươi ngon
-      		nhất trong từng sản phẩm khác biệt từ thiên nhiên.</p>
-      		<img src="${url}/images/introduce_thuc_pham_sach.png" alt="Thực phẩm sạch"/> <br/> <br>
-      		<p>Với triết lý trong kinh doanh là tuân thủ và đảm bảo được chất lượng tươi ngon nhất, nguồn gốc xuất xứ về sản phẩm rõ ràng.Chúng tôi cam kết không sử dụng
-      		chất bảo quản nào bị Bộ Y Tế cấm không được sử dụng và cam kết với quý khách hàng về toàn bộ những sản phẩm được phân phối qua hệ thống phân phối  <strong>Nông Sản 24h </strong>
-      		đảm bảo an toàn nhất.</p>
-      		<p>Với cam kết chỉ phân phối những hàng hóa được cung cấp từ những nhà sản xuất có uy tín và đã được cơ quan y tế có thẩm quyền cấp chứng nhận và
-      		đảm bảo vệ sinh an toàn thực phẩm có đủ quyền cung cấp thực phẩm sạch, các loại nông sản là các đặc sản từ mọi miền trên toàn quốc, các thực phẩm sử dụng hàng ngày
-      		như các thực phẩm được đóng gói, thực phẩm được chế biến sẵn, rau củ quả, các loại gạo vùng miền và các loại phụ gia về thực phẩm như các loại gia vị dùng trong việc chế biến món ăn hàng ngày,...</p>
-      		<img src="${url}/images/introduce_thuc_pham_sach2.jpg" alt="Thực phẩm sạch" width= "1160" height= "600"/> <br/> <br>
-      		<strong>Dưới đây, chúng tôi xin điểm qua những mặt hàng của Nông Sản 24h hiện đang được rất nhiều khách hàng tin dùng và ưa chuộng:</strong><br/>
-      		<p> <strong>Rau củ sạch Đà Lạt, an toàn có nguồn gốc rõ ràng: </strong>
-			Với những loại rau củ là những loại đặc sản tại các vùng miền <strong>Nông Sản 24h</strong> là địa chỉ uy tín cung cấp cho bạn các loại sản phẩm chất lượng từ các loại  
-			rau củ sạch Đà Lạt được nhiều người dân ủng hộ trong suốt khoảng thời gian qua.Hệ thống vận hành của chúng tôi được thực hiện theo dây chuyền đảm bảo rằng 
-			các bạn sẽ nhận được thực phẩm tươi nhất với thời gian vận chuyển ngắn nhất đáp ứng được độ tươi ngon đảm bảo vệ sinh, an toàn và ngon miệng.</p>
-      		<p> <strong>Hoa quả sạch, xuất xứ rõ ràng: </strong>
-      		Với mục tiêu trở thành một thương hiệu được khách hàng tin tưởng và coi như một địa chỉ mua sắm tin cậy đối với các loại trái cây nhập khẩu và trái cây Việt Nam 
-      		có chất lượng cao cho gia đình, <strong>Nông sản 24h</strong> đang trở nên hoàn thiện hơn để đem đến cho khách hàng không chỉ những sản phẩm Trái cây nhập khẩu,
-      		trái cây Việt Nam chất lượng hàng đầu trên thị trường mà kèm theo đó là những dịch vụ tiện ích thân thiện khác.
-      		</p>
-      		<p> <strong>Rất nhiều các loại hạt, chứa nhiều dinh dưỡng với giá cả hợp lý: </strong>
-      		Chúng tôi chuyên cung cấp những thực phẩm từ thiên nhiên có giá trị dinh dưỡng cao, tốt cho sức khỏe, nguồn gốc rõ ràng, với tiêu chí thực phẩm ngon và lành
-      		cho sức khỏe. Tất cả vì một tương lai sống khỏe - sống thọ.
-      		</p>
-      		<p> <strong>Mật ong rừng hoàn toàn nguyên chất</strong> được khai thác trực tiếp từ rừng già Quảng Ngãi, đem đến cho khách hàng một sản phẩm chất lượng, với giá trị dinh dưỡng cao.</p>
-      		<br />
+      		<h1 style ="text-align: center; color: red;">SHOP HANDMADE - HAMA</h1>
+      		<p>Ở Việt Nam, sản phẩm handmade luôn dành được sự quan tâm của mọi người. Nhưng lại chưa thật sự có một kênh phân phối
+                    nào nổi bật để mọi người quan tâm. Nên chủ yếu các bạn trẻ thường sẽ tự tìm hiểu và tự tạo ra các sản phẩm handmade.
+                    Thường những sản phẩm đó mang lại rất nhiều ý nghĩa về mặt tình cảm, nhưng lại cần rất nhiều thời gian và công sức cho
+                    những người không chuyên. Mặc khác, sản phẩm tạo ra có thể không đảm bảo về mặt chất lượng. Đối với những người không 
+                    khéo tay thì để tạo ra những sản phẩm handmade lại là một điều khó khăn, mà bản thân họ vẫn có nhu cầu sở hữu, gửi tặng
+                    những sản phẩm này.</p>
+	<p>Hiểu được nhu cầu đó của khách hàng, nhóm chúng tôi quyết định tạo một website bán sản phẩm handmade – 
+            một kênh phân phối sản phẩm handmade uy tín, chất lượng tại Việt Nam. Để đáp ứng nhu cầu trên của khách hàng 
+            mà ít ai quan tâm, đồng thời tạo ra một thương hiệu mới trên thị trường, cải tạo lại chất lượng trên thị trường màu mỡ này.</p>
+
+                <p>Mang ý nghĩa là một sản phẩm nghệ thuật, tự tay còn người làm ra, nên chứa đựng trong đó đầy tình cảm, công sức, ý nghĩa nhiều hơn những sản phẩm thông thường.</p>
+
+                   <p>Là một sản phẩm được làm bằng tay nên sản phẩm tạo ra có thể không nhiều nên rất giá trị, mặc khác dù các tác phẩm có thể sao chép xong không thể nào giống y hệt sản phẩm ban đầu.
+Với công nghệ tiên tiến như hiện nay, ở những nước phát triển như Châu u,.. và ở Việt Nam đang là phong trào, con người lại thích những sản được làm bằng tay và vì thế những người làm đồ handmade giỏi lại kiếm được nhiều tiền trong những món đồ mà họ tạo ra.
+Có thể nói đồ handmade còn là một giá trị nghệ thuật và người làm đồ handmade là một nghệ nhân thật thụ.</p>
+                   <p style="text-align: center">  <img src="${pageContext.request.contextPath}/resources/client/assets/images/images/product/2s3.jpg" alt="Sản phẩm handmade"></p>
+                   <p style="text-align: center"> <img src="${pageContext.request.contextPath}/resources/client/assets/images/images/product/3s1.jpg" alt="Sản phẩm handmade"></p>
+                    
       	</div>
       </div>
      </div>

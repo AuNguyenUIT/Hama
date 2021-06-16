@@ -16,7 +16,7 @@
 <!--  content -->
    <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-   <img src="${pageContext.request.contextPath}/resources/client/assetsimages/contact-banner.png" alt="banner liên hệ">
+   <img src="${pageContext.request.contextPath}/resources/client/assets/images/images/banner-contact.jpg" alt="banner liên hệ">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -52,11 +52,11 @@
                <div class="col-md-5">
                  <div class="aa-contact-address-right">
                    <address>
-                     <h4>Nông Sản 24</h4>
+                     <h4>SHOP HANDMADE - HAMA</h4>
                      <p>Liên hệ cho chúng tôi bất cứ khi nào bạn cần.</p>
-                     <p><span class="fa fa-home"></span>Nông Sản, Khu phố 6, Linh Trung, Thủ Đức, TP.HCM</p>
+                     <p><span class="fa fa-home"></span>SHOP HANDMADE - HAMA, Khu phố 6, Linh Trung, Thủ Đức, TP.HCM</p>
                      <p><span class="fa fa-phone"></span>037.7026.186</p>
-                     <p><span class="fa fa-envelope"></span>Email: contact@nongsan24.com</p>
+                     <p><span class="fa fa-envelope"></span>Email: contact@shophandmadehama.com</p>
                    </address>
                  </div>
                </div>

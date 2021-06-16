@@ -16,7 +16,7 @@
   <script src="${url}/js/pace.min.js"></script>
   <script src="${url}/js/jquery.min.js"></script>
   <link rel="stylesheet" href="${url}/plugins/summernote/dist/summernote-bs4.css"/>
-  <link rel="icon" href="${url}/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="${url}/images/images/favicon.png" type="image/x-icon">
   <link href="${url}/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
   <link href="${url}/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
   <link href="${url}/css/bootstrap.min.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
         <ul class="navbar-nav align-items-center right-nav-link">
           <li class="nav-item">
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-              <span class="user-profile"><img src="${pageContext.request.contextPath}/resources/admin/assets/images/avatar-admin.png" class="img-circle"
+              <span class="user-profile"><img src="${pageContext.request.contextPath}/resources/admin/assets/images/images/logo.png" class="img-circle"
                   alt="user avatar"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
