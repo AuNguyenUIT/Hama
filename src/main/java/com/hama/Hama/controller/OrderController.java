@@ -64,7 +64,7 @@ public class OrderController {
                 orderItem.setUnitPrice(unitPrice);
                 orderItem.setTotal(total);
                 float order_total = 0;
-                float total_quantity = 0;
+                int total_quantity = 0;
                 if (orderItems.isEmpty()) {
                     orderItems.add(orderItem);
                 } else {
