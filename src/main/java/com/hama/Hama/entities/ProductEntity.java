@@ -17,10 +17,10 @@ public class ProductEntity extends AbtractEntity {
     @Column(columnDefinition = "TEXT")
     private String images;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<CommentEntity> commentList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<RateEntity> rateList = new ArrayList<>();
 
     @Column()

@@ -24,15 +24,15 @@
                                 <div class="aa-promo-banner">
                                     <img src="${url}/images/images/sub1.jpg" alt="dâu tây Đà Lạt">
                                     <div class="aa-prom-content">
-                                        
+
                                     </div>
                                 </div>
                             </div>
-                                    <div class="aa-promo-left">
+                            <div class="aa-promo-left">
                                 <div class="aa-promo-banner">
                                     <img src="${url}/images/images/sub2.jpg" alt="dâu tây Đà Lạt">
                                     <div class="aa-prom-content">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -44,34 +44,34 @@
                                     <div class="aa-promo-banner">
                                         <img src="${url}/images/images/sub3.gif" alt="hạt tiêu daklak">
                                         <div class="aa-prom-content">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                                        </div>
+                        </div>
                         <div class="col-md-4 no-padding">
                             <div class="aa-promo-right">
-                                
-                                    <div class="aa-promo-banner">
-                                        <img src="${url}/images/images/sub4.jpg" alt="img">
-                                        <div class="aa-prom-content">
-                                           
-                                        </div>
-                                    </div>
-                                
-                               
-                                    <div class="aa-promo-banner">
-                                        <img src="${url}/images/images/sub5.jpg" alt="img">
-                                        <div class="aa-prom-content">
-                                            
-                                        </div>
+
+                                <div class="aa-promo-banner">
+                                    <img src="${url}/images/images/sub4.jpg" alt="img">
+                                    <div class="aa-prom-content">
+
                                     </div>
                                 </div>
-                                
-                            
+
+
+                                <div class="aa-promo-banner">
+                                    <img src="${url}/images/images/sub5.jpg" alt="img">
+                                    <div class="aa-prom-content">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -128,10 +128,12 @@
                                                                             alt="${product.title}"></a>
 
                                                                     <form class=""
-                                                                          action="${pageContext.request.contextPath}/view/client/add-cart"
+                                                                          action="${pageContext.request.contextPath}/them-gio-hang"
                                                                           method="post">
                                                                         <input hidden value="${product.id}"
                                                                                name="product_id"/>
+                                                                        <input hidden value="/"
+                                                                               name="current_path"/>
                                                                         <button type="submit" class="adtocart"><i
                                                                                 class="fa fa-shopping-cart"></i>
                                                                         </button>
@@ -198,10 +200,12 @@
                                                                             alt="${product.title}"></a>
 
                                                                     <form class=""
-                                                                          action="${pageContext.request.contextPath}/view/client/add-cart"
+                                                                          action="${pageContext.request.contextPath}/them-gio-hang"
                                                                           method="post">
                                                                         <input hidden value="${product.id}"
                                                                                name="product_id"/>
+                                                                        <input hidden value="/"
+                                                                               name="current_path"/>
                                                                         <button type="submit" class="adtocart"><i
                                                                                 class="fa fa-shopping-cart"></i>
                                                                         </button>

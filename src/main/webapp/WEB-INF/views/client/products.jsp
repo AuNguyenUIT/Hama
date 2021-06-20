@@ -90,9 +90,11 @@
                                         alt="${product.title}" height="170px"></a>
 
                                 <form class=""
-                                      action="${pageContext.request.contextPath}/view/client/add-cart"
+                                      action="${pageContext.request.contextPath}/them-gio-hang"
                                       method="post">
                                     <input hidden value="${product.id}" name="product_id"/>
+                                    <input hidden value="/san-pham"
+                                           name="current_path"/>
                                     <button type="submit" class="adtocart"><i
                                             class="fa fa-shopping-cart"></i>
                                     </button>
@@ -132,7 +134,6 @@
                 </c:forEach>
             </div>
         </div>
-
 
 
     </div>
