@@ -153,6 +153,13 @@
                                     nhật
                                 </button>
                             </div>
+                                <script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    alert("Cập nhật thành công");
+  });
+});
+</script>
 
                         </form>
                     </div>

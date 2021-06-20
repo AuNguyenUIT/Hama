@@ -1,19 +1,7 @@
 <%@ page import="com.hama.Hama.controller.UserRole" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%
-    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
-    response.setHeader("Pragma", "no-cache");
-    response.setHeader("Expires", "0");
 
-    if (session.getAttribute("username") == null) {
-        response.sendRedirect(request.getContextPath() + "/dang-nhap");
-    } else {
-        if (!session.getAttribute("role").equals("admin")) {
-            response.sendRedirect(request.getContextPath() + "/dang-nhap");
-        }
-    }
-%>
 <!-- Start header section -->
 <jsp:include page="./header/header.jsp" flush="true"/>
 <div class="content-wrapper">
@@ -70,36 +58,41 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-4 col-xl-4">
+            <div class=" col-xl-6 col-lg-6 col-12" >
                 <div class="card">
                     <div class="card-header">Danh mục bán chạy
                     </div>
                     <div class="card-body">
                         <div class="chart-container-2">
-                            <canvas id="chart2"></canvas>
+                            <canvas id="chart4" class="chartjs-render-monitor"/>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center">
                             <tbody>
                             <tr>
-                                <td><i class="fa fa-circle text-white mr-2"></i>Rau sạch</td>
-                                <td>58.000 VNĐ</td>
+                                <td><i class="fa fa-circle text-white mr-2"></i>Móc khóa</td>
+                                <td>550.000 VNĐ</td>
                                 <td>+55%</td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-circle text-light-1 mr-2"></i>Củ quả</td>
-                                <td>110.000 VNĐ</td>
+                                <td><i class="fa fa-circle text-light-1 mr-2"></i>Vòng tay</td>
+                                <td>450.000 VNĐ</td>
                                 <td>+25%</td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-circle text-light-2 mr-2"></i>Hạt</td>
-                                <td>215.500 VNĐ</td>
+                                <td><i class="fa fa-circle text-light-2 mr-2"></i>Gấu bông</td>
+                                <td>315.500 VNĐ</td>
                                 <td>+15%</td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-circle text-light-3 mr-2"></i>Mật ong</td>
-                                <td>310.000 VNĐ</td>
+                                <td><i class="fa fa-circle text-light-3 mr-2"></i>Hoa giấy</td>
+                                <td>250.000 VNĐ</td>
+                                <td>+5%</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-circle text-light-4 mr-2"></i>Mô hình lưu niệm</td>
+                                <td>250.000 VNĐ</td>
                                 <td>+5%</td>
                             </tr>
                             </tbody>

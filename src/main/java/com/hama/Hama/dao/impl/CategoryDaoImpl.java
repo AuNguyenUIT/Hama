@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 @Repository
 public class CategoryDaoImpl implements CategoryDao {
@@ -41,6 +42,7 @@ public class CategoryDaoImpl implements CategoryDao {
         Session session = sessionFactory.getCurrentSession();
         CategoryEntity book = session.byId(CategoryEntity.class).load(id);
         session.delete(book);
+ 
     }
 
     @Override

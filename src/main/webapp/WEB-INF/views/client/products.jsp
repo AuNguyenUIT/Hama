@@ -87,7 +87,7 @@
                                 <a class=""
                                    href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
                                         src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
-                                        alt="${product.title}"></a>
+                                        alt="${product.title}" height="170px"></a>
 
                                 <form class=""
                                       action="${pageContext.request.contextPath}/view/client/add-cart"

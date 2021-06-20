@@ -21,6 +21,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.swing.JOptionPane;
 
 @Controller
 @RequestMapping("/quan-tri/danh-muc")
@@ -75,6 +76,7 @@ public class CategoryController {
             }
         }
         categoryService.saveCategory(category);
+
         return "redirect:danh-sach";
     }
 
@@ -120,7 +122,8 @@ public class CategoryController {
         } else {
             category.setThumb(thumb);
         }
-        categoryService.saveCategory(category);
+       categoryService.saveCategory(category);
+  
         return "redirect:danh-sach";
     }
 
@@ -128,6 +131,7 @@ public class CategoryController {
     public String deleteCategory(HttpServletRequest request, Model model) {
         String id = request.getParameter("id");
         categoryService.deleteCategory(Integer.parseInt(id));
+   
         return "redirect:danh-sach";
     }
 }

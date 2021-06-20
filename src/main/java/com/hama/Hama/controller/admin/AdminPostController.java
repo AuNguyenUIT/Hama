@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 @Controller
 @RequestMapping("/quan-tri/bai-viet")
@@ -67,6 +68,7 @@ public class AdminPostController {
             }
         }
         postService.savePost(post);
+   
         return "redirect:danh-sach";
     }
 
@@ -110,6 +112,7 @@ public class AdminPostController {
             post.setThumb(thumb);
         }
         postService.savePost(post);
+   
         return "redirect:danh-sach";
     }
 
@@ -117,6 +120,7 @@ public class AdminPostController {
     public String deletePost(HttpServletRequest request, Model model) {
         String id = request.getParameter("id");
         postService.deletePost(Integer.parseInt(id));
+     
         return "redirect:danh-sach";
     }
 

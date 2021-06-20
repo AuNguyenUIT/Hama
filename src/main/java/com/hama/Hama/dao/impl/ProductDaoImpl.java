@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
@@ -34,6 +35,7 @@ public class ProductDaoImpl implements ProductDao {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(productEntity);
         return productEntity.getId();
+         
     }
 
     @Override
@@ -41,6 +43,7 @@ public class ProductDaoImpl implements ProductDao {
         Session session = sessionFactory.getCurrentSession();
         ProductEntity book = session.byId(ProductEntity.class).load(id);
         session.delete(book);
+
     }
 
     @Override

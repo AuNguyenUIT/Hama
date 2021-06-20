@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 
 @Controller
 @RequestMapping("/quan-tri/san-pham")
@@ -107,6 +108,7 @@ public class AdminProductController {
                 System.out.println(e.getMessage());
             }
         }
+
         return "redirect:danh-sach";
     }
 
@@ -193,6 +195,7 @@ public class AdminProductController {
     public String deleteProduct(HttpServletRequest request) {
         String id = request.getParameter("id");
         productService.deleteProduct(Integer.parseInt(id));
+      
         return "redirect:danh-sach";
     }
 

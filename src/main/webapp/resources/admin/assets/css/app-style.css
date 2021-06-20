@@ -2983,6 +2983,9 @@ table.grid td {
 .text-light-3 {
     color: rgba(255, 255, 255, 0.20)!important;
 }
+.text-light-4 {
+    color: rgba(255, 255, 255, 0.10)!important;
+}
 
 .popover-header{
    background-color: #000000;
@@ -3384,7 +3387,7 @@ table.grid td {
  
  .chart-container-2{
 	 position:relative;
-	 height:188px;
+	 height:300px;
  }
  
  .chart-container-3{

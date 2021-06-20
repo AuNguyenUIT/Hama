@@ -4,7 +4,7 @@
     <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
       <div class="brand-logo">
         <a href="${pageContext.request.contextPath}/quan-tri">
-          <img src="${url}/images/logo-icon.png" class="logo-icon" alt="logo icon">
+          <img src="${url}/images/images/logo.png" class="logo-icon" alt="logo icon">
           <h5 class="logo-text">Admin Hama</h5>
         </a>
       </div>
@@ -22,7 +22,7 @@
           </a>
         </li>
         <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/nguoi-dung/danh-sach">
+          <a href="${pageContext.request.contextPath}/quan-tri/user/danh-sach">
             <i class="zmdi zmdi-accounts"></i> <span>Quản lí User</span>
           </a>
         </li>

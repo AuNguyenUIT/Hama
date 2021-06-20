@@ -24,6 +24,13 @@
   <link href="${url}/css/icons.css" rel="stylesheet" type="text/css" />
   <link href="${url}/css/sidebar-menu.css" rel="stylesheet" />
   <link href="${url}/css/app-style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 </head>
 
 <body class="bg-theme bg-theme1">
@@ -37,6 +44,7 @@
       </div>
     </div>
   </div>
+
 
  <div id="wrapper">
   <jsp:include page = "./left-sidebar.jsp" flush = "true" />
@@ -78,3 +86,4 @@
       </nav>
     </header>
     <div class="clearfix"></div>
+    

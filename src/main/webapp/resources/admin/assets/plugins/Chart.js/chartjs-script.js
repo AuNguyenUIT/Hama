@@ -1,6 +1,6 @@
 
 (function(window, document, $, undefined) {
-	  "use strict";
+	 
 	$(function() {
 
 		if ($('#lineChart').length) {
@@ -199,7 +199,7 @@
 							"rgba(255, 255, 255, 0.35)",
 							"#ffffff",
 							"rgba(255, 255, 255, 0.12)",
-							"rgba(255, 255, 255, 0.71)"
+							"rgba(255, 255, 255, 0.71)",
 						],
 						data: [13, 120, 11, 20],
 						borderWidth: [0, 0, 0, 0]
