@@ -49,5 +49,11 @@ public class ProductServiceImpl implements ProductService {
         return productDao.getProductByCategoryAndName(category_id, title);
     }
 
+    @Override
+    @Transactional
+    public List<ProductEntity> getProductsByQuery(String queryString) {
+        return productDao.getProductsByQuery(queryString);
+    }
+
 
 }

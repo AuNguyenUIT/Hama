@@ -87,7 +87,7 @@
                                 <a class=""
                                    href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
                                         src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
-                                        alt="${product.title}" height="170px"></a>
+                                        alt="${product.title}"></a>
 
                                 <form class=""
                                       action="${pageContext.request.contextPath}/them-gio-hang"

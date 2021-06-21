@@ -15,6 +15,10 @@
   <link href="${url}/css/pace.min.css" rel="stylesheet" />
   <script src="${url}/js/pace.min.js"></script>
   <script src="${url}/js/jquery.min.js"></script>
+
+  <script src="${url}/js/show_message.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
   <link rel="stylesheet" href="${url}/plugins/summernote/dist/summernote-bs4.css"/>
   <link rel="icon" href="${url}/images/images/favicon.png" type="image/x-icon">
   <link href="${url}/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
@@ -31,6 +35,8 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
 <!-- Bootstrap theme -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 </head>
 
 <body class="bg-theme bg-theme1">

@@ -15,6 +15,7 @@
           integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link href="${url}/css/font-awesome.css" rel="stylesheet">
 
+
     <!-- Bootstrap -->
     <link href="${url}/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="${url}/images/images/favicon.png" type="image/x-icon">
@@ -44,6 +45,9 @@
     <%--    Jquery--%>
     <script src="${url}/js/jquery.min.js"></script>
     <script src="${url}/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="${url}/js/show_message.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

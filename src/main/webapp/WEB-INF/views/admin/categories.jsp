@@ -7,7 +7,21 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.net.URLEncoder"%>
 
+<%
+    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
+
+    if (session.getAttribute("username") == null) {
+        response.sendRedirect(request.getContextPath() + "/dang-nhap");
+    } else {
+        if (!session.getAttribute("role").equals("admin")) {
+            response.sendRedirect(request.getContextPath() + "/dang-nhap");
+        }
+    }
+%>
 <!-- Start header section -->
 <jsp:include page="./header/header.jsp" flush="true"/>
 <div class="content-wrapper">
@@ -47,7 +61,7 @@
                                         <td>${cate.title}</td>
                                         <td>${cate.category.title}</td>
                                         <td>
-                                            <a class="btn btn-danger" onclick="myfunction4()"
+                                            <a class="btn btn-danger btn-edit"
                                                href="${pageContext.request.contextPath}/quan-tri/danh-muc/xoa?id=${cate.id}">Xóa</a>
                                             <a class="btn btn-success"
                                                href="${pageContext.request.contextPath}/quan-tri/danh-muc/chinh-sua?id=${cate.id}">Sửa</a>
@@ -63,16 +77,37 @@
         </div>
     </div>
 </div>
-                    <script>
-              function myfunction4(){
-                  var x = confirm("Bạn có chắc chắn muốn xóa không?");
-  if (x){
-      alert("Xóa thành công");
-      return true;
-  }
-  else
-    return false;
-              }
-          </script>
+<script>
+    $(document).ready(function () {
+        $(".btn-edit").click(function (e) {
+            e.preventDefault();
+            var href = $(this).attr('href');
+            $.confirm({
+                title: 'Xác nhận',
+                content: 'Bạn có chắc chắn muốn xáo danh mục này',
+                type: 'danger',
+                buttons: {
+                    ok: {
+                        text: "Xóa",
+                        btnClass: 'btn-danger',
+                        keys: ['enter'],
+                        action: function () {
+                            window.location.href = href;
+                        }
+                    },
+                    cancel: {
+                        text: "Hủy",
+                        action: function () {
+                            console.log('the user clicked confirm');
+                        }
+                    }
+                }
+            })
+        })
+        if ("${message}") {
+            showMessage("${message}", "${type}")
+        }
+    })
+</script>
 
 <jsp:include page="./footer/footer.jsp" flush="true"/>

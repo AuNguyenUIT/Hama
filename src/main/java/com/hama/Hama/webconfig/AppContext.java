@@ -57,6 +57,8 @@ public class AppContext {
         transactionManager.setSessionFactory(sessionFactory().getObject());
         return transactionManager;
     }
+
+    
 //    @Bean
 //    public EntityManagerFactory entityManagerFactory() {
 //

@@ -34,7 +34,7 @@
                   </div>
                     <div class="form-group">
                     <label for="input-5">Ngày sinh</label>
-                    <input  class="form-control" id="input-1" placeholder="Nhập ngày sinh" value="${user.date}" name="user-date">
+                    <input  class="form-control" id="input-1" type="date" placeholder="Nhập ngày sinh" value="1999-02-24" name="user-date">
                   </div>
                     <div class="form-group">
                     <label for="input-5">Địa chỉ</label>

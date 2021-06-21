@@ -93,8 +93,17 @@
                         <b>Tổng:</b>
                       </span>
                                 <span class="aa-cartbox-total-price">
-                                    <fmt:setLocale value="vi_VN" scope="session"/>
-                                    <fmt:formatNumber value="  ${total}" type="currency"/>
+                                    <c:choose>
+                                        <c:when test="${total !=null}">
+                                            <fmt:setLocale value="vi_VN" scope="session"/>
+                                            <fmt:formatNumber value="  ${total}" type="currency"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <fmt:setLocale value="vi_VN" scope="session"/>
+                                            <fmt:formatNumber value="0" type="currency"/>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                 </span>
                             </div>
                             <a class="aa-cartbox-checkout aa-primary-btn"

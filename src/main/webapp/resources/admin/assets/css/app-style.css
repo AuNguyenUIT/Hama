@@ -54,10 +54,10 @@ html{
 	width: device-width
 }
 body {
-   	background-color: #000;
+   	/*background-color: #000;*/
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    color: rgba(255,255,255,.85);
+    /*color: rgba(255,255,255,.85);*/
     letter-spacing: 0.5px;
 }
 [tabindex="-1"]:focus {

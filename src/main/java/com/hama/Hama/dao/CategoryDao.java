@@ -1,6 +1,7 @@
 package com.hama.Hama.dao;
 
 import com.hama.Hama.entities.CategoryEntity;
+
 import java.util.List;
 
 public interface CategoryDao {
@@ -8,7 +9,7 @@ public interface CategoryDao {
 
     int saveCategory(CategoryEntity CategoryEntity);
 
-    void deleteCategory(int id);
+    Boolean deleteCategory(int id);
 
     CategoryEntity getCategory(int id);
 }

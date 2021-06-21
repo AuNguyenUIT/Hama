@@ -299,50 +299,65 @@
                         <div class="tab-content">
                             <!-- Start men popular category -->
                             <div class="tab-pane fade in active" id="sanphammoi">
-                                <ul class="aa-product-catg aa-popular-slider">
-                                    <!-- start single product item -->
-                                    <c:forEach items="${product_new}" var="product">
-                                        <li>
-                                            <figure>
-                                                <a class="aa-product-img"
-                                                   href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
-                                                        src="${pageContext.request.contextPath}/resources/client/assetsimages/products/img-test/${product.image_link}"
-                                                        alt="polo shirt img"></a>
-                                                <a class="aa-add-card-btn"
-                                                   href="${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}"><span
-                                                        class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
-                                                <figcaption>
-                                                    <h4 class="aa-product-title"><a
-                                                            href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}">${product.name }</a>
-                                                    </h4>
+                                <div class="row product-list">
+                                    <c:forEach items="${productsNew}" var="product" end="8">
+                                        <div class="col-md-3">
+                                            <section class="panel offer offer-radius offer-danger ">
+                                                <div class="pro-img-box">
+                                                    <c:if test="${product.sale != 0}">
+                                                        <div class="shape">
+                                                            <div class="shape-text">
+                                                                - ${product.sale} %
+                                                            </div>
+                                                        </div>
+                                                    </c:if>
+                                                    <a class=""
+                                                       href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                                            src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
+                                                            alt="${product.title}"></a>
+
+                                                    <form class=""
+                                                          action="${pageContext.request.contextPath}/them-gio-hang"
+                                                          method="post">
+                                                        <input hidden value="${product.id}"
+                                                               name="product_id"/>
+                                                        <input hidden value="/"
+                                                               name="current_path"/>
+                                                        <button type="submit" class="adtocart"><i
+                                                                class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+
+                                                <div class="panel-body text-center">
+                                                    <h3>
+                                                        <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"
+                                                           class="pro-title"> ${product.title}</a>
+                                                    </h3>
                                                     <c:choose>
-                                                        <c:when test="${product.discount == 0}">
-                                                            <span class="aa-product-price">${product.price} VNĐ</span><span
-                                                                class="aa-product-price"></span>
+                                                        <c:when test="${product.sale == 0}">
+                                                            <p class="price">
+                                                                <fmt:setLocale value="vi_VN" scope="session"/>
+                                                                <fmt:formatNumber   value="${product.price}" type="currency"/></p>
+                                                            <p class="price"></p>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <c:forEach items="${productlist1}" var="product1">
-                                                                <c:if test="${product1.id == product.id}">
-                                                                    <span class="aa-product-price">${product1.price} VNĐ</span>
-                                                                    <span class="aa-product-price"><del>${product.price} VNĐ</del></span>
-                                                                </c:if>
-                                                            </c:forEach>
+                                                            <span class="price">
+                                                                   <fmt:setLocale  value="vi_VN"  scope="session"/>
+                                                                    <fmt:formatNumber  value="${product.price - product.price*(product.sale/100)}"  type="currency"/>
+                                                            </span>
+                                                            <span class=""><del>
+                                                                <fmt:setLocale value="vi_VN" scope="session"/>
+                                                                <fmt:formatNumber  value="${product.price}" type="currency"/>
+                                                                </del>
+                                                            </span>
                                                         </c:otherwise>
                                                     </c:choose>
-                                                </figcaption>
-                                            </figure>
-
-                                            <c:if test="${product.discount != 0}">
-                                                <!-- product badge -->
-                                                <span class="aa-badge aa-sale">- ${product.discount}%</span>
-                                            </c:if>
-                                        </li>
+                                                </div>
+                                            </section>
+                                        </div>
                                     </c:forEach>
-                                    <!-- start single product item -->
-                                    <!-- start single product item -->
-
-                                </ul>
-
+                                </div>
                             </div>
                             <!-- / popular product category -->
 
@@ -398,55 +413,72 @@
                             <!-- start latest product category -->
                             <div class="tab-pane fade" id="sanphamgiamgia">
 
-                                <ul class="aa-product-catg aa-popular-slider">
-                                    <!-- start single product item -->
-                                    <c:forEach items="${product_sale}" var="product">
-                                        <li>
-                                            <figure>
-                                                <a class="aa-product-img"
-                                                   href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
-                                                        src="${pageContext.request.contextPath}/resources/client/assetsimages/products/img-test/${product.image_link}"
-                                                        alt="polo shirt img"></a>
-                                                <a class="aa-add-card-btn"
-                                                   href="${pageContext.request.contextPath}/view/client/add-cart?product-id=${product.id}"><span
-                                                        class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
-                                                <figcaption>
-                                                    <h4 class="aa-product-title"><a
-                                                            href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}">${product.name }</a>
-                                                    </h4>
+
+                                <div class="row product-list">
+                                    <c:forEach items="${productsSale}" var="product" end="8">
+                                        <div class="col-md-3">
+                                            <section class="panel offer offer-radius offer-danger ">
+                                                <div class="pro-img-box">
+                                                    <c:if test="${product.sale != 0}">
+                                                        <div class="shape">
+                                                            <div class="shape-text">
+                                                                - ${product.sale} %
+                                                            </div>
+                                                        </div>
+                                                    </c:if>
+                                                    <a class=""
+                                                       href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                                            src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
+                                                            alt="${product.title}"></a>
+
+                                                    <form class=""
+                                                          action="${pageContext.request.contextPath}/them-gio-hang"
+                                                          method="post">
+                                                        <input hidden value="${product.id}"
+                                                               name="product_id"/>
+                                                        <input hidden value="/"
+                                                               name="current_path"/>
+                                                        <button type="submit" class="adtocart"><i
+                                                                class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+
+                                                <div class="panel-body text-center">
+                                                    <h3>
+                                                        <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"
+                                                           class="pro-title"> ${product.title}</a>
+                                                    </h3>
                                                     <c:choose>
-                                                        <c:when test="${product.discount == 0}">
-                                                            <span class="aa-product-price">${product.price} VNĐ</span><span
-                                                                class="aa-product-price"></span>
+                                                        <c:when test="${product.sale == 0}">
+                                                            <p class="price">
+                                                                <fmt:setLocale value="vi_VN" scope="session"/>
+                                                                <fmt:formatNumber   value="${product.price}" type="currency"/></p>
+                                                            <p class="price"></p>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <c:forEach items="${productlist1}" var="product1">
-                                                                <c:if test="${product1.id == product.id}">
-                                                                    <span class="aa-product-price">${product1.price} VNĐ</span>
-                                                                    <span class="aa-product-price"><del>${product.price} VNĐ</del></span>
-                                                                </c:if>
-                                                            </c:forEach>
+                                                            <span class="price">
+                                                                   <fmt:setLocale  value="vi_VN"  scope="session"/>
+                                                                    <fmt:formatNumber  value="${product.price - product.price*(product.sale/100)}"  type="currency"/>
+                                                            </span>
+                                                            <span class=""><del>
+                                                                <fmt:setLocale value="vi_VN" scope="session"/>
+                                                                <fmt:formatNumber  value="${product.price}" type="currency"/>
+                                                                </del>
+                                                            </span>
                                                         </c:otherwise>
                                                     </c:choose>
-                                                </figcaption>
-                                            </figure>
-
-                                            <c:if test="${product.discount != 0}">
-                                                <!-- product badge -->
-                                                <span class="aa-badge aa-sale">- ${product.discount}%</span>
-                                            </c:if>
-                                        </li>
+                                                </div>
+                                            </section>
+                                        </div>
                                     </c:forEach>
-                                    <!-- start single product item -->
-                                    <!-- start single product item -->
-
-                                </ul>
+                                </div>
+                                <!-- / latest product category -->
                             </div>
-                            <!-- / latest product category -->
-                        </div>
-                        <div class="more-product">
-                            <a class="aa-browse-btn" href="${pageContext.request.contextPath}/san-pham">Xem
-                                Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
+                            <div class="more-product">
+                                <a class="aa-browse-btn" href="${pageContext.request.contextPath}/san-pham">Xem
+                                    Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
+                            </div>
                         </div>
                     </div>
                 </div>

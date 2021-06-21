@@ -35,7 +35,7 @@ public class ProductDaoImpl implements ProductDao {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(productEntity);
         return productEntity.getId();
-         
+
     }
 
     @Override
@@ -59,14 +59,22 @@ public class ProductDaoImpl implements ProductDao {
         if (category_id != 0) {
             Query query = session.createQuery("FROM ProductEntity  WHERE category.id  =:category_id AND title like :title");
             query.setParameter("category_id", category_id);
-            query.setParameter("title", "%"+title+"%");
+            query.setParameter("title", "%" + title + "%");
             return query.getResultList();
 
         } else {
             Query query = session.createQuery("FROM ProductEntity  WHERE  title like :title");
-            query.setParameter("title", "%"+title+"%");
+            query.setParameter("title", "%" + title + "%");
             return query.getResultList();
         }
 
     }
+
+    @Override
+    public List<ProductEntity> getProductsByQuery(String queryString) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery(queryString);
+        return query.getResultList();
+    }
+
 }

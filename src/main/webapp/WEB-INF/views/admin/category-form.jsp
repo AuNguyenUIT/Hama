@@ -8,7 +8,19 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%
+    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
 
+    if (session.getAttribute("username") == null) {
+        response.sendRedirect(request.getContextPath() + "/dang-nhap");
+    } else {
+        if (!session.getAttribute("role").equals("admin")) {
+            response.sendRedirect(request.getContextPath() + "/dang-nhap");
+        }
+    }
+%>
 <!-- Start header section -->
 <jsp:include page="./header/header.jsp" flush="true"/>
 <script type="text/javascript"
@@ -124,15 +136,6 @@
         <div class="overlay toggle-menu"></div>
     </div>
 </div>
-<script type="text/javascript">
-</script>
-<script>
-$(document).ready(function(){
-  $("form").submit(function(){
-    alert("Thêm thành công");
-  });
-});
-</script>
 
 
 <jsp:include page="./footer/footer.jsp" flush="true"/>

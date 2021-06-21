@@ -15,4 +15,6 @@ public interface ProductDao {
     ProductEntity getProduct(int id);
 
     List<ProductEntity> getProductByCategoryAndName(Integer category_id, String title);
+
+    List<ProductEntity> getProductsByQuery(String query);
 }
