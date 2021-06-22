@@ -1,8 +1,10 @@
 package com.hama.Hama.controller;
 
 import com.hama.Hama.entities.CategoryEntity;
+import com.hama.Hama.entities.CommentEntity;
 import com.hama.Hama.entities.ProductEntity;
 import com.hama.Hama.service.CategoryService;
+import com.hama.Hama.service.CommentService;
 import com.hama.Hama.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,10 +29,15 @@ public class ProductController {
     @Autowired
     CategoryService categoryService;
 
+    @Autowired
+    CommentService commentService;
+
     @GetMapping("/san-pham/chi-tiet/{product_id}")
     public String showDetailProduct(Model model, @PathVariable String product_id) {
         ProductEntity product = productService.getProduct(Integer.parseInt(product_id));
+        List<CommentEntity> comments = commentService.getCommentsByProductId(product.getId());
         model.addAttribute("product", product);
+        model.addAttribute("comments", comments);
         return "client/product-detail";
     }
 

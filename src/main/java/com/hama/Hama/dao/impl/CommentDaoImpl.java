@@ -51,4 +51,12 @@ public class CommentDaoImpl implements CommentDao {
         Session session = sessionFactory.getCurrentSession();
         return session.get(CommentEntity.class, id);
     }
+
+    @Override
+    public List<CommentEntity> getCommentsByProductId(Integer product_id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM CommentEntity  WHERE product.id  =:product_id");
+        query.setParameter("product_id", product_id);
+        return query.getResultList();
+    }
 }

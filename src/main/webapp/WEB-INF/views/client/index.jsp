@@ -438,7 +438,14 @@
                                                                name="product_id"/>
                                                         <input hidden value="/"
                                                                name="current_path"/>
-                                                        <button type="submit" class="adtocart"><i
+                                                        <button type="submit" class="adtocart"  <c:choose>
+                                                            <c:when test="${product.status == true}">
+                                                                <c:out value=""/>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <c:out value="disabled"/>
+                                                            </c:otherwise>
+                                                        </c:choose> ><i
                                                                 class="fa fa-shopping-cart"></i>
                                                         </button>
                                                     </form>

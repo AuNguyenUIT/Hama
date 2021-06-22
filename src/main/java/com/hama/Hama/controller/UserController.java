@@ -44,8 +44,10 @@ public class UserController {
         if (user.getUserName() != null) {
             if (user.getStatus()) {
                 HttpSession session = request.getSession();
-                session.setAttribute("username", user.getUserName());
+                session.setAttribute("username", username);
                 session.setAttribute("lastname", user.getLastName());
+                session.setAttribute("firstname", user.getFirstName());
+                session.setAttribute("email", user.getMail());
                 session.setAttribute("uid", user.getId());
                 session.setAttribute("role", user.getRole());
                 return "redirect:/";
@@ -68,6 +70,8 @@ public class UserController {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.removeAttribute("username"); //remove session
+            session.removeAttribute("firstname"); //remove session
+            session.removeAttribute("email"); //remove session
             session.removeAttribute("lastname"); //remove session
             session.removeAttribute("uid"); //remove session
             session.removeAttribute("role"); //remove session
@@ -120,6 +124,8 @@ public class UserController {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             session.setAttribute("lastname", user.getLastName());
+            session.setAttribute("firstname", user.getFirstName());
+            session.setAttribute("email", user.getMail());
             session.setAttribute("uid", uid);
             session.setAttribute("role", user.getRole());
             return "redirect:/";

@@ -40,5 +40,11 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.getComment(id);
     }
 
+    @Override
+    @Transactional
+    public List<CommentEntity> getCommentsByProductId(Integer product_id) {
+        return commentDao.getCommentsByProductId(product_id);
+    }
+
 
 }

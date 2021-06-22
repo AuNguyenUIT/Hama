@@ -14,4 +14,5 @@ public interface CommentDao {
 
     CommentEntity getComment(int id);
 
+    List<CommentEntity> getCommentsByProductId(Integer product_id);
 }

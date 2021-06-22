@@ -17,7 +17,7 @@ public class ProductEntity extends AbtractEntity {
     @Column(columnDefinition = "TEXT")
     private String images;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "product")
     private List<CommentEntity> commentList = new ArrayList<>();
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)

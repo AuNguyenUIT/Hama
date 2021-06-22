@@ -13,4 +13,6 @@ public interface CommentService {
 
     CommentEntity getComment(Integer id);
 
+    List<CommentEntity> getCommentsByProductId(Integer product_id);
+
 }

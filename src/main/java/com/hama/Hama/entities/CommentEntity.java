@@ -4,11 +4,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "comment")
-public class CommentEntity extends AbtractEntity{
+public class CommentEntity extends AbtractEntity {
 
-    @ManyToOne()
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
+    @Column()
+    String name;
+
+    @Column()
+    String email;
 
     @ManyToOne()
     @JoinColumn(name = "product_id")
@@ -17,27 +19,35 @@ public class CommentEntity extends AbtractEntity{
     @Column(length = 1000)
     private String body;
 
-    public void setProduct(ProductEntity product) {
-        this.product = product;
-    }
-
     public ProductEntity getProduct() {
         return product;
     }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
+    public void setProduct(ProductEntity product) {
+        this.product = product;
     }
 
-    public UserEntity getUser() {
-        return user;
+    public String getName() {
+        return name;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getBody() {
         return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 }
