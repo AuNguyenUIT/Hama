@@ -10,15 +10,15 @@ import java.util.List;
 public class UserEntity extends AbtractEntity {
 
     @OneToMany(mappedBy = "user")
-    private List<BillEntity> billList = new ArrayList<>();
+    private List<OrderEntity> orders = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
     private List<RateEntity> rateList = new ArrayList<>();
-    @Column(unique = true, name = "username")
+    @Column(unique = true, name = "username", updatable = false)
     private String userName;
     @Column(length = 255)
     private String password;
-    @Column(length = 255, unique = true)
+    @Column(length = 255, unique = true, updatable = false)
     private String mail;
     @Column(length = 255, name = "firstname")
     private String firstName;
@@ -28,25 +28,23 @@ public class UserEntity extends AbtractEntity {
     private String gender;
     @Column()
     private Date date;
-    @Column(length = 10, unique = true, name = "phone_number")
+    @Column(length = 10, unique = true, name = "phone_number", updatable = false)
     private String phoneNumber;
     @Column(length = 1000)
     private String address;
     @Column()
     private boolean status;
-    @Column(length = 1000)
-    private String picture;
 
 
     @JoinColumn()
     private String role;
 
-    public List<BillEntity> getBillList() {
-        return billList;
+    public List<OrderEntity> getBillList() {
+        return orders;
     }
 
-    public void setBillList(List<BillEntity> billList) {
-        this.billList = billList;
+    public void setBillList(List<OrderEntity> orders) {
+        this.orders = orders;
     }
 
     public List<RateEntity> getRateList() {
@@ -135,14 +133,6 @@ public class UserEntity extends AbtractEntity {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
     }
 
     public String getRole() {
