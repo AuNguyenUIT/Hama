@@ -71,7 +71,7 @@
                                                                         pattern="yyyy-MM-dd HH:mm"/>
                                         </td>
                                         <td scope="row">
-                                            <a class="btn btn-danger"
+                                            <a class="btn btn-danger btn-edit"
                                                href="${pageContext.request.contextPath}/quan-tri/bai-viet/xoa?id=${post.id}">Xóa</a>
                                             <a class="btn btn-success"
                                                href="${pageContext.request.contextPath}/quan-tri/bai-viet/chinh-sua?id=${post.id}">Sửa</a>
@@ -87,5 +87,36 @@
         </div>
     </div>
 </div>
-
+<script>
+    $(document).ready(function () {
+        $(".btn-edit").click(function (e) {
+            e.preventDefault();
+            var href = $(this).attr('href');
+            $.confirm({
+                title: 'Xác nhận',
+                content: 'Bạn có chắc chắn muốn xóa bài viết này',
+                type: 'danger',
+                buttons: {
+                    ok: {
+                        text: "Xóa",
+                        btnClass: 'btn-danger',
+                        keys: ['enter'],
+                        action: function () {
+                            window.location.href = href;
+                        }
+                    },
+                    cancel: {
+                        text: "Hủy",
+                        action: function () {
+                            console.log('the user clicked confirm');
+                        }
+                    }
+                }
+            })
+        })
+        if ("${message}") {
+            showMessage("${message}", "${type}")
+        }
+    })
+</script>
 <jsp:include page="./footer/footer.jsp" flush="true"/>

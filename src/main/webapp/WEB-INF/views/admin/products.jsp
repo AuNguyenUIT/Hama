@@ -75,13 +75,13 @@
                                         <td><fmt:formatDate value="${product.modified}"
                                                             pattern="yyyy-MM-dd HH:mm"/></td>
                                         <td>
-                                            <button class="btn btn-danger" onclick="myfunction4()"><a
+                                            <a class="btn btn-danger btn-edit" onclick="myfunction4()"
                                                     href="${pageContext.request.contextPath}/quan-tri/san-pham/xoa?id=${product.id}">Xóa</a>
-                                            </button>
+                                            
 
-                                            <button class="btn btn-success"><a
+                                            <a class="btn btn-success"
                                                     href="${pageContext.request.contextPath}/quan-tri/san-pham/chinh-sua?id=${product.id}">Sửa</a>
-                                            </button>
+
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -97,15 +97,36 @@
     </div>
 </div>
 <script>
-              function myfunction4(){
-                  var x = confirm("Bạn có chắc chắn muốn xóa không?");
-  if (x){
-      alert("Xóa thành công");
-      return true;
-  }
-  else
-    return false;
-              }
-          </script>
+    $(document).ready(function () {
+        $(".btn-edit").click(function (e) {
+            e.preventDefault();
+            var href = $(this).attr('href');
+            $.confirm({
+                title: 'Xác nhận',
+                content: 'Bạn có chắc chắn muốn xóa sản phẩm này',
+                type: 'danger',
+                buttons: {
+                    ok: {
+                        text: "Xóa",
+                        btnClass: 'btn-danger',
+                        keys: ['enter'],
+                        action: function () {
+                            window.location.href = href;
+                        }
+                    },
+                    cancel: {
+                        text: "Hủy",
+                        action: function () {
+                            console.log('the user clicked confirm');
+                        }
+                    }
+                }
+            })
+        })
+        if ("${message}") {
+            showMessage("${message}", "${type}")
+        }
+    })
+</script>
 
 <jsp:include page="./footer/footer.jsp" flush="true"/>

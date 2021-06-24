@@ -118,15 +118,7 @@
                                 <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> Thêm
                                 </button>
                             </div>
-                                <script>
-$(document).ready(function(){
-  $("form").submit(function()
-  {
-
-    alert("Thêm thành công");
-  });
-});
-</script>
+                                
 
                         </form>
                     </div>
@@ -138,5 +130,32 @@ $(document).ready(function(){
 </div>
 <script>
     CKEDITOR.replace('desc')
+</script>
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (e) {
+            e.preventDefault();
+             var href = "${pageContext.request.contextPath}/quan-tri/san-pham/danh-sach";
+            $.confirm({
+                title: 'Thông báo',
+                content: 'Thêm thành công',
+                type: 'danger',
+                buttons: {
+                    ok: {
+                        text: "OK",
+                        btnClass: 'btn-danger',
+                        keys: ['enter'],
+                        action: function () {
+                            window.location.href = href;
+                        }
+                    }
+                }
+            });
+        });
+        if ("${message}") {
+       
+     showMessage("${message}", "${type}");
+        }
+    });
 </script>
 <jsp:include page="./footer/footer.jsp" flush="true"/>

@@ -1,7 +1,21 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <!-- Start header section -->
   <jsp:include page = "./header/header.jsp" flush = "true" />
+  <%
+    response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
+
+    if (session.getAttribute("username") == null) {
+        response.sendRedirect(request.getContextPath() + "/dang-nhap");
+    } else {
+        if (!session.getAttribute("role").equals("admin")) {
+            response.sendRedirect(request.getContextPath() + "/dang-nhap");
+        }
+    }
+%>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <script src="https://www.mindmeister.com/api/v2/js/api.js?client_id=[Client_ID]"></script>
 
@@ -15,22 +29,25 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">Thêm User</div>
+                <div class="card-title">Thêm người dùng</div>
                 <hr>
-                <form action="${pageContext.request.contextPath}/quan-tri/user/add" method="post"
+                <form action="${pageContext.request.contextPath}/quan-tri/nguoi-dung/them" method="post"
                       accept-charset="UTF-8"
                               enctype="multipart/form-data">
                  <div class="form-group">
                     <label for="input-1">Họ</label>
-                    <input type="text" class="form-control" id="input-1" placeholder="Nhập họ" name="user-lastname" required>
+                    <input type="text" class="form-control" id="input-1" placeholder="Nhập họ" name="user-lastname" required autofocus>
                   </div>
                   <div class="form-group">
                     <label for="input-2">Tên</label>
                     <input type="text" class="form-control" id="input-2" placeholder="Nhập tên" name="user-firstname" required>
                   </div>
                     <div class="form-group">
-                    <label for="input-3">Giới tính</label>
-                    <input type="text" class="form-control" id="input-3" placeholder="Nhập giới tính" name="user-gender">
+                        <label for="input-3">Giới tính</label><br>
+                    <input type="radio" id="male" name="user-gender" value="male"><label for="male">Nam</label><br>
+                     <input type="radio" id="female" name="user-gender" value="female"> <label for="female">Nữ</label><br>
+  
+ 
                   </div>
                     <div class="form-group">
                     <label for="input-4">Ngày sinh</label>
@@ -38,7 +55,7 @@
                   </div>
                     <div class="form-group">
                     <label for="input-5">Địa chỉ</label>
-                    <input type="text" class="form-control" id="input-5" placeholder="Nhập địa chỉ" name="user-address" required>
+                    <textarea type="text" class="form-control" id="input-5" placeholder="Nhập địa chỉ" name="user-address" required"></textarea>
                   </div>
                    
                   <div class="form-group">
@@ -50,8 +67,13 @@
                     <input type="text" class="form-control" id="input-7" placeholder="Nhập số điện thoại" name="user-phone" required>
                   </div>
                   <div class="form-group">
-                    <label for="input-8">UserName</label>
-                    <input type="text" class="form-control" id="input-8" placeholder="Nhập Username" name="user-userName" required>
+                    <label for="input-8">Tên đăng nhập</label>
+                    <input type="text" class="form-control" id="input-8" placeholder="Nhập tên đăng nhập" name="user-userName" required>
+                  </div>
+                   <div class="form-group">
+                       <label for="input-8">Vai trò</label><br>
+                    <input type="radio" id="admin" name="user-role" value="admin"><label for="admin">Admin</label><br>
+                     <input type="radio" id="user" name="user-role" value="user"> <label for="user">User</label><br>
                   </div>
                   <div class="form-group">
                     <label for="myinput">Mật khẩu</label>
@@ -77,20 +99,14 @@
                                 </p>
                       </div>
                   <div class="form-group">
-                    <label for="the-date">Date</label>
+                    <label for="the-date">Ngày tạo</label>
                     <input type="date" class="form-control" id="the-date" placeholder="Ngày tạo" name="user-created">
                   </div>
                   <div class="form-group">
                       
                       <button class="btn btn-danger"><a href="${pageContext.request.contextPath}/quan-tri/user/danh-sach">Hủy</a></button>
                       <button  type="submit" class="btn btn-light px-5"  ><i class="icon-lock" ></i> Đăng ký</button>
-                      <script>
-$(document).ready(function(){
-  $("form").submit(function(){
-    alert("Thêm thành công");
-  });
-});
-</script>
+                      
                     
                   </div>
                 </form>
@@ -117,6 +133,32 @@ $(document).ready(function(){
 		document.getElementById('the-date').value = today;
                 
 </script>
-
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (e) {
+            e.preventDefault();
+             var href = "${pageContext.request.contextPath}/quan-tri/nguoi-dung/danh-sach";
+            $.confirm({
+                title: 'Thông báo',
+                content: 'Đăng ký thành công',
+                type: 'danger',
+                buttons: {
+                    ok: {
+                        text: "OK",
+                        btnClass: 'btn-danger',
+                        keys: ['enter'],
+                        action: function () {
+                            window.location.href = href;
+                        }
+                    }
+                }
+            });
+        });
+        if ("${message}") {
+       
+     showMessage("${message}", "${type}");
+        }
+    });
+</script>
 
     <jsp:include page = "./footer/footer.jsp" flush = "true" />

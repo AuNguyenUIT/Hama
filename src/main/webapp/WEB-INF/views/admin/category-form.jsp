@@ -77,7 +77,7 @@
                             </c:when>
                             <c:otherwise>
                                 <form action="${pageContext.request.contextPath}/quan-tri/danh-muc/chinh-sua"
-                                      method="post" enctype="multipart/form-data">
+                                      method="post" enctype="multipart/form-data" >
                                     <input type="HIDDEN" name="id" value="${category.id}">
                                     <input type="HIDDEN" name="thumb" value="${category.thumb}">
                                     <div class="form-group">
@@ -137,5 +137,31 @@
     </div>
 </div>
 
-
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (e) {
+            e.preventDefault();
+             var href = "${pageContext.request.contextPath}/quan-tri/danh-muc/danh-sach";
+            $.confirm({
+                title: 'Thông báo',
+                content: 'Thành công',
+                type: 'danger',
+                buttons: {
+                    ok: {
+                        text: "OK",
+                        btnClass: 'btn-danger',
+                        keys: ['enter'],
+                        action: function () {
+                            window.location.href = href;
+                        }
+                    }
+                }
+            });
+        });
+        if ("${message}") {
+       
+     showMessage("${message}", "${type}");
+        }
+    });
+</script>
 <jsp:include page="./footer/footer.jsp" flush="true"/>

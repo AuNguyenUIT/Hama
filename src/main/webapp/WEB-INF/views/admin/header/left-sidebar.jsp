@@ -15,15 +15,9 @@
             <i class="zmdi zmdi-view-dashboard"></i> <span>Tổng quan</span>
           </a>
         </li>
-
-         <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/quan-tri/danh-sach">
-            <i class="zmdi zmdi-account-box"></i> <span>Quản lí Admin</span>
-          </a>
-        </li>
         <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/user/danh-sach">
-            <i class="zmdi zmdi-accounts"></i> <span>Quản lí User</span>
+          <a href="${pageContext.request.contextPath}/quan-tri/nguoi-dung/danh-sach">
+            <i class="zmdi zmdi-accounts"></i> <span>Quản lí người dùng</span>
           </a>
         </li>
         <li>

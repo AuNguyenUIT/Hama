@@ -84,7 +84,7 @@
             var href = $(this).attr('href');
             $.confirm({
                 title: 'Xác nhận',
-                content: 'Bạn có chắc chắn muốn xáo danh mục này',
+                content: 'Bạn có chắc chắn muốn xóa danh mục này',
                 type: 'danger',
                 buttons: {
                     ok: {
