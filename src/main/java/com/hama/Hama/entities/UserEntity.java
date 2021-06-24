@@ -16,7 +16,7 @@ public class UserEntity extends AbtractEntity {
     private List<RateEntity> rateList = new ArrayList<>();
     @Column(unique = true, name = "username", updatable = false)
     private String userName;
-    @Column(length = 255)
+    @Column(length = 255, updatable = false)
     private String password;
     @Column(length = 255, unique = true, updatable = false)
     private String mail;
