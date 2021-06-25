@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/quan-tri/san-pham")
@@ -47,7 +48,7 @@ public class AdminProductController {
 
 
     @RequestMapping(value = "/them", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String addProduct(Model model, HttpServletRequest request, @RequestParam("thumb") MultipartFile thumb, @RequestParam("multiple_image") MultipartFile[] multipartFiles) {
+    public String addProduct(Model model, HttpServletRequest request, @RequestParam("thumb") MultipartFile thumb, @RequestParam("multiple_image") MultipartFile[] multipartFiles,  RedirectAttributes rm) {
         String title = request.getParameter("title");
         String price = request.getParameter("price");
         String sale = request.getParameter("sale");
@@ -108,7 +109,10 @@ public class AdminProductController {
                 System.out.println(e.getMessage());
             }
         }
-
+         String message = "Thêm " + product.getTitle()+ " thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:danh-sach";
     }
 
@@ -124,7 +128,7 @@ public class AdminProductController {
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String updateProduct(Model model, HttpServletRequest request, @RequestParam("thumb") MultipartFile thumb, @RequestParam("multiple_image") MultipartFile[] multipartFiles) {
+    public String updateProduct(Model model, HttpServletRequest request, @RequestParam("thumb") MultipartFile thumb, @RequestParam("multiple_image") MultipartFile[] multipartFiles, RedirectAttributes rm) {
         String id = request.getParameter("id");
         String old_thumb = request.getParameter("old_thumb");
         String old_images = request.getParameter("old_images");
@@ -187,15 +191,28 @@ public class AdminProductController {
             product.setCategory(category);
         }
         productService.saveProduct(product);
-
+         String message = "C?p nh?t " + product.getTitle()+ " thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:danh-sach";
     }
 
     @RequestMapping(value = "/xoa", method = RequestMethod.GET)
-    public String deleteProduct(HttpServletRequest request) {
+    public String deleteProduct(HttpServletRequest request, RedirectAttributes rm) {
         String id = request.getParameter("id");
-        productService.deleteProduct(Integer.parseInt(id));
-      
+       Boolean status= productService.deleteProduct(Integer.parseInt(id));
+      String message = "";
+        String type = "info";
+        if (status) {
+            message = "Xóa thành công!";
+            type = "success";
+        } else {
+            message = "Xóa th?t b?i!";
+            type = "error";
+        }
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:danh-sach";
     }
 

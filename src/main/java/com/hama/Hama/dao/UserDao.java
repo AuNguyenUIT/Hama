@@ -9,7 +9,7 @@ public interface UserDao {
 
     int saveUser(UserEntity user);
 
-    void deleteUser(int id);
+    Boolean deleteUser(int id);
 
     UserEntity getUser(int id);
 

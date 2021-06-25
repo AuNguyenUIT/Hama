@@ -7,7 +7,7 @@ import java.util.List;
 public interface CommentService {
     Integer saveComment(CommentEntity commentEntity);
 
-    void deleteComment(Integer id);
+    Boolean deleteComment(Integer id);
 
     List<CommentEntity> getComments();
 

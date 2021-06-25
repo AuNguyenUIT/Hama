@@ -10,7 +10,7 @@ public interface PostDao {
 
     int savePost(PostEntity PostEntity);
 
-    void deletePost(int id);
+    Boolean deletePost(int id);
 
     PostEntity getPost(int id);
 }

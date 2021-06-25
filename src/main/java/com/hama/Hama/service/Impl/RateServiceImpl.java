@@ -23,8 +23,8 @@ public class RateServiceImpl implements RateService {
 
     @Override
     @Transactional
-    public void deleteRate(Integer id) {
-        rateDao.deleteRate(id);
+    public Boolean deleteRate(Integer id) {
+       return  rateDao.deleteRate(id);
     }
 
     @Override

@@ -40,10 +40,16 @@ public class CommentDaoImpl implements CommentDao {
     }
 
     @Override
-    public void deleteComment(int id) {
+    public Boolean deleteComment(int id) {
         Session session = sessionFactory.getCurrentSession();
         CommentEntity book = session.byId(CommentEntity.class).load(id);
-        session.delete(book);
+        try {
+            session.remove(book);
+            session.flush();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

@@ -8,7 +8,7 @@ public interface UserService {
 
     Integer saveUser(UserEntity user);
 
-    void deleteUser(Integer id);
+    Boolean deleteUser(Integer id);
 
     List<UserEntity> getUsers();
 

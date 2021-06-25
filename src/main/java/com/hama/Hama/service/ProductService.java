@@ -7,7 +7,7 @@ import java.util.List;
 public interface ProductService {
     int saveProduct(ProductEntity productEntity);
 
-    void deleteProduct(Integer id);
+    Boolean deleteProduct(Integer id);
 
     List<ProductEntity> getProducts();
 

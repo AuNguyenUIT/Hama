@@ -7,7 +7,7 @@ import java.util.List;
 public interface RateService {
     Integer saveRate(RateEntity rateEntity);
 
-    void deleteRate(Integer id);
+    Boolean deleteRate(Integer id);
 
     List<RateEntity> getRates();
 

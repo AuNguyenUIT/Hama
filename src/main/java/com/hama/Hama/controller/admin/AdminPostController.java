@@ -17,6 +17,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/quan-tri/bai-viet")
@@ -39,7 +40,7 @@ public class AdminPostController {
     }
 
     @RequestMapping(value = "/them", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String addPost(HttpServletRequest request, @RequestParam("thumb") MultipartFile multipartFile) throws IOException, InterruptedException {
+    public String addPost(HttpServletRequest request, @RequestParam("thumb") MultipartFile multipartFile,RedirectAttributes rm) throws IOException, InterruptedException {
         request.setCharacterEncoding("utf-8");
         String title = request.getParameter("title");
         String status = request.getParameter("status");
@@ -68,7 +69,10 @@ public class AdminPostController {
             }
         }
         postService.savePost(post);
-   
+        String message = "Thêm " + post.getTitle()+ " thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:danh-sach";
     }
 
@@ -81,7 +85,7 @@ public class AdminPostController {
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String updatePost(HttpServletRequest request, Model model, @RequestParam("thumb") MultipartFile multipartFile) throws ParseException {
+    public String updatePost(HttpServletRequest request, Model model, @RequestParam("thumb") MultipartFile multipartFile,RedirectAttributes rm) throws ParseException {
         String id = request.getParameter("id");
         String title = request.getParameter("title");
         String body = request.getParameter("body");
@@ -112,15 +116,28 @@ public class AdminPostController {
             post.setThumb(thumb);
         }
         postService.savePost(post);
-   
+        String message = "C?p nh?t " + post.getTitle()+ " thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:danh-sach";
     }
 
     @RequestMapping(value = "/xoa", method = RequestMethod.GET)
-    public String deletePost(HttpServletRequest request, Model model) {
+    public String deletePost(HttpServletRequest request, RedirectAttributes rm) {
         String id = request.getParameter("id");
-        postService.deletePost(Integer.parseInt(id));
-     
+       Boolean status= postService.deletePost(Integer.parseInt(id));
+     String message = "";
+        String type = "info";
+        if (status) {
+            message = "Xóa thành công!";
+            type = "success";
+        } else {
+            message = "Xóa th?t b?i!";
+            type = "error";
+        }
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:danh-sach";
     }
 

@@ -12,7 +12,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
@@ -39,10 +38,16 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public void deleteProduct(int id) {
+    public Boolean deleteProduct(int id) {
         Session session = sessionFactory.getCurrentSession();
         ProductEntity book = session.byId(ProductEntity.class).load(id);
-        session.delete(book);
+        try {
+            session.remove(book);
+            session.flush();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
 
     }
 

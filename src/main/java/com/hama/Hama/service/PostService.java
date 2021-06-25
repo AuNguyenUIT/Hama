@@ -8,7 +8,7 @@ public interface PostService {
 
     Integer savePost(PostEntity post);
 
-    void deletePost(Integer id);
+    Boolean deletePost(Integer id);
 
     List<PostEntity> getPosts();
 

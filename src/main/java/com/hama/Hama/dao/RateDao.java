@@ -10,7 +10,7 @@ public interface RateDao {
 
     int saveRate(RateEntity rateEntity);
 
-    void deleteRate(int id);
+    Boolean deleteRate(int id);
 
     RateEntity getRate(int id);
 

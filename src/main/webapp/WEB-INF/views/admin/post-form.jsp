@@ -150,32 +150,6 @@
 <script>
   CKEDITOR.replace("body")
 </script>
-<script>
-    $(document).ready(function () {
-        $("form").submit(function (e) {
-            e.preventDefault();
-             var href = "${pageContext.request.contextPath}/quan-tri/bai-viet/danh-sach";
-            $.confirm({
-                title: 'Thông báo',
-                content: 'Thành công',
-                type: 'danger',
-                buttons: {
-                    ok: {
-                        text: "OK",
-                        btnClass: 'btn-danger',
-                        keys: ['enter'],
-                        action: function () {
-                            window.location.href = href;
-                        }
-                    }
-                }
-            });
-        });
-        if ("${message}") {
-       
-     showMessage("${message}", "${type}");
-        }
-    });
-</script>
+
 <jsp:include page="./footer/footer.jsp" flush="true"/>
 

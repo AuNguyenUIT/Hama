@@ -38,10 +38,16 @@ public class RateDaoImpl implements RateDao {
     }
 
     @Override
-    public void deleteRate(int id) {
+    public Boolean deleteRate(int id) {
         Session session = sessionFactory.getCurrentSession();
         RateEntity book = session.byId(RateEntity.class).load(id);
-        session.delete(book);
+        try {
+            session.remove(book);
+            session.flush();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

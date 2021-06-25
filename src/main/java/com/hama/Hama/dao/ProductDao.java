@@ -10,7 +10,7 @@ public interface ProductDao {
 
     int saveProduct(ProductEntity productEntity);
 
-    void deleteProduct(int id);
+    Boolean deleteProduct(int id);
 
     ProductEntity getProduct(int id);
 

@@ -14,7 +14,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 @Repository
 public class PostDaoImpl implements PostDao {
@@ -34,15 +33,19 @@ public class PostDaoImpl implements PostDao {
     public int savePost(PostEntity PostEntity) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(PostEntity);
-        JOptionPane.showMessageDialog(null, "Thêm thành công");
         return PostEntity.getId();
     }
     @Override
-    public void deletePost(int id) {
+    public Boolean deletePost(int id) {
         Session session = sessionFactory.getCurrentSession();
         PostEntity book = session.byId(PostEntity.class).load(id);
-        session.delete(book);
-        JOptionPane.showMessageDialog(null, "Xóa thành công");
+        try {
+            session.remove(book);
+            session.flush();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
     @Override
     public PostEntity getPost(int id) {

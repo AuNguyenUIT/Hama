@@ -34,74 +34,71 @@
                 <form action="${pageContext.request.contextPath}/quan-tri/nguoi-dung/them" method="post"
                       accept-charset="UTF-8"
                               enctype="multipart/form-data">
-                 <div class="form-group">
-                    <label for="input-1">Họ</label>
-                    <input type="text" class="form-control" id="input-1" placeholder="Nhập họ" name="user-lastname" required autofocus>
-                  </div>
-                  <div class="form-group">
-                    <label for="input-2">Tên</label>
-                    <input type="text" class="form-control" id="input-2" placeholder="Nhập tên" name="user-firstname" required>
-                  </div>
-                    <div class="form-group">
-                        <label for="input-3">Giới tính</label><br>
-                    <input type="radio" id="male" name="user-gender" value="male"><label for="male">Nam</label><br>
-                     <input type="radio" id="female" name="user-gender" value="female"> <label for="female">Nữ</label><br>
-  
- 
-                  </div>
-                    <div class="form-group">
-                    <label for="input-4">Ngày sinh</label>
-                    <input type="date" class="form-control" id="input-4" placeholder="Nhập ngày sinh" name="user-date">
-                  </div>
-                    <div class="form-group">
-                    <label for="input-5">Địa chỉ</label>
-                    <textarea type="text" class="form-control" id="input-5" placeholder="Nhập địa chỉ" name="user-address" required"></textarea>
-                  </div>
-                   
-                  <div class="form-group">
-                    <label for="input-6">Email</label>
-                    <input type="text" class="form-control" id="input-6" placeholder="Nhập địa chỉ Email" name="user-mail" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="input-7">Số Điện Thoại</label>
-                    <input type="text" class="form-control" id="input-7" placeholder="Nhập số điện thoại" name="user-phone" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="input-8">Tên đăng nhập</label>
-                    <input type="text" class="form-control" id="input-8" placeholder="Nhập tên đăng nhập" name="user-userName" required>
-                  </div>
-                   <div class="form-group">
-                       <label for="input-8">Vai trò</label><br>
-                    <input type="radio" id="admin" name="user-role" value="admin"><label for="admin">Admin</label><br>
-                     <input type="radio" id="user" name="user-role" value="user"> <label for="user">User</label><br>
-                  </div>
-                  <div class="form-group">
-                    <label for="myinput">Mật khẩu</label>
-                    <input type="password" class="form-control" id="myinput" placeholder="Nhập mật khẩu" name="user-password" required>
-					<input type="checkbox" onclick="myFunction1()">Hiển thị mật khẩu
-					<script>function myFunction1() {
-                    	  var x = document.getElementById("myinput");
-                    	  if (x.type === "password") {
-                    	    x.type = "text";
-                    	  } else {
-                    	    x.type = "password";
-                    	  }
-                    	}
-					</script>                   
-                  </div>
-                    <div class="form-group">
-                                <label for="thumb">Hình đại diện</label>
-                                <input type="file" name="thumb" accept="image/*" id="thumb"/>
-                                <p>
-                                    <img width="150px"
-                                         src="${pageContext.request.contextPath}/resources/admin/assets/images/preview.jpg"
-                                         id="thumb_preview" alt="Hình đại diện"/>
-                                </p>
-                      </div>
-                  <div class="form-group">
-                    <label for="the-date">Ngày tạo</label>
-                    <input type="date" class="form-control" id="the-date" placeholder="Ngày tạo" name="user-created">
-                  </div>
+                 <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Tên đăng nhập</label>
+                                    <input type="text" class="form-control" placeholder="Tên đăng nhập"
+                                           name="username" >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Mật khẩu</label>
+                                    <input type="password" class="form-control" placeholder="Mật khẩu"
+                                           name="password" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Họ</label>
+                                    <input type="text" class="form-control" placeholder="Họ"
+                                            name="user-lastname" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Tên</label>
+                                    <input type="text" class="form-control" placeholder="Tên"
+                                            name="user-firstname">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="useremail@gmail.com"
+                                           name="user-mail">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Số điện thoại</label>
+                                    <input type="tel" class="form-control" placeholder="Số điện thoại"
+                                           name="user-phone">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label>Giới tính</label><br>
+                                            <input type="radio" id="male" name="user-gender" value="male"><label
+                                                for="male">Nam</label><br>
+                                            <input type="radio" id="female" name="user-gender" value="female"> <label
+                                                for="female">Nữ</label><br>  
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Vai trò</label><br>
+                                    <input type="radio" id="admin" name="user-role" value="admin">
+                                    <label for="admin">Quản trị viên</label><br/>
+                                    <input type="radio" id="user" name="user-role" value="user" >
+                                    <label for="user">Người dùng</label>
+
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label aria-label="birthday">Ngày sinh</label>
+                                    <input type="date" class="form-control" placeholder="Ngày sinh"
+                                            name="user-date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-check-label">
+                                    <input type="checkbox" value="1" name="user-status"> Kích hoạt
+                                </label>
+                            </div>
                   <div class="form-group">
                       
                       <button class="btn btn-danger"><a href="${pageContext.request.contextPath}/quan-tri/user/danh-sach">Hủy</a></button>
@@ -133,32 +130,6 @@
 		document.getElementById('the-date').value = today;
                 
 </script>
-<script>
-    $(document).ready(function () {
-        $("form").submit(function (e) {
-            e.preventDefault();
-             var href = "${pageContext.request.contextPath}/quan-tri/nguoi-dung/danh-sach";
-            $.confirm({
-                title: 'Thông báo',
-                content: 'Đăng ký thành công',
-                type: 'danger',
-                buttons: {
-                    ok: {
-                        text: "OK",
-                        btnClass: 'btn-danger',
-                        keys: ['enter'],
-                        action: function () {
-                            window.location.href = href;
-                        }
-                    }
-                }
-            });
-        });
-        if ("${message}") {
-       
-     showMessage("${message}", "${type}");
-        }
-    });
-</script>
+
 
     <jsp:include page = "./footer/footer.jsp" flush = "true" />

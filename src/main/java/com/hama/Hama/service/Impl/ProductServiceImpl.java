@@ -23,12 +23,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public void deleteProduct(Integer id) {
-        try {
-            productDao.deleteProduct(id);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public Boolean deleteProduct(Integer id) {
+        return productDao.deleteProduct(id);
+        
     }
 
     @Override

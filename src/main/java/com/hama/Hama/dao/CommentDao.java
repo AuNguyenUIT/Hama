@@ -10,7 +10,7 @@ public interface CommentDao {
 
     int saveComment(CommentEntity commentEntity);
 
-    void deleteComment(int id);
+    Boolean deleteComment(int id);
 
     CommentEntity getComment(int id);
 

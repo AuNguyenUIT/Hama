@@ -45,10 +45,16 @@ public class UserDaoImpl implements UserDao  {
     }
 
     @Override
-    public void deleteUser(int id) {
+    public Boolean deleteUser(int id) {
         Session session = sessionFactory.getCurrentSession();
         UserEntity book = session.byId(UserEntity.class).load(id);
-        session.delete(book);
+        try {
+            session.remove(book);
+            session.flush();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

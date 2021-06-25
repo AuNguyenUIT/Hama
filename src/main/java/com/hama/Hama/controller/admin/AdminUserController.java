@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/quan-tri/nguoi-dung")
@@ -50,7 +51,7 @@ public class AdminUserController {
     }
 
     @RequestMapping(value = "/them", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String addUser(Model model, HttpServletRequest request, HttpServletResponse response, @RequestParam("thumb") MultipartFile multipartFile) throws ParseException, InterruptedException, NoSuchAlgorithmException {
+    public String addUser(Model model, HttpServletRequest request, HttpServletResponse response,  RedirectAttributes rm) throws ParseException, InterruptedException, NoSuchAlgorithmException {
         String firstname = request.getParameter("user-firstname");
         String lastname = request.getParameter("user-lastname");
         String gender = request.getParameter("user-gender");
@@ -59,8 +60,9 @@ public class AdminUserController {
         String mail = request.getParameter("user-mail");
         String phone = request.getParameter("user-phone");
         String role = request.getParameter("user-role");
-        String username = request.getParameter("user-userName");
-        String password = request.getParameter("user-password");
+        String status = request.getParameter("user-status");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
         UserEntity user = new UserEntity();
         SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
@@ -78,12 +80,16 @@ public class AdminUserController {
         user.setUserName(username);
         String passwordHash = this.hashPassword(password);
         user.setPassword(passwordHash);
-        user.setStatus(true);
+        if (status.equals("1")) user.setStatus(true);
+        else user.setStatus(false);
         user.setCreated(date);
         user.setModified(date);
 
         userService.saveUser(user);
-
+         String message = "Thêm " + user.getUserName()+ " thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
 
         return "redirect:danh-sach";
     }
@@ -101,7 +107,7 @@ public class AdminUserController {
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String updateUser(Model model, HttpServletRequest request) throws ParseException, NoSuchAlgorithmException {
+    public String updateUser(Model model, HttpServletRequest request,  RedirectAttributes rm) throws ParseException, NoSuchAlgorithmException {
         String id = request.getParameter("user-id");
         String firstname = request.getParameter("user-firstname");
         String lastname = request.getParameter("user-lastname");
@@ -127,13 +133,28 @@ public class AdminUserController {
         user.setModified(date);
         user.setStatus(status != null);
         userService.saveUser(user);
+        String message = "C?p nh?t " + user.getFirstName()+ " thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:danh-sach";
     }
 
     @RequestMapping(value = "/xoa", method = RequestMethod.GET)
-    public String deleteUser(HttpServletRequest request, Model model) {
+    public String deleteUser(HttpServletRequest request, RedirectAttributes rm) {
         String id = request.getParameter("id");
-        userService.deleteUser(Integer.parseInt(id));
+        Boolean status=userService.deleteUser(Integer.parseInt(id));
+        String message = "";
+        String type = "info";
+        if (status) {
+            message = "Xóa thành công!";
+            type = "success";
+        } else {
+            message = "Xóa th?t b?i!";
+            type = "error";
+        }
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:danh-sach";
 
 

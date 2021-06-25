@@ -39,7 +39,7 @@ public class PostController {
     @GetMapping("/danh-sach")
     public String getListPost(Model model) {
         List<PostEntity> postEntityList = postService.getPosts();
-        model.addAttribute("posts", postEntityList);
+        model.addAttribute("boardnewlist", postEntityList);
         return "client/blog-archive";
     }
     
