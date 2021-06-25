@@ -143,11 +143,11 @@
                                            name="current_path"/>
                                     <input type="hidden" placeholder="Số lượng" value="${product.id}"
                                            class="form-control quantity" style="width: 5em" min="1" name="product_id">
-                                    <div class="form-group col-md-3 col-sm-4 col-xs-12">
-                                        <label>Số lượng</label>
-                                        <input type="number" placeholder="Số lượng" value="1" name="quantity"
-                                               class="form-control quantity" style="width: 5em" min="1">
-                                    </div>
+<%--                                    <div class="form-group col-md-3 col-sm-4 col-xs-12">--%>
+<%--                                        <label>Số lượng</label>--%>
+<%--                                        <input type="number" placeholder="Số lượng" value="1" name="quantity"--%>
+<%--                                               class="form-control quantity" style="width: 5em" min="1">--%>
+<%--                                    </div>--%>
                                     <div class="form-group col-md-4 col-sm-4 col-xs-12">
                                         <label>Kích thước</label>
                                         <select id="ecom-addcart-size" name="size" class="form-control"

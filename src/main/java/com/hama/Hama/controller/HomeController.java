@@ -29,19 +29,7 @@ public class HomeController {
     @RequestMapping("/")
     public String hello(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
         request.setCharacterEncoding("UTF-8");
-        OrderController orderController = new OrderController();
         HttpSession session = request.getSession(true);
-        List<OrderItemEntity> orderItems = orderController.getOrderInCookie(request);
-        float order_total = 0;
-        int length = 0;
-        for (OrderItemEntity orderItem : orderItems) {
-            order_total = order_total + orderItem.getTotal();
-            length = length + orderItem.getQuantity();
-        }
-        session.setAttribute("order_items", orderItems);
-        session.setAttribute("length", length);
-        session.setAttribute("total", order_total);
-
         if (session.getAttribute("role") != null) {
             if (session.getAttribute("role").equals(UserRole.ADMIN)) {
                 return "redirect:/quan-tri";

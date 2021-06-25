@@ -69,7 +69,7 @@ public class AdminPostController {
             }
         }
         postService.savePost(post);
-        String message = "Th阭 " + post.getTitle()+ " th鄋h c鬾g!";
+        String message = "Th锚m " + post.getTitle()+ " th脿nh c么ng!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -116,7 +116,7 @@ public class AdminPostController {
             post.setThumb(thumb);
         }
         postService.savePost(post);
-        String message = "C?p nh?t " + post.getTitle()+ " th鄋h c鬾g!";
+        String message = "C岷璸 nh岷璽 " + post.getTitle()+ " th脿nh c么ng!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -130,10 +130,10 @@ public class AdminPostController {
      String message = "";
         String type = "info";
         if (status) {
-            message = "X骯 th鄋h c鬾g!";
+            message = "X贸a th脿nh c么ng!";
             type = "success";
         } else {
-            message = "X骯 th?t b?i!";
+            message = "X贸a th岷 b岷!";
             type = "error";
         }
         rm.addFlashAttribute("message", message);

@@ -50,12 +50,12 @@
                                 <div class="form-group col-md-6">
                                     <label>Họ</label>
                                     <input type="text" class="form-control" placeholder="Họ"
-                                           value="${user.lastName}" name="user-lastname" required>
+                                           value="${user.firstName}"  name="user-firstname"  required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Tên</label>
                                     <input type="text" class="form-control" placeholder="Tên"
-                                           value="${user.firstName}" name="user-firstname">
+                                           value="${user.lastName}" name="user-lastname">
                                 </div>
                             </div>
 

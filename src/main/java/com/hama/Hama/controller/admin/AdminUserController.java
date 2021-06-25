@@ -10,27 +10,21 @@ package com.hama.Hama.controller.admin;
 import com.hama.Hama.controller.UserRole;
 import com.hama.Hama.entities.UserEntity;
 import com.hama.Hama.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.File;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/quan-tri/nguoi-dung")
@@ -51,7 +45,7 @@ public class AdminUserController {
     }
 
     @RequestMapping(value = "/them", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String addUser(Model model, HttpServletRequest request, HttpServletResponse response,  RedirectAttributes rm) throws ParseException, InterruptedException, NoSuchAlgorithmException {
+    public String addUser(Model model, HttpServletRequest request, HttpServletResponse response, RedirectAttributes rm) throws ParseException, InterruptedException, NoSuchAlgorithmException {
         String firstname = request.getParameter("user-firstname");
         String lastname = request.getParameter("user-lastname");
         String gender = request.getParameter("user-gender");
@@ -80,13 +74,12 @@ public class AdminUserController {
         user.setUserName(username);
         String passwordHash = this.hashPassword(password);
         user.setPassword(passwordHash);
-        if (status.equals("1")) user.setStatus(true);
-        else user.setStatus(false);
+        user.setStatus(status.equals("1"));
         user.setCreated(date);
         user.setModified(date);
 
         userService.saveUser(user);
-         String message = "Th阭 " + user.getUserName()+ " th鄋h c鬾g!";
+        String message = "Th锚m " + user.getUserName() + " th脿nh c么ng!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -107,7 +100,7 @@ public class AdminUserController {
     }
 
     @RequestMapping(value = "/chinh-sua", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-    public String updateUser(Model model, HttpServletRequest request,  RedirectAttributes rm) throws ParseException, NoSuchAlgorithmException {
+    public String updateUser(Model model, HttpServletRequest request, RedirectAttributes rm) throws ParseException, NoSuchAlgorithmException {
         String id = request.getParameter("user-id");
         String firstname = request.getParameter("user-firstname");
         String lastname = request.getParameter("user-lastname");
@@ -133,7 +126,7 @@ public class AdminUserController {
         user.setModified(date);
         user.setStatus(status != null);
         userService.saveUser(user);
-        String message = "C?p nh?t " + user.getFirstName()+ " th鄋h c鬾g!";
+        String message = "C岷璸 nh岷璽 " + user.getLastName() + " th脿nh c么ng!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -143,14 +136,14 @@ public class AdminUserController {
     @RequestMapping(value = "/xoa", method = RequestMethod.GET)
     public String deleteUser(HttpServletRequest request, RedirectAttributes rm) {
         String id = request.getParameter("id");
-        Boolean status=userService.deleteUser(Integer.parseInt(id));
+        Boolean status = userService.deleteUser(Integer.parseInt(id));
         String message = "";
         String type = "info";
         if (status) {
-            message = "X骯 th鄋h c鬾g!";
+            message = "X贸a th脿nh c么ng!";
             type = "success";
         } else {
-            message = "X骯 th?t b?i!";
+            message = "X贸a th岷 b岷!";
             type = "error";
         }
         rm.addFlashAttribute("message", message);

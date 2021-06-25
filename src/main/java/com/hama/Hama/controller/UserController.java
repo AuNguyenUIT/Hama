@@ -1,6 +1,11 @@
 package com.hama.Hama.controller;
 
+import com.hama.Hama.entities.OrderEntity;
+import com.hama.Hama.entities.OrderItemEntity;
 import com.hama.Hama.entities.UserEntity;
+import com.hama.Hama.service.OrderItemService;
+import com.hama.Hama.service.OrderService;
+import com.hama.Hama.service.ProductService;
 import com.hama.Hama.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +20,22 @@ import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class UserController {
 
     @Autowired
+    ProductService productService;
+
+    @Autowired
+    OrderService orderService;
+
+    @Autowired
     UserService userService;
+
+    @Autowired
+    OrderItemService orderItemService;
 
     @RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
     public String showFormLogin(HttpServletRequest request) {
@@ -44,6 +59,14 @@ public class UserController {
         if (user.getUserName() != null) {
             if (user.getStatus()) {
                 HttpSession session = request.getSession();
+
+                OrderEntity order = orderService.getOrderByStatusAndUid(OrderStatus.CART, user.getId());
+                if (order.getId() != null) {
+                    List<OrderItemEntity> orderItems = orderItemService.getOrderItemByOrderId(order.getId());
+                    session.setAttribute("order_items", orderItems);
+                    session.setAttribute("total", order.getTotal());
+                    session.setAttribute("length", orderItems.size());
+                }
                 session.setAttribute("username", username);
                 session.setAttribute("lastname", user.getLastName());
                 session.setAttribute("firstname", user.getFirstName());
@@ -75,6 +98,9 @@ public class UserController {
             session.removeAttribute("lastname"); //remove session
             session.removeAttribute("uid"); //remove session
             session.removeAttribute("role"); //remove session
+            session.removeAttribute("order_items");
+            session.removeAttribute("total");
+            session.removeAttribute("length");
         }
         return "redirect:/";
     }

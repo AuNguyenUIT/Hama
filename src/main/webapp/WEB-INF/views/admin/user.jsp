@@ -42,15 +42,14 @@
                                     <th scope="col">Trạng thái</th>
                                     <th scope="col">Ngày tạo</th>
                                     <th scope="col">Hành động</th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${userList}" var="user" varStatus="loop">
                                     <tr>
                                         <th scope="row">${loop.index+1 }</th>
-                                        <td>${user.lastName} </td>
-                                        <td> ${user.firstName }</td>
+                                        <td>${user.firstName} </td>
+                                        <td> ${user.lastName }</td>
                                         <td>${user.mail }</td>
                                         <td>${user.phoneNumber }</td>
                                         <td>${user.userName }</td>

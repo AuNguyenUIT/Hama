@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:url value="/resources/client/assets" var="url"/>
 <div class="aa-header-bottom">
     <div class="container">
@@ -56,25 +57,25 @@
 
                     <!-- cart box -->
                     <div class="aa-cartbox">
-                        <a class="aa-cart-link" href="${pageContext.request.contextPath}/view/client/cart">
+                        <a class="aa-cart-link" href="${pageContext.request.contextPath}/gio-hang">
                             <span class="fas fa-cart-arrow-down"></span>
                             <span class="aa-cart-title">GIỎ HÀNG</span>
-                            <c:if test="${length != NULL}">
-                                <span class="aa-cart-notify">${length}</span>
+                            <c:if test="${sessionScope.length != null}">
+                                <span class="aa-cart-notify">${sessionScope.length}</span>
                             </c:if>
                         </a>
                         <div class="aa-cartbox-summary">
                             <ul class="scroll-product">
-                                <c:if test="${order_items!=null}">
-                                    <c:forEach items="${order_items}" var="item">
+                                <c:if test="${sessionScope.order_items!=null}">
+                                    <c:forEach items="${sessionScope.order_items}" var="item">
                                         <li>
                                             <a class="aa-cartbox-img"
-                                               href="${pageContext.request.contextPath}/view/client/cart"><img
+                                               href="${pageContext.request.contextPath}/gio-hang"><img
                                                     src="${pageContext.request.contextPath}/resources/upload/product/${item.product.id}/${item.product.thumb}"
                                                     alt="img"></a>
                                             <div class="aa-cartbox-info">
                                                 <h4>
-                                                    <a href="${pageContext.request.contextPath}/view/client/cart">${item.product.title}
+                                                    <a href="${pageContext.request.contextPath}/gio-hang">${item.product.title}
                                                         ( ${item.size} )</a>
                                                 </h4>
                                                 <p>${item.quantity} x
@@ -107,9 +108,9 @@
                                 </span>
                             </div>
                             <a class="aa-cartbox-checkout aa-primary-btn"
-                               href="${pageContext.request.contextPath}/view/client/cart">Chi tiết</a>
+                               href="${pageContext.request.contextPath}/gio-hang">Chi tiết</a>
                             <a class="aa-cartbox-checkout aa-primary-btn"
-                               href="${pageContext.request.contextPath}/view/client/checkout">Thanh toán</a>
+                               href="${pageContext.request.contextPath}/thanh-toan">Thanh toán</a>
                         </div>
                     </div>
                     <!-- / cart box -->

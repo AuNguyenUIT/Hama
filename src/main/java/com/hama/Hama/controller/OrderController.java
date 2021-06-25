@@ -1,27 +1,30 @@
 package com.hama.Hama.controller;
 
-import com.hama.Hama.dao.ProductDao;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.hama.Hama.entities.OrderEntity;
 import com.hama.Hama.entities.OrderItemEntity;
 import com.hama.Hama.entities.ProductEntity;
+import com.hama.Hama.entities.UserEntity;
+import com.hama.Hama.service.OrderItemService;
+import com.hama.Hama.service.OrderService;
 import com.hama.Hama.service.ProductService;
-import com.mysql.cj.xdevapi.JsonArray;
+import com.hama.Hama.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.lang.reflect.Type;
+import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -29,6 +32,16 @@ public class OrderController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    OrderService orderService;
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    OrderItemService orderItemService;
+
 
     @RequestMapping(value = "/them-gio-hang", method = RequestMethod.POST)
     public String addToCart(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
@@ -51,56 +64,94 @@ public class OrderController {
         new_product.setSale(product.getSale());
         new_product.setThumb(product.getThumb());
 
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            List<OrderItemEntity> orderItems = this.getOrderInCookie(request);
-            if (session.getAttribute("uid") == null) {
-                OrderItemEntity orderItem = new OrderItemEntity();
-                float unitPrice = product.getPrice() - product.getPrice() * product.getSale() / 100;
-                Float total = unitPrice * Integer.parseInt(quantity);
-                orderItem.setProduct(new_product);
-                orderItem.setQuantity(Integer.parseInt(quantity));
-                orderItem.setSize(size);
-                orderItem.setUnitPrice(unitPrice);
-                orderItem.setTotal(total);
-                float order_total = 0;
-                int total_quantity = 0;
-                if (orderItems.isEmpty()) {
-                    orderItems.add(orderItem);
-                } else {
-                    boolean check = false;
-                    for (int i = 0; i < orderItems.size(); i++) {
-                        OrderItemEntity orderItemOld = orderItems.get(i);
-                        if (orderItem.getProduct().getId().equals(orderItemOld.getProduct().getId()) && orderItemOld.getSize().equals(orderItem.getSize())) {
-                            check = true;
-                            orderItem.setQuantity(orderItemOld.getQuantity() + orderItem.getQuantity());
-                            orderItem.setTotal(orderItemOld.getTotal() + orderItem.getTotal());
-                            orderItems.set(i, orderItem);
-                            order_total = order_total + orderItem.getTotal();
-                            total_quantity = total_quantity + orderItem.getQuantity();
-                        } else {
-                            order_total = order_total + orderItemOld.getTotal();
-                            total_quantity = total_quantity + orderItemOld.getQuantity();
-
-                        }
-                    }
-                    if (!check) {
-                        orderItems.add(orderItem);
-                    }
-                }
-                Gson gson = new Gson();
-                session.setAttribute("order_items", orderItems);
-                session.setAttribute("length", total_quantity);
-                session.setAttribute("total", order_total);
-                String string = URLEncoder.encode(gson.toJson(orderItems), "UTF-8");
-                Cookie cookie = new Cookie("order_items", string);
-                response.addCookie(cookie);
+        HttpSession session = request.getSession(true);
+        if (session.getAttribute("uid") == null) {
+            return "redirect:/dang-nhap";
+        } else {
+            UserEntity user = userService.getUser((int) session.getAttribute("uid"));
+            OrderEntity order = orderService.getOrderByStatusAndUid(OrderStatus.CART, user.getId());
+            if (order.getId() == null) {
+                order = new OrderEntity();
+                order.setEmail((String) session.getAttribute("email"));
+                order.setUser(user);
+                order.setCreated(new Date());
+                order.setModified(new Date());
+                order.setTotal((float) 0);
+                order.setStatus(OrderStatus.CART);
+                int order_id = orderService.saveOrder(order);
+            }
+            OrderItemEntity orderItem = new OrderItemEntity();
+            float unitPrice = product.getPrice() - product.getPrice() * product.getSale() / 100;
+            float total = unitPrice * Integer.parseInt(quantity);
+            orderItem.setProduct(product);
+            orderItem.setQuantity(Integer.parseInt(quantity));
+            orderItem.setSize(size);
+            orderItem.setUnitPrice(unitPrice);
+            orderItem.setTotal(total);
+            orderItem.setOrder(order);
+            orderItem.setCreated(new Date());
+            orderItem.setModified(new Date());
+            float order_total = order.getTotal() + total;
+            order.setTotal(order_total);
+            int order_item = orderItemService.saveOrderItem(orderItem);
+            List<OrderItemEntity> orderItems = (List<OrderItemEntity>) session.getAttribute("order_items");
+            if (orderItems != null) {
+                orderItems.add(orderItem);
 
             } else {
-                //Đã đăng nhập
+                orderItems = new ArrayList<>();
+                orderItems.add(orderItem);
             }
+            session.setAttribute("order_items", orderItems);
+            session.setAttribute("total", order_total);
+            session.setAttribute("length", orderItems.size());
+            orderService.saveOrder(order);
         }
         return "redirect:" + current_path;
+    }
+
+
+    @RequestMapping("/gio-hang")
+    public String showCart(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
+        if (session.getAttribute("uid") != null) {
+            OrderEntity order = orderService.getOrderByStatusAndUid(OrderStatus.CART, (int) session.getAttribute("uid"));
+            if (order.getId() != null) {
+                List<OrderItemEntity> orderItems = orderItemService.getOrderItemByOrderId(order.getId());
+                model.addAttribute("order", order);
+                model.addAttribute("items", orderItems);
+                session.setAttribute("order_items", orderItems);
+                session.setAttribute("total", order.getTotal());
+                session.setAttribute("length", orderItems.size());
+            }
+        } else {
+            return "redirect:/";
+        }
+        return "client/cart";
+    }
+
+    @RequestMapping("/gio-hang/xoa")
+    public String deleteOrderItem(Model model, HttpServletRequest request) {
+        String item_id = request.getParameter("id");
+        HttpSession session = request.getSession(true);
+        if (item_id != null) {
+            OrderEntity order = orderService.getOrderByStatusAndUid(OrderStatus.CART, (int) session.getAttribute("uid"));
+            OrderItemEntity orderItem = orderItemService.getOrderItem(Integer.parseInt(item_id));
+            if (orderItem.getId() != null) {
+                order.setTotal(order.getTotal() - orderItem.getTotal());
+            }
+            Boolean status_delete = orderItemService.deleteOrderItem(Integer.parseInt(item_id));
+            if (status_delete) {
+                orderService.saveOrder(order);
+            }
+        }
+        return "redirect:/gio-hang";
+    }
+
+
+    @RequestMapping("/thanh-toan")
+    public String showCheckoutPane(Model model) {
+        return "client/checkout";
     }
 
 

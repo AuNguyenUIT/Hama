@@ -13,10 +13,10 @@ public class OrderItemEntity extends AbtractEntity {
     @JoinColumn(name = "product_id")
     private ProductEntity product;
 
-    @Column(columnDefinition = "Decimal(10,6) default '00.00'")
+    @Column(columnDefinition = "Decimal(20,6) default '00.00'")
     private Float total;
 
-    @Column(columnDefinition = "Decimal(10,6) default '00.00'")
+    @Column(columnDefinition = "Decimal(20,6) default '00.00'")
     private Float unitPrice;
 
     @Column()

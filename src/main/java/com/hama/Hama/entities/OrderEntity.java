@@ -14,7 +14,7 @@ public class OrderEntity extends AbtractEntity {
     private UserEntity user;
     @Column()
     private String email;
-    @Column(columnDefinition = "Decimal(10,6) default '00.00'")
+    @Column(columnDefinition = "Decimal(20,6) default '00.00'")
     private Float total;
     @OneToMany(mappedBy = "order")
     private List<OrderItemEntity> orderItems;
