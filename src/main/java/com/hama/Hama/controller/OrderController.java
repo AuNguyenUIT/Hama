@@ -6,11 +6,9 @@ import com.hama.Hama.entities.OrderEntity;
 import com.hama.Hama.entities.OrderItemEntity;
 import com.hama.Hama.entities.ProductEntity;
 import com.hama.Hama.entities.UserEntity;
-import com.hama.Hama.service.OrderItemService;
-import com.hama.Hama.service.OrderService;
-import com.hama.Hama.service.ProductService;
-import com.hama.Hama.service.UserService;
+import com.hama.Hama.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,16 +30,17 @@ public class OrderController {
 
     @Autowired
     ProductService productService;
-
     @Autowired
     OrderService orderService;
-
     @Autowired
     UserService userService;
-
     @Autowired
     OrderItemService orderItemService;
+    @Autowired
+    TransactionService transactionService;
 
+    @Value("${stripe.keys.public}")
+    private String API_PUBLIC_KEY;
 
     @RequestMapping(value = "/them-gio-hang", method = RequestMethod.POST)
     public String addToCart(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
@@ -151,6 +150,19 @@ public class OrderController {
 
     @RequestMapping("/thanh-toan")
     public String showCheckoutPane(Model model) {
+        return "client/checkout";
+    }
+
+    @RequestMapping(value = "/thanh-toan", method = RequestMethod.POST)
+    public String checkout(Model model, HttpServletRequest request) {
+//        String tr_username = request.getParameter("transaction_name");
+//        String tr_usermail = request.getParameter("transaction_email");
+        String phone = request.getParameter("transaction_phone");
+        String address = request.getParameter("transaction_address");
+        String mess = request.getParameter("transaction_mess");
+//        String tr_created = request.getParameter("transaction_created");
+        String payment = request.getParameter("transaction_payment");
+        System.out.println(payment);
         return "client/checkout";
     }
 

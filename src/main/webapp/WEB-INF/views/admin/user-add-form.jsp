@@ -94,15 +94,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label aria-label="address">Địa chỉ</label>
+                                <textarea class="form-control" rows="5" name="user-address" placeholder="Địa chỉ">${user.address}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <label class="form-check-label">
                                     <input type="checkbox" value="1" name="user-status" checked> Kích hoạt
                                 </label>
                             </div>
                             <div class="form-group">
 
-                                <button class="btn btn-danger"><a
-                                        href="${pageContext.request.contextPath}/quan-tri/user/danh-sach">Hủy</a>
-                                </button>
+                              <a class="btn btn-danger" href="${pageContext.request.contextPath}/quan-tri/nguoi-dung/danh-sach">Hủy</a>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> Đăng
                                     ký
                                 </button>

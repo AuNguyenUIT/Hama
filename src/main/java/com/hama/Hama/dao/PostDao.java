@@ -8,7 +8,7 @@ public interface PostDao {
 
     List<PostEntity> getPosts();
 
-    int savePost(PostEntity PostEntity);
+    int savePost(PostEntity postEntity);
 
     Boolean deletePost(int id);
 

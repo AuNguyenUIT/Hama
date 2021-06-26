@@ -12,8 +12,6 @@ public class UserEntity extends AbtractEntity {
     @OneToMany(mappedBy = "user")
     private List<OrderEntity> orders = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
-    private List<RateEntity> rateList = new ArrayList<>();
     @Column(unique = true, name = "username", updatable = false)
     private String userName;
     @Column(length = 255, updatable = false)
@@ -45,14 +43,6 @@ public class UserEntity extends AbtractEntity {
 
     public void setBillList(List<OrderEntity> orders) {
         this.orders = orders;
-    }
-
-    public List<RateEntity> getRateList() {
-        return rateList;
-    }
-
-    public void setRateList(List<RateEntity> rateList) {
-        this.rateList = rateList;
     }
 
     public String getUserName() {

@@ -2957,7 +2957,7 @@ a.aa-product-img img {
 
 #checkout .checkout-area .checkout-left .panel-group .aa-checkout-billaddress .aa-checkout-single-bill textarea {
     border: 1px solid #ccc;
-    color: #999;
+    /*color: #999;*/
     height: 158px;
     padding: 10px;
     width: 100%;
@@ -3028,7 +3028,7 @@ a.aa-product-img img {
     width: 80%;
 }
 
-#checkout .checkout-area .checkout-right .aa-payment-method input[type="submit"] {
+#checkout .checkout-area .checkout-right .aa-payment-method button {
     display: block;
     margin-top: 15px;
     padding: 8px 12px;

@@ -71,8 +71,10 @@ public class UserController {
                 session.setAttribute("lastname", user.getLastName());
                 session.setAttribute("firstname", user.getFirstName());
                 session.setAttribute("email", user.getMail());
+                session.setAttribute("phone", user.getPhoneNumber());
                 session.setAttribute("uid", user.getId());
                 session.setAttribute("role", user.getRole());
+                session.setAttribute("address", user.getAddress());
                 return "redirect:/";
             } else {
                 model.addAttribute("username", username);
@@ -98,6 +100,8 @@ public class UserController {
             session.removeAttribute("lastname"); //remove session
             session.removeAttribute("uid"); //remove session
             session.removeAttribute("role"); //remove session
+            session.removeAttribute("address"); //remove session
+            session.removeAttribute("phone"); //remove session
             session.removeAttribute("order_items");
             session.removeAttribute("total");
             session.removeAttribute("length");
@@ -152,8 +156,10 @@ public class UserController {
             session.setAttribute("lastname", user.getLastName());
             session.setAttribute("firstname", user.getFirstName());
             session.setAttribute("email", user.getMail());
+            session.setAttribute("phone", user.getPhoneNumber());
             session.setAttribute("uid", uid);
             session.setAttribute("role", user.getRole());
+            session.setAttribute("address", user.getAddress());
             return "redirect:/";
         } else {
             model.addAttribute("user", user);

@@ -50,7 +50,7 @@
                                 <div class="form-group col-md-6">
                                     <label>Họ</label>
                                     <input type="text" class="form-control" placeholder="Họ"
-                                           value="${user.firstName}"  name="user-firstname"  required>
+                                           value="${user.firstName}" name="user-firstname" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Tên</label>
@@ -112,6 +112,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label aria-label="address">Địa chỉ</label>
+                                <textarea class="form-control" rows="5" name="user-address" placeholder="Địa chỉ">${user.address}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <label class="form-check-label">
                                     <input type="checkbox" value="1" name="user-status"
                                     <c:if test="${user.status==true}">
@@ -120,9 +124,7 @@
                                 </label>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-danger"><a
-                                        href="${pageContext.request.contextPath}/quan-tri/nguoi-dung/danh-sach">Hủy</a>
-                                </button>
+                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/quan-tri/nguoi-dung/danh-sach">Hủy</a>
                                 <button type="submit" class="btn btn-success btn-edit">Cập nhật</button>
                             </div>
                         </form>

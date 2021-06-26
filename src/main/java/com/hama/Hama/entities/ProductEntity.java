@@ -20,9 +20,6 @@ public class ProductEntity extends AbtractEntity {
     @OneToMany(mappedBy = "product")
     private List<CommentEntity> commentList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<RateEntity> rateList = new ArrayList<>();
-
     @Column()
     private float sale;
 
@@ -97,14 +94,6 @@ public class ProductEntity extends AbtractEntity {
 
     public void setCommentList(List<CommentEntity> commentList) {
         this.commentList = commentList;
-    }
-
-    public List<RateEntity> getRateList() {
-        return rateList;
-    }
-
-    public void setRateList(List<RateEntity> rateList) {
-        this.rateList = rateList;
     }
 
     public float getPrice() {

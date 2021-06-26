@@ -1,8 +1,7 @@
 package com.hama.Hama.dao.impl;
 
-import com.hama.Hama.dao.RateDao;
-import com.hama.Hama.dao.RateDao;
-import com.hama.Hama.entities.RateEntity;
+import com.hama.Hama.dao.TransactionDao;
+import com.hama.Hama.entities.TransactionEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,32 +14,32 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-public class RateDaoImpl implements RateDao {
+public class TransactionDaoImpl implements TransactionDao {
     @Autowired
     SessionFactory sessionFactory;
 
     @Override
-    public List<RateEntity> getRates() {
+    public List<TransactionEntity> getTransactions() {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
-        CriteriaQuery<RateEntity> cq = cb.createQuery(RateEntity.class);
-        Root<RateEntity> root = cq.from(RateEntity.class);
+        CriteriaQuery<TransactionEntity> cq = cb.createQuery(TransactionEntity.class);
+        Root<TransactionEntity> root = cq.from(TransactionEntity.class);
         cq.select(root);
         Query query = session.createQuery(cq);
         return query.getResultList();
     }
 
     @Override
-    public int saveRate(RateEntity rateEntity) {
+    public int saveTransaction(TransactionEntity transactionEntity) {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(rateEntity);
-        return rateEntity.getId();
+        session.saveOrUpdate(transactionEntity);
+        return transactionEntity.getId();
     }
 
     @Override
-    public Boolean deleteRate(int id) {
+    public Boolean deleteTransaction(int id) {
         Session session = sessionFactory.getCurrentSession();
-        RateEntity book = session.byId(RateEntity.class).load(id);
+        TransactionEntity book = session.byId(TransactionEntity.class).load(id);
         try {
             session.remove(book);
             session.flush();
@@ -51,8 +50,9 @@ public class RateDaoImpl implements RateDao {
     }
 
     @Override
-    public RateEntity getRate(int id) {
+    public TransactionEntity getTransaction(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(RateEntity.class, id);
+        TransactionEntity transaction = session.get(TransactionEntity.class, id);
+        return transaction;
     }
 }
