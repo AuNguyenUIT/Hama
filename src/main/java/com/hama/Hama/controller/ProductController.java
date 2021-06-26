@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ProductController {
@@ -36,6 +37,16 @@ public class ProductController {
     public String showDetailProduct(Model model, @PathVariable String product_id) {
         ProductEntity product = productService.getProduct(Integer.parseInt(product_id));
         List<CommentEntity> comments = commentService.getCommentsByProductId(product.getId());
+        Map md = model.asMap();
+        for (Object modelKey : md.keySet()) {
+            Object modelValue = md.get(modelKey);
+            if (modelKey == "type") {
+                model.addAttribute("type", modelValue);
+            }
+            if (modelKey == "message") {
+                model.addAttribute("message", modelValue);
+            }
+        }
         model.addAttribute("product", product);
         model.addAttribute("comments", comments);
         return "client/product-detail";
@@ -73,6 +84,16 @@ public class ProductController {
         model.addAttribute("categories", categoryList);
         model.addAttribute("category_id", id);
         model.addAttribute("title", title);
+        Map md = model.asMap();
+        for (Object modelKey : md.keySet()) {
+            Object modelValue = md.get(modelKey);
+            if (modelKey == "type") {
+                model.addAttribute("type", modelValue);
+            }
+            if (modelKey == "message") {
+                model.addAttribute("message", modelValue);
+            }
+        }
         List<ProductEntity> products = productService.getProductByCategoryAndName(id, title);
         model.addAttribute("products", products);
         return "client/products";

@@ -231,7 +231,7 @@
             },
             hidePostalCode: true
         };
-        var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+        var stripe = Stripe('pk_test_51HyqRrBfp1SrSzFP5aIcZ0YJRSLITf4yOMfMcSH4fkdlsdlygIPICOHVmCF74861Zrwx6w9sVX83FVsK7C8yrEgn00h31sjx9G');
         var elements = stripe.elements();
         var card = elements.create('card', {style: style, hidePostalCode: true});
         var status = false;

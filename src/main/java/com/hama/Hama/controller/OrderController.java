@@ -2,17 +2,19 @@ package com.hama.Hama.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.hama.Hama.entities.OrderEntity;
-import com.hama.Hama.entities.OrderItemEntity;
-import com.hama.Hama.entities.ProductEntity;
-import com.hama.Hama.entities.UserEntity;
+import com.hama.Hama.entities.*;
 import com.hama.Hama.service.*;
+import com.stripe.Stripe;
+import com.stripe.model.Charge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -21,11 +23,11 @@ import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
+@PropertySource("classpath:application.properties")
+
 public class OrderController {
 
     @Autowired
@@ -38,12 +40,13 @@ public class OrderController {
     OrderItemService orderItemService;
     @Autowired
     TransactionService transactionService;
-
+    @Autowired
+    StripeService stripeService;
     @Value("${stripe.keys.public}")
     private String API_PUBLIC_KEY;
 
     @RequestMapping(value = "/them-gio-hang", method = RequestMethod.POST)
-    public String addToCart(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public String addToCart(Model model, HttpServletRequest request, HttpServletResponse response, RedirectAttributes rm) throws UnsupportedEncodingException {
         String product_id = request.getParameter("product_id");
         String quantity = request.getParameter("quantity");
         String size = request.getParameter("size");
@@ -106,6 +109,10 @@ public class OrderController {
             session.setAttribute("length", orderItems.size());
             orderService.saveOrder(order);
         }
+        String message = "Thêm giỏ hàng thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:" + current_path;
     }
 
@@ -126,11 +133,21 @@ public class OrderController {
         } else {
             return "redirect:/";
         }
+        Map md = model.asMap();
+        for (Object modelKey : md.keySet()) {
+            Object modelValue = md.get(modelKey);
+            if (modelKey == "type") {
+                model.addAttribute("type", modelValue);
+            }
+            if (modelKey == "message") {
+                model.addAttribute("message", modelValue);
+            }
+        }
         return "client/cart";
     }
 
     @RequestMapping("/gio-hang/xoa")
-    public String deleteOrderItem(Model model, HttpServletRequest request) {
+    public String deleteOrderItem(Model model, HttpServletRequest request, RedirectAttributes rm) {
         String item_id = request.getParameter("id");
         HttpSession session = request.getSession(true);
         if (item_id != null) {
@@ -144,28 +161,69 @@ public class OrderController {
                 orderService.saveOrder(order);
             }
         }
+        String message = "Xóa thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
         return "redirect:/gio-hang";
     }
 
 
     @RequestMapping("/thanh-toan")
-    public String showCheckoutPane(Model model) {
-        return "client/checkout";
+    public String showCheckoutPane(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
+        if (session.getAttribute("uid") != null) {
+            OrderEntity order = orderService.getOrderByStatusAndUid(OrderStatus.CART, (int) session.getAttribute("uid"));
+            if (order.getId() != null) {
+                return "client/checkout";
+            } else {
+                return "redirect:/";
+            }
+        } else {
+            return "redirect:/dang-nhap";
+        }
+
     }
 
     @RequestMapping(value = "/thanh-toan", method = RequestMethod.POST)
-    public String checkout(Model model, HttpServletRequest request) {
-//        String tr_username = request.getParameter("transaction_name");
-//        String tr_usermail = request.getParameter("transaction_email");
+    public String checkout(Model model, HttpServletRequest request, RedirectAttributes rm) {
         String phone = request.getParameter("transaction_phone");
         String address = request.getParameter("transaction_address");
         String mess = request.getParameter("transaction_mess");
-//        String tr_created = request.getParameter("transaction_created");
         String payment = request.getParameter("transaction_payment");
-        System.out.println(payment);
-        return "client/checkout";
-    }
+        HttpSession session = request.getSession(true);
+        OrderEntity order = orderService.getOrderByStatusAndUid(OrderStatus.CART, (int) session.getAttribute("uid"));
+        UserEntity user = order.getUser();
+        TransactionEntity transaction = new TransactionEntity();
+        transaction.setAddress(address);
+        transaction.setAmount(String.valueOf(order.getTotal()));
+        transaction.setPhone(phone);
+        transaction.setOrder(order);
+        transaction.setMessage(mess);
+        transaction.setUser(user);
+        transaction.setCreated(new Date());
+        transaction.setModified(new Date());
+        if (payment.equals("stripe")) {
+            String token = request.getParameter("stripeToken");
+            stripeService.createCharge(user.getMail(), token, Math.round(order.getTotal()));
+            transaction.setPayment("stripe");
 
+        } else {
+            transaction.setPayment("cod");
+        }
+        order.setStatus(OrderStatus.COMPLETED);
+        session.removeAttribute("order_items");
+        session.removeAttribute("order");
+        session.removeAttribute("total");
+        session.removeAttribute("length");
+        orderService.saveOrder(order);
+        transactionService.saveTransaction(transaction);
+        String message = "Đặt hàng thành công!";
+        String type = "success";
+        rm.addFlashAttribute("message", message);
+        rm.addFlashAttribute("type", type);
+        return "redirect:/";
+    }
 
     public List<OrderItemEntity> getOrderInCookie(HttpServletRequest request) throws UnsupportedEncodingException {
         Cookie[] cookies = request.getCookies();

@@ -38,3 +38,13 @@
 <script type="text/javascript" src="${url}/js/validate.js"></script>
 <!-- Custom js -->
 <script type="text/javascript" src="${url}/js/custom.js"></script>
+<script type="text/javascript" src="${url}/js/show_message.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        if ("${message}") {
+            showMessage("${message}", "${type}")
+        }
+    })
+</script>
+

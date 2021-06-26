@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -33,6 +34,16 @@ public class HomeController {
         if (session.getAttribute("role") != null) {
             if (session.getAttribute("role").equals(UserRole.ADMIN)) {
                 return "redirect:/quan-tri";
+            }
+        }
+        Map md = model.asMap();
+        for (Object modelKey : md.keySet()) {
+            Object modelValue = md.get(modelKey);
+            if (modelKey == "type") {
+                model.addAttribute("type", modelValue);
+            }
+            if (modelKey == "message") {
+                model.addAttribute("message", modelValue);
             }
         }
         List<CategoryEntity> categoryList = categoryService.getCategories();

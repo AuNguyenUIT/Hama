@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -49,7 +50,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/dang-nhap", method = RequestMethod.POST)
-    public String login(Model model, HttpServletRequest request) throws NoSuchAlgorithmException {
+    public String login(Model model, HttpServletRequest request, RedirectAttributes rm) throws NoSuchAlgorithmException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String passwordHash = this.hashPassword(password);
@@ -75,6 +76,10 @@ public class UserController {
                 session.setAttribute("uid", user.getId());
                 session.setAttribute("role", user.getRole());
                 session.setAttribute("address", user.getAddress());
+                String message = "Đăng nhâp thành công!";
+                String type = "success";
+                rm.addFlashAttribute("message", message);
+                rm.addFlashAttribute("type", type);
                 return "redirect:/";
             } else {
                 model.addAttribute("username", username);
@@ -103,6 +108,7 @@ public class UserController {
             session.removeAttribute("address"); //remove session
             session.removeAttribute("phone"); //remove session
             session.removeAttribute("order_items");
+            session.removeAttribute("order");
             session.removeAttribute("total");
             session.removeAttribute("length");
         }
@@ -121,7 +127,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/dang-ky", method = RequestMethod.POST)
-    public String registerUser(Model model, HttpServletRequest request) throws NoSuchAlgorithmException, ParseException {
+    public String registerUser(Model model, HttpServletRequest request, RedirectAttributes rm) throws NoSuchAlgorithmException, ParseException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String firstname = request.getParameter("firstname");
@@ -160,6 +166,10 @@ public class UserController {
             session.setAttribute("uid", uid);
             session.setAttribute("role", user.getRole());
             session.setAttribute("address", user.getAddress());
+            String message = "Đăng ký thành công!";
+            String type = "success";
+            rm.addFlashAttribute("message", message);
+            rm.addFlashAttribute("type", type);
             return "redirect:/";
         } else {
             model.addAttribute("user", user);
