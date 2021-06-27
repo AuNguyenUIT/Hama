@@ -34,7 +34,7 @@
                   <li><a href="product.jsp">MÔ HÌNH LƯU NIỆM</a></li>
                 </ul>
               </li>
-              <li><a href="${pageContext.request.contextPath}/bai-viet/danh-sach">TIN TỨC</a></li>
+              <li><a href="${pageContext.request.contextPath}/bai-viet">BÀI VIẾT</a></li>
               <li><a href="${pageContext.request.contextPath}/chinh-sach">CHÍNH SÁCH</a></li>
               <li><a href="${pageContext.request.contextPath}/lien-he">LIÊN HỆ</a></li>
               <li class="aa-search"><!-- search box -->

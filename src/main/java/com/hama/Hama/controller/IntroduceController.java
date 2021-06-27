@@ -16,4 +16,18 @@ public class IntroduceController {
         
         return "client/introduce";
     }
+    
+    @RequestMapping("/huong-dan-dat-hang")
+    public String huongDanDatHang(Model model) {
+        
+        return "client/order";
+    }
+    
+    @RequestMapping("/hinh-thuc-thanh-toan")
+    public String hinhThucThanhToan(Model model) {
+        
+        return "client/payment";
+    }
+    
+    
 }

@@ -109,7 +109,7 @@ public class AdminProductController {
                 System.out.println(e.getMessage());
             }
         }
-         String message = "Th锚m " + product.getTitle()+ " th脿nh c么ng!";
+         String message = "Th阭 " + product.getTitle()+ " th鄋h c鬾g!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -191,7 +191,7 @@ public class AdminProductController {
             product.setCategory(category);
         }
         productService.saveProduct(product);
-         String message = "C岷璸 nh岷璽 " + product.getTitle()+ " th脿nh c么ng!";
+         String message = "C?p nh?t " + product.getTitle()+ " th鄋h c鬾g!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -205,10 +205,10 @@ public class AdminProductController {
       String message = "";
         String type = "info";
         if (status) {
-            message = "X贸a th脿nh c么ng!";
+            message = "X骯 th鄋h c鬾g!";
             type = "success";
         } else {
-            message = "X贸a th岷 b岷!";
+            message = "X骯 th?t b?i!";
             type = "error";
         }
         rm.addFlashAttribute("message", message);

@@ -32,9 +32,9 @@
                   <div class="aa-footer-widget">
                     <h3>HỖ TRỢ KHÁCH HÀNG</h3>
                     <ul class="aa-footer-nav">
-                      <li><a href="${pageContext.request.contextPath}/view/client/order">Hướng dẫn đặt hàng</a></li>
-                      <li><a href="${pageContext.request.contextPath}/view/client/payment">Hướng dẫn thanh toán</a></li>
-                      <li><a href="${pageContext.request.contextPath}/view/client/security">Chính sách bảo mật thông tin</a></li>
+                      <li><a href="${pageContext.request.contextPath}/huong-dan-dat-hang">Hướng dẫn đặt hàng</a></li>
+                      <li><a href="${pageContext.request.contextPath}/hinh-thuc-thanh-toan">Hình thức thanh toán</a></li>
+                      <li><a href="${pageContext.request.contextPath}/chinh-sach">Chính sách bảo mật thông tin</a></li>
                     </ul>
                   </div>
                 </div>
@@ -46,7 +46,7 @@
                     <address>
                       <p>Khu phố 6 - P.Linh Trung - Q.Thủ Đức - TP HCM</p>
                       <p><span class="fa fa-phone"></span>037.7026.186</p>
-                      <p><span class="fa fa-envelope"></span>webnongsan@gmail.com</p>
+                      <p><span class="fa fa-envelope"></span>HaMaShop@gmail.com</p>
                     </address>
                     <div class="aa-footer-social">
                       <a href="#"><span class="fab fa-facebook"></span></a>
@@ -69,7 +69,7 @@
         <div class="row">
         <div class="col-md-12">
           <div class="aa-footer-bottom-area">
-            <p>Copyright 2020 &copy VT3 Team</p>
+            <p>Copyright 2021 &copy HAMA SHOP</p>
             <div class="aa-footer-payment">
               <span class="fab fa-cc-mastercard"></span>
               <span class="fab fa-cc-visa"></span>

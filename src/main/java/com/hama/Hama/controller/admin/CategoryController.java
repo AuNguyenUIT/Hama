@@ -91,7 +91,7 @@ public class CategoryController {
             }
         }
         categoryService.saveCategory(category);
-        String message = "Th锚m th脿nh c么ng!";
+        String message = "Th阭 th鄋h c鬾g!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -140,7 +140,7 @@ public class CategoryController {
         } else {
             category.setThumb(thumb);
         }
-        String message = "C芒p nh芒t " + category.getTitle() + " th脿nh c么ng!";
+        String message = "C?p nh?t " + category.getTitle() + " th鄋h c鬾g!";
         System.out.println(message);
         String type = "success";
         rm.addFlashAttribute("message", message);
@@ -159,10 +159,10 @@ public class CategoryController {
         String message = "";
         String type = "info";
         if (status) {
-            message = "X贸a th脿nh c么nng!";
+            message = "X骯 th鄋h c鬾g!";
             type = "success";
         } else {
-            message = "X贸a th岷 b岷!";
+            message = "X骯 th?t b?i!";
             type = "error";
         }
         rm.addFlashAttribute("message", message);

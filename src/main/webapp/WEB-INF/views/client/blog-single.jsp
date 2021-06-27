@@ -14,7 +14,7 @@
 <!--  content -->
     <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-   <img src="${pageContext.request.contextPath}/resources/client/assetsimages/blog-banner.png" alt="banner blog">
+   <img src="${pageContext.request.contextPath}/resources/client/assets/images/images/banner-post.jpg" alt="banner blog">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -42,15 +42,13 @@
                   <article class="aa-blog-content-single">                        
                     <h2><a href="#">${boardnew.title}</a></h2>
                      <div class="aa-article-bottom">
-                      <div class="aa-post-author">
-                        Đăng bởi <a href="#">${boardnew.author}</a>
-                      </div>
+                      
                       <div class="aa-post-date">${boardnew.created}</div>
                     </div>
                     <figure class="aa-blog-img">
-                      <a href="#"><img src="${pageContext.request.contextPath}/resources/client/assetsimages/news/${boardnew.image_link}" alt="fashion img"></a>
+                        <a href="#"><img src="${pageContext.request.contextPath}/resources/client/assets/images/images/post/${boardnew.thumb}" alt="fashion img"></a>
                     </figure>
-                    <p>${boardnew.content}</p>
+                    <p>${boardnew.body}</p>
                     
                   </article>
                 </div>
@@ -65,9 +63,9 @@
                       <ul>
                    <c:forEach items="${boardnewlist}" var="boardnew" end="2">
                         <li>
-                          <a class="aa-cartbox-img" href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img src="${pageContext.request.contextPath}/resources/client/assetsimages/news/${boardnew.image_link}" alt="img bài viết"></a>
+                          <a class="aa-cartbox-img" href="${pageContext.request.contextPath}/bai-viet/chi-tiet?id=${boardnew.id}"><img src="${pageContext.request.contextPath}/resources/client/assets/images/images/post/${boardnew.thumb}" alt="img bài viết"></a>
                           <div class="aa-cartbox-info">
-                            <h4><a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><b>${boardnew.title }</b></a></h4>
+                            <h4><a href="${pageContext.request.contextPath}/bai-viet/chi-tiet?id=${boardnew.id}"><b>${boardnew.title}</b></a></h4>
                             <p>${boardnew.created }</p>
                           </div>                    
                         </li>

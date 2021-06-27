@@ -3,8 +3,10 @@ package com.hama.Hama.controller;
 import com.hama.Hama.dao.ProductDao;
 import com.hama.Hama.entities.CategoryEntity;
 import com.hama.Hama.entities.OrderItemEntity;
+import com.hama.Hama.entities.PostEntity;
 import com.hama.Hama.entities.ProductEntity;
 import com.hama.Hama.service.CategoryService;
+import com.hama.Hama.service.PostService;
 import com.hama.Hama.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,9 @@ public class HomeController {
 
     @Autowired
     ProductService productService;
+    
+     @Autowired
+    PostService postService;
 
     @RequestMapping("/")
     public String hello(Model model, HttpServletRequest request) throws UnsupportedEncodingException {
@@ -55,6 +60,9 @@ public class HomeController {
         queryString = "From ProductEntity WHERE sale > 0 ORDER BY sale DESC";
         products = productService.getProductsByQuery(queryString);
         model.addAttribute("productsSale", products);
+        
+        List<PostEntity> postEntityList = postService.getPosts();
+        model.addAttribute("boardnewlist", postEntityList);
         return "client/index";
     }
 

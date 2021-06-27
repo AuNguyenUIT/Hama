@@ -109,7 +109,7 @@ public class OrderController {
             session.setAttribute("length", orderItems.size());
             orderService.saveOrder(order);
         }
-        String message = "Th√™m gi·ªè h√†ng th√†nh c√¥ng!";
+        String message = "ThÍm gi? h‡ng th‡nh cÙng!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -161,7 +161,7 @@ public class OrderController {
                 orderService.saveOrder(order);
             }
         }
-        String message = "X√≥a th√†nh c√¥ng!";
+        String message = "XÛa th‡nh cÙng!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -218,7 +218,7 @@ public class OrderController {
         session.removeAttribute("length");
         orderService.saveOrder(order);
         transactionService.saveTransaction(transaction);
-        String message = "ƒê·∫∑t h√†ng th√†nh c√¥ng!";
+        String message = "??t h‡ng th‡nh cÙng!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -239,5 +239,7 @@ public class OrderController {
         }
         return orderItems;
     }
+    
+    
 }
 

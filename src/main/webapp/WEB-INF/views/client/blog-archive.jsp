@@ -19,10 +19,10 @@
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Tin tức</h2>
+        <h2>Bài viết</h2>
         <ol class="breadcrumb">
           <li><a href="${pageContext.request.contextPath}/">Trang chủ</a></li>
-          <li style="color:#fff">Tin tức</li>
+          <li style="color:#fff">Bài viết</li>
         </ol>
       </div>
      </div>
@@ -43,15 +43,11 @@
                   <c:forEach items="${boardnewlist}" var="boardnew">
                     <div class="col-md-4 col-sm-4">
                       <article class="aa-blog-content-single">                        
-                        <h4><a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}">${boardnew.title}</a></h4>
+                        <h4><a href="${pageContext.request.contextPath}/bai-viet/chi-tiet/${boardnew.id}">${boardnew.title}</a></h4>
                         <figure class="aa-blog-img">
-                          <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img src="${pageContext.request.contextPath}/resources/client/assetsimages/news/${boardnew.image_link}" alt="farm products" height="180px" width="300px"></a>
+                          <a href="${pageContext.request.contextPath}/bai-viet/chi-tiet/${boardnew.id}"><img src="${pageContext.request.contextPath}/resources/client/assets/images/images/post/${boardnew.thumb}" alt="img bài viết" height="180px" width="300px"></a>
                         </figure>
-                        <p class="desc-boardnews">${boardnew.content}</p>
                         <div class="aa-article-bottom">
-                          <div class="aa-post-author">
-                            Đăng bởi <a href="#">${boardnew.author}</a>
-                          </div>
                           <div class="aa-post-date">${boardnew.created}</div>
                         </div>
                       </article>

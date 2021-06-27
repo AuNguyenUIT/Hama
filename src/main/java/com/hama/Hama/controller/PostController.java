@@ -29,18 +29,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-@RequestMapping("/bai-viet")
 public class PostController {
 
     @Autowired
     PostService postService;
 
 
-    @GetMapping("/danh-sach")
+    @GetMapping("/bai-viet")
     public String getListPost(Model model) {
         List<PostEntity> postEntityList = postService.getPosts();
         model.addAttribute("boardnewlist", postEntityList);
         return "client/blog-archive";
     }
+    
+    @GetMapping("/bai-viet/chi-tiet/{post_id}")
+    public String showDetailProduct(Model model, @PathVariable String post_id) {
+        PostEntity postEntity = postService.getPost(Integer.parseInt(post_id));
+        List<PostEntity> postEntityList = postService.getPosts();
+        model.addAttribute("boardnew", postEntity);
+        model.addAttribute("boardnewlist", postEntityList);
+        return "client/blog-single";
+    }
+    
+    
     
 }
