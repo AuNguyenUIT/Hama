@@ -91,7 +91,7 @@ public class AdminCategoryController {
             }
         }
         categoryService.saveCategory(category);
-        String message = "Th阭 th鄋h c鬾g!";
+        String message = "Th锚m th脿nh c么ng!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -140,12 +140,8 @@ public class AdminCategoryController {
         } else {
             category.setThumb(thumb);
         }
-<<<<<<< HEAD:src/main/java/com/hama/Hama/controller/admin/AdminCategoryController.java
         String message = "C芒p nh芒t " + category.getTitle() + " th脿nh c么ng!";
-=======
-        String message = "C?p nh?t " + category.getTitle() + " th鄋h c鬾g!";
         System.out.println(message);
->>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44:src/main/java/com/hama/Hama/controller/admin/CategoryController.java
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -163,10 +159,10 @@ public class AdminCategoryController {
         String message = "";
         String type = "info";
         if (status) {
-            message = "X骯 th鄋h c鬾g!";
+            message = "X贸a th脿nh c么ng!";
             type = "success";
         } else {
-            message = "X骯 th?t b?i!";
+            message = "X贸a th岷 b岷!";
             type = "error";
         }
         rm.addFlashAttribute("message", message);

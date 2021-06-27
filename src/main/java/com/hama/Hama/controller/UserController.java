@@ -76,7 +76,7 @@ public class UserController {
                 session.setAttribute("uid", user.getId());
                 session.setAttribute("role", user.getRole());
                 session.setAttribute("address", user.getAddress());
-                String message = "??ng nh?p th�nh c�ng!";
+                String message = "Đăng nhập thành công!";
                 String type = "success";
                 rm.addFlashAttribute("message", message);
                 rm.addFlashAttribute("type", type);
@@ -171,7 +171,7 @@ public class UserController {
             session.setAttribute("uid", uid);
             session.setAttribute("role", user.getRole());
             session.setAttribute("address", user.getAddress());
-            String message = "??ng k� th�nh c�ng!";
+            String message = "Đăng ký thành công!";
             String type = "success";
             rm.addFlashAttribute("message", message);
             rm.addFlashAttribute("type", type);
