@@ -7,7 +7,11 @@
   
   
   <section id="aa-catg-head-banner">
+<<<<<<< HEAD
    <img src="${pageContext.request.contextPath}/resources/client/assets/images/banner-sp.jpg" alt="banner sản phẩm">
+=======
+   <img src="${url}/images/images/banner-hd.png" alt="banner sản phẩm">
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -24,6 +28,7 @@
     <div class="container">
       <div class="row">
       	<div>
+<<<<<<< HEAD
       		<h1 style ="text-align: center; color: red;">Các hình thức thanh toán của Hama Shop</h1>
       		<p>Hiện tại đối với các đơn hàng đặt hàng trực tuyến trên website, <strong>Hama Shop</strong> có những hình thức thanh toán như sau:</p>
       		<strong>* Thanh toán tiền mặt: </strong>
@@ -32,6 +37,16 @@
 			Hình thức thanh toán tiền mặt sẽ được áp dụng với tất cả các đơn hàng trên toàn quốc.</p>
 			<strong>* Thanh toán chuyển khoản ngân hàng và ví điện tử: </strong>
 			<p>Sau khi nhận được đơn hàng trên website, bộ phận chăm sóc khách hàng của <strong>Hama Shop</strong> sẽ xác nhận đơn hàng với khách hàng,
+=======
+      		<h1 style ="text-align: center; color: red;">Các hình thức thanh toán của HAMA SHOP</h1>
+      		<p>Hiện tại đối với các đơn hàng đặt hàng trực tuyến trên website, <strong>HAMA SHOP</strong> có những hình thức thanh toán như sau:</p>
+      		<strong>* Thanh toán tiền mặt: </strong>
+			<p>Sau khi nhận được đơn hàng trên website, bộ phận chăm sóc khách hàng của <strong>HAMA SHOP</strong> sẽ liên hệ lại xác nhận đơn hàng với khách hàng,
+			thông báo hình thức vận chuyển và phí vận chuyển. Khách hàng sẽ thanh toán bằng tiền mặt khi nhận được hàng và thanh toán trực tiếp với nhân viên giao hàng.
+			Hình thức thanh toán tiền mặt sẽ được áp dụng với tất cả các đơn hàng trên toàn quốc.</p>
+			<strong>* Thanh toán chuyển khoản ngân hàng và ví điện tử: </strong>
+			<p>Sau khi nhận được đơn hàng trên website, bộ phận chăm sóc khách hàng của <strong>HAMA SHOP</strong> sẽ xác nhận đơn hàng với khách hàng,
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
 			thông báo hình thức vận chuyển và phí vận chuyển.</p>
 			<strong>1.Tài khoản ngân hàng Vietcombank: </strong>
 			<p style ="margin-left: 20px;">Tên: XXXXXXXXX<br>

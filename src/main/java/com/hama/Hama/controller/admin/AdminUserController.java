@@ -79,7 +79,7 @@ public class AdminUserController {
         user.setModified(date);
 
         userService.saveUser(user);
-        String message = "Th锚m " + user.getUserName() + " th脿nh c么ng!";
+        String message = "Th阭 " + user.getUserName() + " th鄋h c鬾g!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -126,7 +126,7 @@ public class AdminUserController {
         user.setModified(date);
         user.setStatus(status != null);
         userService.saveUser(user);
-        String message = "C岷璸 nh岷璽 " + user.getLastName() + " th脿nh c么ng!";
+        String message = "C?p nh?t " + user.getLastName() + " th鄋h c鬾g!";
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);
@@ -140,10 +140,10 @@ public class AdminUserController {
         String message = "";
         String type = "info";
         if (status) {
-            message = "X贸a th脿nh c么ng!";
+            message = "X骯 th鄋h c鬾g!";
             type = "success";
         } else {
-            message = "X贸a th岷 b岷!";
+            message = "X骯 th?t b?i!";
             type = "error";
         }
         rm.addFlashAttribute("message", message);

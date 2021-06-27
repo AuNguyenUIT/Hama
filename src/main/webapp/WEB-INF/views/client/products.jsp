@@ -115,11 +115,10 @@
                                 </h4>
                                 <c:choose>
                                     <c:when test="${product.sale == 0}">
-                                        <p class="price">
+                                        <span class="price">
                                             <fmt:setLocale value="vi_VN" scope="session"/>
                                             <fmt:formatNumber value="${product.price}"
-                                                              type="currency"/></p>
-                                        <p class="price"></p>
+                                                              type="currency"/></span>
                                     </c:when>
                                     <c:otherwise>
                                                     <span class="price">

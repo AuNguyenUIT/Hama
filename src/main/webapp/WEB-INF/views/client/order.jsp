@@ -7,7 +7,11 @@
   
   
   <section id="aa-catg-head-banner">
+<<<<<<< HEAD
    <img src="${url}/images/banner-sp.jpg" alt="banner sản phẩm">
+=======
+   <img src="${url}/images/images/banner-hd.png" alt="banner sản phẩm">
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -25,7 +29,11 @@
       <div class="row">
       	<div>
       		<h1 style ="text-align: center; color: red;">Hướng dẫn đặt hàng</h1>
+<<<<<<< HEAD
       		<strong>Các bước mua hàng trên Hama Shop: </strong>
+=======
+      		<strong>Các bước mua hàng trên HAMA SHOP: </strong>
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
       		<p>
       		- Tìm kiếm sản phẩm <br>
       		- Chọn sản phẩm <br>
@@ -38,7 +46,11 @@
       		
 			<p>Cách thức thực hiện cực đơn giản, dễ dàng, và nhanh chóng và có đầy đủ hướng dẫn sẽ tiết kiệm thời gian mua hàng của khách hàng.</p>
       		
+<<<<<<< HEAD
       		<p>Ngoài mua hàng thông qua website, khách hàng cũng có thể đặt hàng các sản phẩm của <strong>Hama Shop</strong> qua Hotline: 19001234</p>
+=======
+      		<p>Ngoài mua hàng thông qua website, khách hàng cũng có thể đặt hàng các sản phẩm của <strong>HAMA SHOP</strong> qua Hotline: 19001234</p>
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
       		<i>Hy vọng rằng với những kênh đặt hàng tiện lợi, đơn giản chúng tôi sẽ phục vụ khách hàng một cách nhanh nhất, hiệu quả nhất.</i>
       		<br><br/>
       	</div>

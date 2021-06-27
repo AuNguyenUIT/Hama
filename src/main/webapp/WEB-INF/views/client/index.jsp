@@ -147,13 +147,12 @@
                                                                     </h3>
                                                                     <c:choose>
                                                                         <c:when test="${product.sale == 0}">
-                                                                            <p class="price">
+                                                                            <span class="price">
                                                                                 <fmt:setLocale value="vi_VN"
                                                                                                scope="session"/>
                                                                                 <fmt:formatNumber
                                                                                         value="${product.price}"
-                                                                                        type="currency"/></p>
-                                                                            <p class="price"></p>
+                                                                                        type="currency"/></span>
                                                                         </c:when>
                                                                         <c:otherwise>
                                                                             <span class="price">
@@ -219,13 +218,12 @@
                                                                     </h3>
                                                                     <c:choose>
                                                                         <c:when test="${product.sale == 0}">
-                                                                            <p class="price">
+                                                                            <span class="price">
                                                                                 <fmt:setLocale value="vi_VN"
                                                                                                scope="session"/>
                                                                                 <fmt:formatNumber
                                                                                         value="${product.price}"
-                                                                                        type="currency"/></p>
-                                                                            <p class="price"></p>
+                                                                                        type="currency"/></span>
                                                                         </c:when>
                                                                         <c:otherwise>
                                                                             <span class="price">
@@ -336,11 +334,15 @@
                                                     </h3>
                                                     <c:choose>
                                                         <c:when test="${product.sale == 0}">
-                                                            <p class="price">
+                                                            <span class="price">
                                                                 <fmt:setLocale value="vi_VN" scope="session"/>
+<<<<<<< HEAD
                                                                 <fmt:formatNumber value="${product.price}"
                                                                                   type="currency"/></p>
                                                             <p class="price"></p>
+=======
+                                                                <fmt:formatNumber   value="${product.price}" type="currency"/></span>
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
                                                         </c:when>
                                                         <c:otherwise>
                                                             <span class="price">
@@ -462,11 +464,15 @@
                                                     </h3>
                                                     <c:choose>
                                                         <c:when test="${product.sale == 0}">
-                                                            <p class="price">
+                                                            <span class="price">
                                                                 <fmt:setLocale value="vi_VN" scope="session"/>
+<<<<<<< HEAD
                                                                 <fmt:formatNumber value="${product.price}"
                                                                                   type="currency"/></p>
                                                             <p class="price"></p>
+=======
+                                                                <fmt:formatNumber   value="${product.price}" type="currency"/></span>
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
                                                         </c:when>
                                                         <c:otherwise>
                                                             <span class="price">
@@ -563,7 +569,7 @@
                             <div class="aa-testimonial-single">
                                 <img class="aa-testimonial-img" src="${url}/images/avater-2.jpg" alt="avatar 2">
                                 <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                <p> Về chất lượng của sản phẩm thì khỏi phải bàn, rau củ luôn tươi xanh nhìn rất thích.
+                                <p> Về chất lượng của sản phẩm thì khỏi phải bàn, sản phẩm được làm tỉ mỉ nhìn rất thích.
                                     Tôi sẽ mua hàng ở đây thường xuyên
                                 <p>
                                 <div class="aa-testimonial-info">
@@ -577,7 +583,7 @@
                             <div class="aa-testimonial-single">
                                 <img class="aa-testimonial-img" src="${url}/images/avatar-1.jpg" alt="avatar 3">
                                 <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                <p>Nhiều lần đi làm bận rộn, không có thời gian ra siêu thị nên tôi thường mua hàng
+                                <p>Nhiều lần đi làm bận rộn, không có thời gian mua quà cho người thân nên tôi thường mua hàng
                                     online ở đây. Chất lượng sản phẩm và dịch vụ ở đây rất là tốt!</p>
                                 <div class="aa-testimonial-info">
                                     <p>Oanh Oanh</p>
@@ -599,16 +605,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="aa-latest-blog-area">
-                    <h2>TIN TỨC</h2>
+                    <h2>BÀI VIẾT</h2>
                     <div class="row">
                         <!-- single latest blog -->
                         <c:forEach items="${posts}" var="post" end="4">
                             <div class="col-md-4 col-sm-4">
                                 <div class="aa-latest-blog-single">
                                     <figure class="aa-blog-img">
+<<<<<<< HEAD
                                         <a href="${pageContext.request.contextPath}/bai-viet/${post.id}"><img
                                                 src="${pageContext.request.contextPath}/resources/upload/post/${post.thumb}"
                                                 alt="Tin tức ${post.title}"></a>
+=======
+                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img
+                                                src="${pageContext.request.contextPath}/resources/client/assets/images/images/post/${boardnew.thumb}"
+                                                alt="Bài viết ${boardnew.title}"></a>
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
                                         <figcaption class="aa-blog-img-caption">
                                             <span href="#"><i class="fa fa-clock-o"></i><fmt:formatDate value="${post.created}"
                                                                                                         pattern="yyyy-MM-dd HH:mm"/></span>
@@ -618,8 +630,12 @@
                                         <h3 class="aa-blog-title"><a
                                                 href="${pageContext.request.contextPath}/bai-viet/${post.id}">${post.title}</a>
                                         </h3>
+<<<<<<< HEAD
 <%--                                        <div class="desc-posts">${post.body}</div>--%>
                                         <a href="${pageContext.request.contextPath}/bai-viet/${post.id}"
+=======
+                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
                                            class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
                                     </div>
                                 </div>

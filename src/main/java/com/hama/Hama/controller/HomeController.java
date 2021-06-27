@@ -28,6 +28,9 @@ public class HomeController {
 
     @Autowired
     ProductService productService;
+    
+     @Autowired
+    PostService postService;
 
     @Autowired
     PostService postService;
@@ -63,7 +66,13 @@ public class HomeController {
         queryString = "From ProductEntity WHERE sale > 0 ORDER BY sale DESC";
         products = productService.getProductsByQuery(queryString);
         model.addAttribute("productsSale", products);
+<<<<<<< HEAD
         model.addAttribute("posts", posts);
+=======
+        
+        List<PostEntity> postEntityList = postService.getPosts();
+        model.addAttribute("boardnewlist", postEntityList);
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
         return "client/index";
     }
 

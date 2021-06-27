@@ -52,7 +52,7 @@
                      <p>Liên hệ cho chúng tôi bất cứ khi nào bạn cần.</p>
                      <p><span class="fa fa-home"></span>SHOP HANDMADE - HAMA, Khu phố 6, Linh Trung, Thủ Đức, TP.HCM</p>
                      <p><span class="fa fa-phone"></span>037.7026.186</p>
-                     <p><span class="fa fa-envelope"></span>Email: contact@shophandmadehama.com</p>
+                     <p><span class="fa fa-envelope"></span>Email: HaMaShop@gmail.com</p>
                    </address>
                  </div>
                </div>

@@ -22,7 +22,11 @@ public class PostController {
     PostService postService;
 
 
+<<<<<<< HEAD
     @RequestMapping("/bai-viet")
+=======
+    @GetMapping("/bai-viet")
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
     public String getListPost(Model model) {
         String queryString = "From PostEntity WHERE status =1 ORDER BY created DESC";
         List<PostEntity> posts = postService.getPostsByQuery(queryString);
@@ -44,4 +48,19 @@ public class PostController {
             return "client/404";
         }
     }
+<<<<<<< HEAD
+=======
+    
+    @GetMapping("/bai-viet/chi-tiet/{post_id}")
+    public String showDetailProduct(Model model, @PathVariable String post_id) {
+        PostEntity postEntity = postService.getPost(Integer.parseInt(post_id));
+        List<PostEntity> postEntityList = postService.getPosts();
+        model.addAttribute("boardnew", postEntity);
+        model.addAttribute("boardnewlist", postEntityList);
+        return "client/blog-single";
+    }
+    
+    
+    
+>>>>>>> e878598924e0b7cdfeef93710f55a789a237aa44
 }
