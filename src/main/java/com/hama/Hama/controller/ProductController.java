@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class ProductController {
@@ -33,9 +33,29 @@ public class ProductController {
     @Autowired
     CommentService commentService;
 
-    @GetMapping("/san-pham/chi-tiet/{product_id}")
-    public String showDetailProduct(Model model, @PathVariable String product_id) {
+    @GetMapping("/san-pham/{product_id}")
+    public String showDetailProduct(Model model, @PathVariable String product_id, HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
         ProductEntity product = productService.getProduct(Integer.parseInt(product_id));
+        if (product == null) {
+            return "client/404";
+        }
+        if (session != null) {
+            Set<Integer> productIds = new HashSet<>();
+            if (session.getAttribute("productsLastView") != null) {
+                Set<Integer> productOldIds = (Set<Integer>) session.getAttribute("productsLastView");
+                productIds.add(Integer.parseInt(product_id));
+                Iterator<Integer> iterator = productOldIds.iterator();
+                int i = 0;
+                while (iterator.hasNext() && i < 3) {
+                    productIds.add(iterator.next());
+                    i++;
+                }
+            } else {
+                productIds.add(Integer.parseInt(product_id));
+            }
+            session.setAttribute("productsLastView", productIds);
+        }
         List<CommentEntity> comments = commentService.getCommentsByProductId(product.getId());
         Map md = model.asMap();
         for (Object modelKey : md.keySet()) {
@@ -58,13 +78,16 @@ public class ProductController {
         String category_id = request.getParameter("category_id");
         String title = request.getParameter("title");
 
-        if (!category_id.equals("0")) {
-            model.addAttribute("danh-muc", category_id);
-            model.addAttribute("ten", title);
+        if (category_id != null) {
+            if (!category_id.equals("0")) {
+                model.addAttribute("danh-muc", category_id);
+                model.addAttribute("ten", title);
 //            return "redirect:/san-pham?danh-muc=" + category_id + "&ten=" + title;
-        } else {
-            model.addAttribute("ten", title);
+            } else {
+                model.addAttribute("ten", title);
+            }
         }
+        model.addAttribute("ten", title);
         return new ModelAndView("redirect:/san-pham", model);
     }
 
@@ -92,6 +115,28 @@ public class ProductController {
             }
             if (modelKey == "message") {
                 model.addAttribute("message", modelValue);
+            }
+        }
+        HttpSession session = request.getSession(true);
+        if (session != null) {
+            if (session.getAttribute("productsLastView") != null) {
+                Set<Integer> productIds = (Set<Integer>) session.getAttribute("productsLastView");
+                Iterator<Integer> iterator = productIds.iterator();
+                StringBuilder ids = new StringBuilder("( ");
+                int i = 1;
+                while (iterator.hasNext()) {
+                    if (i == productIds.size()) {
+                        ids.append(iterator.next());
+                    } else {
+                        ids.append(iterator.next());
+                        ids.append(",");
+                    }
+                    i++;
+                }
+                ids.append(")");
+                String queryString = "From ProductEntity WHERE id IN " + ids + " ORDER BY created DESC";
+                List<ProductEntity> products = productService.getProductsByQuery(queryString);
+                model.addAttribute("productsLastView", products);
             }
         }
         List<ProductEntity> products = productService.getProductByCategoryAndName(id, title);

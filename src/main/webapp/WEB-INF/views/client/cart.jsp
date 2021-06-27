@@ -52,11 +52,11 @@
                                             <fa class="fa fa-close"></fa>
                                         </a></td>
                                         <td>
-                                            <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${item.product.id}"><img
+                                            <a href="${pageContext.request.contextPath}/san-pham/${item.product.id}"><img
                                                     src="${pageContext.request.contextPath}/resources/upload/product/${item.product.id}/${item.product.thumb}"
                                                     alt="img${item.product.title }"></a></td>
                                         <td><a class="aa-cart-title"
-                                               href="${pageContext.request.contextPath}/san-pham/chi-tiet/${item.product.id}">${item.product.title }</a>
+                                               href="${pageContext.request.contextPath}/san-pham/${item.product.id}">${item.product.title }</a>
                                         </td>
                                         <td>
                                             <fmt:setLocale value="vi_VN" scope="session"/>

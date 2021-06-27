@@ -9,6 +9,8 @@ public class TransactionEntity extends AbtractEntity {
     @Column
     private String phone;
     @Column
+    private String name;
+    @Column
     private String address;
     @Column
     private String amount;
@@ -23,9 +25,17 @@ public class TransactionEntity extends AbtractEntity {
     @JoinColumn(name = "uid")
     private UserEntity user;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id")
     private OrderEntity order;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getPhone() {
         return phone;

@@ -30,7 +30,7 @@ import javax.swing.JOptionPane;
 
 @Controller
 @RequestMapping("/quan-tri/danh-muc")
-public class CategoryController {
+public class AdminCategoryController {
 
     @Autowired
     CategoryService categoryService;
@@ -141,7 +141,6 @@ public class CategoryController {
             category.setThumb(thumb);
         }
         String message = "Câp nhât " + category.getTitle() + " thành công!";
-        System.out.println(message);
         String type = "success";
         rm.addFlashAttribute("message", message);
         rm.addFlashAttribute("type", type);

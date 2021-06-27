@@ -18,7 +18,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button>          
+            </button>
           </div>
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
@@ -26,7 +26,7 @@
               <li><a href="${pageContext.request.contextPath}/">TRANG CHỦ</a></li>
               <li><a href="${pageContext.request.contextPath}/gioi-thieu">GIỚI THIỆU</a></li>
             <li><a href="${pageContext.request.contextPath}/san-pham">SẢN PHẨM</span></a>
-                <ul class="dropdown-menu">                
+                <ul class="dropdown-menu">
                   <li><a href="product.jsp">MÓC KHÓA</a></li>
                   <li><a href="product.jsp">VÒNG TAY</a></li>
                   <li><a href="product.jsp">GẤU BÔNG</a></li>
@@ -34,13 +34,13 @@
                   <li><a href="product.jsp">MÔ HÌNH LƯU NIỆM</a></li>
                 </ul>
               </li>
-              <li><a href="${pageContext.request.contextPath}/bai-viet/danh-sach">TIN TỨC</a></li>
+              <li><a href="${pageContext.request.contextPath}/bai-viet">BÀI VIẾT</a></li>
               <li><a href="${pageContext.request.contextPath}/chinh-sach">CHÍNH SÁCH</a></li>
               <li><a href="${pageContext.request.contextPath}/lien-he">LIÊN HỆ</a></li>
               <li class="aa-search"><!-- search box -->
               <a class="aa-search-box">
-                <form action="${pageContext.request.contextPath}/san-pham/search" method="GET">
-                  <input type="text" name="s" id="" placeholder="Tìm kiếm sản phẩm..">
+                <form action="${pageContext.request.contextPath}/san-pham/tim-kiem" method="post">
+                  <input type="text" name="title" id="" placeholder="Tìm kiếm sản phẩm..">
                  <button class="serach-box"><span class="fa fa-search"></span></button>
                 </form>
               </a>
@@ -48,8 +48,8 @@
              </li>
             </ul>
           </div><!--/.nav-collapse -->
-          
+
         </div>
-      </div>       
+      </div>
     </div>
   </section>

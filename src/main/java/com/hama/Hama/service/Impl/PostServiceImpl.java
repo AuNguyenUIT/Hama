@@ -2,6 +2,7 @@ package com.hama.Hama.service.Impl;
 
 import com.hama.Hama.dao.PostDao;
 import com.hama.Hama.entities.PostEntity;
+import com.hama.Hama.entities.ProductEntity;
 import com.hama.Hama.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,9 @@ public class PostServiceImpl implements PostService {
         return postDao.getPost(id);
     }
 
-
+    @Override
+    @Transactional
+    public List<PostEntity> getPostsByQuery(String queryString) {
+        return postDao.getPostsByQuery(queryString);
+    }
 }

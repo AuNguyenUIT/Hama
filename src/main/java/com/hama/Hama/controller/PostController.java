@@ -4,43 +4,44 @@
  * and open the template in the editor.
  */
 package com.hama.Hama.controller;
+
 import com.hama.Hama.entities.PostEntity;
 import com.hama.Hama.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.text.ParseException;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
-@RequestMapping("/bai-viet")
 public class PostController {
 
     @Autowired
     PostService postService;
 
 
-    @GetMapping("/danh-sach")
+    @RequestMapping("/bai-viet")
     public String getListPost(Model model) {
-        List<PostEntity> postEntityList = postService.getPosts();
-        model.addAttribute("boardnewlist", postEntityList);
-        return "client/blog-archive";
+        String queryString = "From PostEntity WHERE status =1 ORDER BY created DESC";
+        List<PostEntity> posts = postService.getPostsByQuery(queryString);
+        model.addAttribute("posts", posts);
+        return "client/post-archive";
     }
-    
+
+
+    @RequestMapping("/bai-viet/{post_id}")
+    public String postDetail(Model model, @PathVariable String post_id) {
+        PostEntity post = postService.getPost(Integer.parseInt(post_id));
+        if (post != null) {
+            model.addAttribute("post", post);
+            String queryString = "From PostEntity WHERE status =1 AND id !=" + post_id + " ORDER BY created DESC";
+            List<PostEntity> posts = postService.getPostsByQuery(queryString);
+            model.addAttribute("posts", posts);
+            return "client/post-single";
+        } else {
+            return "client/404";
+        }
+    }
 }

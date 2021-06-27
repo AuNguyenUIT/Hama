@@ -191,6 +191,7 @@ public class OrderController {
         String address = request.getParameter("transaction_address");
         String mess = request.getParameter("transaction_mess");
         String payment = request.getParameter("transaction_payment");
+        String name = request.getParameter("transaction_name");
         HttpSession session = request.getSession(true);
         OrderEntity order = orderService.getOrderByStatusAndUid(OrderStatus.CART, (int) session.getAttribute("uid"));
         UserEntity user = order.getUser();
@@ -201,6 +202,7 @@ public class OrderController {
         transaction.setOrder(order);
         transaction.setMessage(mess);
         transaction.setUser(user);
+        transaction.setName(name);
         transaction.setCreated(new Date());
         transaction.setModified(new Date());
         if (payment.equals("stripe")) {

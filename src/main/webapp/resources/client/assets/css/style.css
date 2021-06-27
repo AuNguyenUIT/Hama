@@ -433,7 +433,7 @@ img {
     display: inline;
     width: 100%;
     padding: 10px 0;
-	background-color:#000000;
+    background-color: #000000;
 }
 
 #aa-header .aa-header-bottom .aa-header-bottom-area {
@@ -510,7 +510,7 @@ img {
 #aa-header .aa-header-bottom .aa-shipping-box .aa-shipping-boxsmall {
     padding: 15px;
     display: flex;
-	color:#ffffff;
+    color: #ffffff;
 }
 
 #aa-header .aa-header-bottom .aa-shipping-box .aa-shipping-boxsmall-icon {
@@ -737,7 +737,7 @@ img {
     display: inline;
     float: left;
     width: 100%;
-	background-color:#000000;
+    background-color: #000000;
 }
 
 #menu .menu-area {
@@ -1909,6 +1909,12 @@ a.aa-product-img img {
 
 .aa-latest-blog-single .aa-blog-info p {
     font-size: 15px;
+}
+
+.aa-latest-blog-single .aa-blog-info .desc-posts {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .aa-latest-blog-single .aa-blog-info .aa-read-mor-btn {
@@ -4664,12 +4670,12 @@ a.aa-product-img img {
 }
 
 @media (max-width: 360px) {
-	
+
     #aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo {
         margin-bottom: 10px;
         text-align: center;
         width: 100%;
-		
+
     }
 
     #aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo a {

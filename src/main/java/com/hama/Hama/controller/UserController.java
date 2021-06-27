@@ -80,7 +80,12 @@ public class UserController {
                 String type = "success";
                 rm.addFlashAttribute("message", message);
                 rm.addFlashAttribute("type", type);
-                return "redirect:/";
+                if (user.getRole().equals(UserRole.USER)) {
+                    return "redirect:/";
+                } else {
+                    return "redirect:/quan-tri";
+
+                }
             } else {
                 model.addAttribute("username", username);
                 model.addAttribute("password", password);

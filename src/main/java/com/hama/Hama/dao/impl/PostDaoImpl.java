@@ -1,7 +1,9 @@
 package com.hama.Hama.dao.impl;
 
 import com.hama.Hama.dao.PostDao;
+import com.hama.Hama.entities.OrderEntity;
 import com.hama.Hama.entities.PostEntity;
+import com.hama.Hama.entities.ProductEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import java.util.List;
 public class PostDaoImpl implements PostDao {
     @Autowired
     SessionFactory sessionFactory;
+
     @Override
     public List<PostEntity> getPosts() {
         Session session = sessionFactory.getCurrentSession();
@@ -29,12 +32,14 @@ public class PostDaoImpl implements PostDao {
         Query query = session.createQuery(cq);
         return query.getResultList();
     }
+
     @Override
     public int savePost(PostEntity PostEntity) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(PostEntity);
         return PostEntity.getId();
     }
+
     @Override
     public Boolean deletePost(int id) {
         Session session = sessionFactory.getCurrentSession();
@@ -47,10 +52,24 @@ public class PostDaoImpl implements PostDao {
             return false;
         }
     }
+
     @Override
     public PostEntity getPost(int id) {
         Session session = sessionFactory.getCurrentSession();
-        PostEntity Post = session.get(PostEntity.class, id);
-        return Post;
+
+        PostEntity post = null;
+        try {
+            post = session.get(PostEntity.class, id);
+        }catch (Exception  e){
+            System.out.println(e.getMessage());
+        }
+        return post;
+    }
+
+    @Override
+    public List<PostEntity> getPostsByQuery(String queryString) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery(queryString);
+        return query.getResultList();
     }
 }

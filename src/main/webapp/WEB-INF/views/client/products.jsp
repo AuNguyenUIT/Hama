@@ -9,7 +9,7 @@
 <!-- content -->
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
-    <img src="${url}/images/images/banner-sp.jpg" alt="banner sản phẩm">
+    <img src="${url}/images/banner-sp.jpg" alt="banner sản phẩm">
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">
@@ -85,7 +85,7 @@
                                 </c:if>
 
                                 <a class=""
-                                   href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                   href="${pageContext.request.contextPath}/san-pham/${product.id}"><img
                                         src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
                                         alt="${product.title}"></a>
 
@@ -110,7 +110,7 @@
 
                             <div class="panel-body text-center">
                                 <h4>
-                                    <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"
+                                    <a href="${pageContext.request.contextPath}/san-pham/${product.id}"
                                        class="pro-title"> ${product.title}</a>
                                 </h4>
                                 <c:choose>
@@ -146,6 +146,85 @@
     </div>
 </section>
 <!-- / product category -->
+<c:if test="${!empty productsLastView}">
+    <section class="container bootdey">
+        <div class="row product-list">
+            <div class="col-md-12">
+                <h4>Sản phẩm xem gần đây</h4>
+            </div>
+            <c:forEach items="${productsLastView}" var="product" end="4">
+                <div class="col-md-3">
+                    <section class="panel offer offer-radius offer-danger ">
+                        <div class="pro-img-box">
+                            <c:if test="${product.sale != 0}">
+                                <div class="shape">
+                                    <div class="shape-text">
+                                        - ${product.sale} %
+                                    </div>
+                                </div>
+                            </c:if>
+                            <a class=""
+                               href="${pageContext.request.contextPath}/san-pham/${product.id}"><img
+                                    src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
+                                    alt="${product.title}"></a>
+
+                            <form class=""
+                                  action="${pageContext.request.contextPath}/them-gio-hang"
+                                  method="post">
+                                <input hidden value="${product.id}"
+                                       name="product_id"/>
+                                <input hidden value="/"
+                                       name="current_path"/>
+                                <button type="submit" class="adtocart"  <c:choose>
+                                    <c:when test="${product.status == true}">
+                                        <c:out value=""/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:out value="disabled"/>
+                                    </c:otherwise>
+                                </c:choose> ><i
+                                        class="fa fa-shopping-cart"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="panel-body text-center">
+                            <h3>
+                                <a href="${pageContext.request.contextPath}/san-pham/${product.id}"
+                                   class="pro-title"> ${product.title}</a>
+                            </h3>
+                            <c:choose>
+                                <c:when test="${product.sale == 0}">
+                                    <p class="price">
+                                        <fmt:setLocale value="vi_VN" scope="session"/>
+                                        <fmt:formatNumber value="${product.price}"
+                                                          type="currency"/></p>
+                                    <p class="price"></p>
+                                </c:when>
+                                <c:otherwise>
+                                                            <span class="price">
+                                                                   <fmt:setLocale value="vi_VN" scope="session"/>
+                                                                    <fmt:formatNumber
+                                                                            value="${product.price - product.price*(product.sale/100)}"
+                                                                            type="currency"/>
+                                                            </span>
+                                    <span class=""><del>
+                                                                <fmt:setLocale value="vi_VN" scope="session"/>
+                                                                <fmt:formatNumber value="${product.price}"
+                                                                                  type="currency"/>
+                                                                </del>
+                                                            </span>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </section>
+                </div>
+            </c:forEach>
+        </div>
+    </section>
+</c:if>
+
+
 <!-- end content-->
 
 <!-- footer-->

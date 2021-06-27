@@ -31,26 +31,26 @@
           </a>
         </li>
         <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/order/list">
+          <a href="${pageContext.request.contextPath}/quan-tri/don-hang/danh-sach">
             <i class="zmdi zmdi-shopping-cart"></i> <span>Đơn Hàng</span>
           </a>
         </li>
 
+<%--        <li>--%>
+<%--          <a href="${pageContext.request.contextPath}/quan-tri/order/list-detail">--%>
+<%--            <i class="zmdi zmdi-shopping-cart"></i> <span>Chi Tiết Đơn Hàng</span>--%>
+<%--          </a>--%>
+<%--        </li>--%>
         <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/order/list-detail">
-            <i class="zmdi zmdi-shopping-cart"></i> <span>Chi Tiết Đơn Hàng</span>
+          <a href="${pageContext.request.contextPath}/quan-tri/danh-gia/danh-sach">
+            <i class="zmdi zmdi-calendar-check"></i> <span>Đánh giá</span>
           </a>
         </li>
-        <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/review/list">
-            <i class="zmdi zmdi-calendar-check"></i> <span>Review</span>
-          </a>
-        </li>
-        <li>
-          <a href="${pageContext.request.contextPath}/quan-tri/new/list">
-            <i class="icon-envelope-open"></i> <span>Tin tức</span>
-          </a>
-        </li>
+<%--        <li>--%>
+        <%--          <a href="${pageContext.request.contextPath}/quan-tri/new/list">--%>
+        <%--            <i class="icon-envelope-open"></i> <span>Tin tức</span>--%>
+        <%--          </a>--%>
+        <%--        </li>--%>
         <li> <a href="${pageContext.request.contextPath}/quan-tri/bai-viet/danh-sach">
             <i class="icon-notebook"></i> <span>Bài viết</span>
           </a>

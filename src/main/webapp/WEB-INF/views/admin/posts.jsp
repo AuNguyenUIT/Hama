@@ -114,9 +114,9 @@
                 }
             })
         })
-        if ("${message}") {
-            showMessage("${message}", "${type}")
-        }
+        <%--if ("${message}") {--%>
+        <%--    showMessage("${message}", "${type}")--%>
+        <%--}--%>
     })
 </script>
 <jsp:include page="./footer/footer.jsp" flush="true"/>

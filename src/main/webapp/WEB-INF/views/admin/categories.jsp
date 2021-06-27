@@ -104,9 +104,9 @@
                 }
             })
         })
-        if ("${message}") {
-            showMessage("${message}", "${type}")
-        }
+        <%--if ("${message}") {--%>
+        <%--    showMessage("${message}", "${type}")--%>
+        <%--}--%>
     })
 </script>
 

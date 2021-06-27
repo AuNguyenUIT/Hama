@@ -123,7 +123,7 @@
                                                                         </div>
                                                                     </c:if>
                                                                     <a class=""
-                                                                       href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                                                       href="${pageContext.request.contextPath}/san-pham/${product.id}"><img
                                                                             src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
                                                                             alt="${product.title}"></a>
 
@@ -142,7 +142,7 @@
 
                                                                 <div class="panel-body text-center">
                                                                     <h3>
-                                                                        <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"
+                                                                        <a href="${pageContext.request.contextPath}/san-pham/${product.id}"
                                                                            class="pro-title"> ${product.title}</a>
                                                                     </h3>
                                                                     <c:choose>
@@ -195,7 +195,7 @@
                                                                         </div>
                                                                     </c:if>
                                                                     <a class=""
-                                                                       href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                                                       href="${pageContext.request.contextPath}/san-pham/${product.id}"><img
                                                                             src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
                                                                             alt="${product.title}"></a>
 
@@ -214,7 +214,7 @@
 
                                                                 <div class="panel-body text-center">
                                                                     <h3>
-                                                                        <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"
+                                                                        <a href="${pageContext.request.contextPath}/san-pham/${product.id}"
                                                                            class="pro-title"> ${product.title}</a>
                                                                     </h3>
                                                                     <c:choose>
@@ -312,7 +312,7 @@
                                                         </div>
                                                     </c:if>
                                                     <a class=""
-                                                       href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                                       href="${pageContext.request.contextPath}/san-pham/${product.id}"><img
                                                             src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
                                                             alt="${product.title}"></a>
 
@@ -331,24 +331,28 @@
 
                                                 <div class="panel-body text-center">
                                                     <h3>
-                                                        <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"
+                                                        <a href="${pageContext.request.contextPath}/san-pham/${product.id}"
                                                            class="pro-title"> ${product.title}</a>
                                                     </h3>
                                                     <c:choose>
                                                         <c:when test="${product.sale == 0}">
                                                             <p class="price">
                                                                 <fmt:setLocale value="vi_VN" scope="session"/>
-                                                                <fmt:formatNumber   value="${product.price}" type="currency"/></p>
+                                                                <fmt:formatNumber value="${product.price}"
+                                                                                  type="currency"/></p>
                                                             <p class="price"></p>
                                                         </c:when>
                                                         <c:otherwise>
                                                             <span class="price">
-                                                                   <fmt:setLocale  value="vi_VN"  scope="session"/>
-                                                                    <fmt:formatNumber  value="${product.price - product.price*(product.sale/100)}"  type="currency"/>
+                                                                   <fmt:setLocale value="vi_VN" scope="session"/>
+                                                                    <fmt:formatNumber
+                                                                            value="${product.price - product.price*(product.sale/100)}"
+                                                                            type="currency"/>
                                                             </span>
                                                             <span class=""><del>
                                                                 <fmt:setLocale value="vi_VN" scope="session"/>
-                                                                <fmt:formatNumber  value="${product.price}" type="currency"/>
+                                                                <fmt:formatNumber value="${product.price}"
+                                                                                  type="currency"/>
                                                                 </del>
                                                             </span>
                                                         </c:otherwise>
@@ -369,7 +373,7 @@
                                         <li>
                                             <figure>
                                                 <a class="aa-product-img"
-                                                   href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                                   href="${pageContext.request.contextPath}/san-pham/${product.id}"><img
                                                         src="${pageContext.request.contextPath}/resources/client/assetsimages/products/img-test/${product.image_link}"
                                                         alt="polo shirt img"></a>
                                                 <a class="aa-add-card-btn"
@@ -377,7 +381,7 @@
                                                         class="fa fa-shopping-cart"></span>Thêm vào giỏ hàng</a>
                                                 <figcaption>
                                                     <h4 class="aa-product-title"><a
-                                                            href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}">${product.name }</a>
+                                                            href="${pageContext.request.contextPath}/san-pham/${product.id}">${product.name }</a>
                                                     </h4>
                                                     <c:choose>
                                                         <c:when test="${product.discount == 0}">
@@ -427,7 +431,7 @@
                                                         </div>
                                                     </c:if>
                                                     <a class=""
-                                                       href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                                       href="${pageContext.request.contextPath}/san-pham/${product.id}"><img
                                                             src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
                                                             alt="${product.title}"></a>
 
@@ -453,24 +457,28 @@
 
                                                 <div class="panel-body text-center">
                                                     <h3>
-                                                        <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"
+                                                        <a href="${pageContext.request.contextPath}/san-pham/${product.id}"
                                                            class="pro-title"> ${product.title}</a>
                                                     </h3>
                                                     <c:choose>
                                                         <c:when test="${product.sale == 0}">
                                                             <p class="price">
                                                                 <fmt:setLocale value="vi_VN" scope="session"/>
-                                                                <fmt:formatNumber   value="${product.price}" type="currency"/></p>
+                                                                <fmt:formatNumber value="${product.price}"
+                                                                                  type="currency"/></p>
                                                             <p class="price"></p>
                                                         </c:when>
                                                         <c:otherwise>
                                                             <span class="price">
-                                                                   <fmt:setLocale  value="vi_VN"  scope="session"/>
-                                                                    <fmt:formatNumber  value="${product.price - product.price*(product.sale/100)}"  type="currency"/>
+                                                                   <fmt:setLocale value="vi_VN" scope="session"/>
+                                                                    <fmt:formatNumber
+                                                                            value="${product.price - product.price*(product.sale/100)}"
+                                                                            type="currency"/>
                                                             </span>
                                                             <span class=""><del>
                                                                 <fmt:setLocale value="vi_VN" scope="session"/>
-                                                                <fmt:formatNumber  value="${product.price}" type="currency"/>
+                                                                <fmt:formatNumber value="${product.price}"
+                                                                                  type="currency"/>
                                                                 </del>
                                                             </span>
                                                         </c:otherwise>
@@ -594,23 +602,24 @@
                     <h2>TIN TỨC</h2>
                     <div class="row">
                         <!-- single latest blog -->
-                        <c:forEach items="${boardnewlist}" var="boardnew" end="2">
+                        <c:forEach items="${posts}" var="post" end="4">
                             <div class="col-md-4 col-sm-4">
                                 <div class="aa-latest-blog-single">
                                     <figure class="aa-blog-img">
-                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"><img
-                                                src="${pageContext.request.contextPath}/resources/client/assetsimages/news/${boardnew.image_link}"
-                                                alt="Tin tức ${boardnew.title}"></a>
+                                        <a href="${pageContext.request.contextPath}/bai-viet/${post.id}"><img
+                                                src="${pageContext.request.contextPath}/resources/upload/post/${post.thumb}"
+                                                alt="Tin tức ${post.title}"></a>
                                         <figcaption class="aa-blog-img-caption">
-                                            <span href="#"><i class="fa fa-clock-o"></i>${boardnew.created}</span>
+                                            <span href="#"><i class="fa fa-clock-o"></i><fmt:formatDate value="${post.created}"
+                                                                                                        pattern="yyyy-MM-dd HH:mm"/></span>
                                         </figcaption>
                                     </figure>
                                     <div class="aa-blog-info">
                                         <h3 class="aa-blog-title"><a
-                                                href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}">${boardnew.title}</a>
+                                                href="${pageContext.request.contextPath}/bai-viet/${post.id}">${post.title}</a>
                                         </h3>
-                                        <p class="desc-boardnews">${boardnew.content}</p>
-                                        <a href="${pageContext.request.contextPath}/view/client/news-list-detail?id=${boardnew.id}"
+<%--                                        <div class="desc-posts">${post.body}</div>--%>
+                                        <a href="${pageContext.request.contextPath}/bai-viet/${post.id}"
                                            class="aa-read-mor-btn">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
                                     </div>
                                 </div>

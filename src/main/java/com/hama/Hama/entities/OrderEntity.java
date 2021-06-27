@@ -8,7 +8,9 @@ import java.util.List;
 public class OrderEntity extends AbtractEntity {
 
     @Column()
-    String status;
+    private String status;
+    @OneToOne(mappedBy = "order")
+    private TransactionEntity transaction;
     @ManyToOne
     @JoinColumn(name = "uid")
     private UserEntity user;
@@ -18,6 +20,14 @@ public class OrderEntity extends AbtractEntity {
     private Float total;
     @OneToMany(mappedBy = "order")
     private List<OrderItemEntity> orderItems;
+
+    public TransactionEntity getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(TransactionEntity transaction) {
+        this.transaction = transaction;
+    }
 
     public String getStatus() {
         return status;

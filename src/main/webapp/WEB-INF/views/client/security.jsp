@@ -23,7 +23,7 @@
       <div class="row">
       	<div>
       		<h1 style ="text-align: center; color: red;">Chính Sách Bảo Mật</h1>
-      		<strong>Cám ơn quý khách đã truy cập vào website Nông Sản 24h</strong><br><br>
+      		<strong>Cám ơn quý khách đã truy cập vào website Hama Shop</strong><br><br>
       		<p>Chúng tôi tôn trọng và cam kết sẽ bảo mật những thông tin mang tính riêng tư của bạn. 
       		Xin vui lòng đọc bản Chính sách bảo mật dưới đây để hiểu hơn những cam kết mà chúng tôi thực 
       		hiện nhằm tôn trọng và bảo vệ quyền lợi của người truy cập.</p>

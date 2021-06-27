@@ -1,8 +1,4 @@
-<%-- 
-    Document   : index
-    Created on : May 5, 2020, 10:57:00 PM
-    Author     : LENOVO
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -17,7 +13,7 @@
 <!-- content -->
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
-    <img src="${url}/images/banner-product.png" alt="banner sản phẩm">
+    <img src="${url}/images/banner-sp.jpg" alt="banner sản phẩm">
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">
@@ -139,7 +135,7 @@
                                 <hr/>
                                 <form action="${pageContext.request.contextPath}/them-gio-hang" method="post"
                                       class="push-bit row">
-                                    <input hidden value="/san-pham/chi-tiet/${product.id}"
+                                    <input hidden value="/san-pham/${product.id}"
                                            name="current_path"/>
                                     <input type="hidden" placeholder="Số lượng" value="${product.id}"
                                            class="form-control quantity" style="width: 5em" min="1" name="product_id">
@@ -259,7 +255,7 @@
                                                     </div>
                                                 </c:if>
                                                 <a class=""
-                                                   href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"><img
+                                                   href="${pageContext.request.contextPath}/san-pham/${product.id}"><img
                                                         src="${pageContext.request.contextPath}/resources/upload/product/${product.id}/${product.thumb}"
                                                         alt="${product.title}"></a>
 
@@ -267,7 +263,7 @@
                                                       action="${pageContext.request.contextPath}/them-gio-hang"
                                                       method="post">
                                                     <input hidden value="${product.id}" name="product_id"/>
-                                                    <input hidden value="/san-pham/chi-tiet/${product.id}"
+                                                    <input hidden value="/san-pham/${product.id}"
                                                            name="current_path"/>
                                                     <button type="submit" class="adtocart"   <c:choose>
                                                         <c:when test="${product.status == true}">
@@ -284,7 +280,7 @@
 
                                             <div class="panel-body text-center">
                                                 <h4>
-                                                    <a href="${pageContext.request.contextPath}/san-pham/chi-tiet/${product.id}"
+                                                    <a href="${pageContext.request.contextPath}/san-pham/${product.id}"
                                                        class="pro-title"> ${product.title}</a>
                                                 </h4>
                                                 <c:choose>

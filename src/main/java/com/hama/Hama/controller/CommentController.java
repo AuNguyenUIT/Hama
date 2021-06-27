@@ -39,7 +39,7 @@ public class CommentController {
             comment.setName(name);
             comment.setEmail(email);
             commentService.saveComment(comment);
-            return "redirect:/san-pham/chi-tiet/" + product_id;
+            return "redirect:/san-pham/" + product_id;
         } else {
             return "redirect:/";
         }
